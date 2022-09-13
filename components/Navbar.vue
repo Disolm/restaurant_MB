@@ -27,16 +27,18 @@
       />
     </div>
     <div
+      v-if="isShowPageup"
       class="navbar__pageup"
+      :style="positionPageup"
       @click="pageup">
-      в верх
+      <img src="/image/pageup.svg" alt="В верх" title="В верх">
     </div>
   </div>
 </template>
 
 <script>
 import buttonsData from 'static/json/buttoms-menu'
-const RESERVE = 2
+const RESERVE_MARGIN = 4
 export default {
   name: 'Navbar',
   data () {
@@ -46,14 +48,20 @@ export default {
       buttonsDataDropdown: [],
       widthButtons: [],
       isShowDropdownMenu: true,
+      isShowPageup: false,
+      positionPageup: {
+        bottom: 0,
+        right: 0
+      }
     }
   },
   mounted () {
     this.addButtonsInArrForNavbar()
     this.$nextTick(() => {
       this.capacityCheck()
+      this.calcPositionPageup()
       window.addEventListener('resize', this.capacityCheck)
-      // window.addEventListener('scroll', this.addButtonPageUp)
+      window.addEventListener('scroll', this.addButtonPageUp)
     })
   },
   methods: {
@@ -63,11 +71,12 @@ export default {
     },
     capacityCheck () {
       this.addButtonsInArrForNavbar()
+      this.calcPositionPageup()
       this.widthNavbar = this.$refs.buttonsNavbar?.offsetWidth || 0
       if (!this.widthNavbar) {
         return
       }
-      let sumWidthButtons = RESERVE + Math.ceil(this.$refs.dropdownMenu?.$el.clientWidth) || 0
+      let sumWidthButtons = RESERVE_MARGIN + Math.ceil(this.$refs.dropdownMenu?.$el.clientWidth) || 0
       this.buttonsDataNavbar.forEach((button, i) => {
         if (this.$refs.setButtonsRef[i]) {
           this.widthButtons[i] = this.$refs.setButtonsRef[i].offsetWidth
@@ -83,10 +92,23 @@ export default {
       }
       this.isShowDropdownMenu = !!this.buttonsDataDropdown.length
     },
+    calcPositionPageup () {
+      this.positionPageup.bottom = '80px'
+      this.positionPageup.right = `${(window.innerWidth - this.$refs.buttonsNavbar.offsetWidth) / 2 + 40}px`
+    },
+    addButtonPageUp () {
+      this.calcPositionPageup()
+      const HEIGHT = this.$refs.buttonsNavbar.offsetHeight + this.$refs.buttonsNavbar.offsetTop
+      if (HEIGHT < window.scrollY) {
+        this.isShowPageup = true
+      } else {
+        this.isShowPageup = false
+      }
+    },
     pageup () {
       window.scrollTo(0, 0)
-    }
-  },
+    },
+  }
 }
 </script>
 
@@ -107,8 +129,7 @@ export default {
     height: 100%;
     white-space: nowrap;
     &_indent {
-      padding: 8px 18px;
-      //color: #A67145;
+      padding: 6px 18px;
     }
     &_indent:hover {
       color: #A67145;
@@ -116,18 +137,23 @@ export default {
       cursor: pointer;
     }
   }
-  &__dropdown:hover {
-    //border-bottom: 3px solid #E1F9F9;
-    //cursor: pointer;
-  }
   &__link {
     text-decoration: none;
   }
   &__pageup {
     position: fixed;
-    right: 50px;
-    bottom: 100px;
     z-index: 50;
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 18px;
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+    }
+  }
+  &__pageup:hover {
+    img {
+      height: 36px;
+    }
   }
 }
 </style>

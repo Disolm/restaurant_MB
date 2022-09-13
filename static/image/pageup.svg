@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<svg width="64" height="64" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <g class="layer">
+  <title>Layer 1</title>
+  <ellipse cx="31.853609" cy="31.835161" fill="#E1F9F9" id="svg_1" rx="28.853755" ry="28.853755" stroke="#272727" stroke-width="2"/>
+  <line fill="none" id="svg_3" stroke="#272727" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="2" x1="10.904992" x2="31.805285" y1="37.895767" y2="16.995474"/>
+  <line fill="none" id="svg_5" stroke="#272727" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="2" transform="rotate(-90 42.7706 27.7508)" x1="32.320459" x2="53.220752" y1="38.200988" y2="17.300695"/>
+  <path d="m25.66125,24.061776c0.989437,-0.124222 1.844528,-0.001373 2.73992,0c0.909508,0.001394 1.727827,0.159885 2.552132,0.548967c0.80014,0.377676 1.717348,0.434645 2.583399,0.500307c0.896099,0.067942 1.749187,-0.080544 2.642776,-0.236803l0.880455,-0.021957l0.906982,0l0.825649,-0.153711" fill="none" id="svg_9" stroke="#272727" stroke-dasharray="null"/>
+  <path d="m31.985361,16.947151l-6.425414,6.504759l4.479578,0.527009c0,0 2.868101,0.741617 2.868101,0.741617c0,0 6.455863,-0.263505 6.455863,-0.263505c0,0 -7.378129,-7.509881 -7.378129,-7.509881z" fill="#ffffff" id="svg_12" stroke="#272727" stroke-dasharray="null"/>
+ </g>
+</svg>
