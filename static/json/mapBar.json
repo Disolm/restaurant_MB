@@ -1,0 +1,354 @@
+[
+  {
+    "id": 0,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Красные вина ",
+    "set": [
+      {
+        "id": 0,
+        "title": "Мукузани",
+        "weight": [750],
+        "price": [2800],
+        "description": "красное сухое «Братья Асканели»"
+      },
+      {
+        "id": 1,
+        "title": "Саперави ",
+        "weight": [750],
+        "price": [2300],
+        "description": "красное сухое «Братья Асканели»"
+      },
+      {
+        "id": 2,
+        "title": "Киндзмараули ",
+        "weight": [750],
+        "price": [2600],
+        "description": "красное полусладкое «Братья Асканели»"
+      },
+      {
+        "id": 3,
+        "title": "Гранатовое ",
+        "weight": [750],
+        "price": [1800],
+        "description": "армянское полусладкое"
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Белые вина ",
+    "set": [
+      {
+        "id": 0,
+        "title": "Манави ",
+        "weight": [750],
+        "price": [2500],
+        "description": "белое сухое «Братья Асканели»"
+      },
+      {
+        "id": 1,
+        "title": "Ркацители Квеври ",
+        "weight": [750],
+        "price": [2300],
+        "description": "белое сухое «Братья Асканели»"
+      },
+      {
+        "id": 2,
+        "title": "Цинандали ",
+        "weight": [750],
+        "price": [2100],
+        "description": "белое сухое «Братья Асканели»"
+      },
+      {
+        "id": 3,
+        "title": "Алазанская долина ",
+        "weight": [750],
+        "price": [1900],
+        "description": "белое полусладкое «Братья Асканели»"
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Домашние вина ",
+    "set": [{
+      "id": 0,
+      "title": "Красное ",
+      "weight": [150, 500, 1000],
+      "price": [350, 850, 1700],
+      "description": ""
+    },
+      {
+        "id": 1,
+        "title": "Белое ",
+        "weight": [150, 500, 1000],
+        "price": [350, 850, 1700],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Игристое",
+    "set": [{
+      "id": 0,
+      "title": "Барон Де Ре ",
+      "weight": [750],
+      "price": [1500],
+      "description": "белое полусладкое"
+    },
+      {
+        "id": 1,
+        "title": "Барон Де Ре ",
+        "weight": [750],
+        "price": [1500],
+        "description": "белое брют"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Коньяк ",
+    "set": [{
+      "id": 0,
+      "title": "Асканели ",
+      "weight": [50, 500],
+      "price": [320, 3050],
+      "description": "пятилетней выдержки"
+    },
+      {
+        "id": 1,
+        "title": "Баадури ",
+        "weight": [50, 500],
+        "price": [290, 2700],
+        "description": "пятилетней выдержки"
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Виски ",
+    "set": [{
+      "id": 0,
+      "title": "MAC INGAL",
+      "weight": [50, 500],
+      "price": [20, 1800],
+      "description": "армения, трехлетней выдержки"
+    }
+    ]
+  },
+  {
+    "id": 6,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Купажированный виски ",
+    "set": [{
+      "id": 0,
+      "title": "Кентукки Джентельмен ",
+      "weight": [50, 700],
+      "price": [320, 4100],
+      "description": "бурбон"
+    }
+    ]
+  },
+  {
+    "id": 7,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Чача ",
+    "set": [{
+      "id": 0,
+      "title": "Асканели Золотая ",
+      "weight": [50, 500],
+      "price": [290, 2700],
+      "description": ""
+    },
+      {
+        "id": 1,
+        "title": "Асканели Платиновая ",
+        "weight": [50, 500],
+        "price": [310, 2800],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Водка ",
+    "set": [{
+      "id": 0,
+      "title": "Грушевая ",
+      "weight": [50, 500],
+      "price": [350, 3300],
+      "description": "«Анасеули» "
+    },
+      {
+        "id": 1,
+        "title": "Цитрусовая ",
+        "weight":[50, 500],
+        "price": [350, 3300],
+        "description": "«Анасеули» "
+      },
+      {
+        "id": 2,
+        "title": "Ткемалевая ",
+        "weight": [50, 500],
+        "price": [350, 3300],
+        "description": "«Анасеули» "
+      },
+      {
+        "id": 3,
+        "title": "Из хурмы ",
+        "weight": [50, 500],
+        "price": [350, 3300],
+        "description": "«Анасеули» "
+      },
+      {
+        "id": 4,
+        "title": "Сваяк.Стандарт ",
+        "weight": [50, 500],
+        "price": [150, 1300],
+        "description": ""
+      },
+      {
+        "id": 5,
+        "title": "Хлебная ",
+        "weight": [50, 500],
+        "price": [150, 1300],
+        "description": ""
+      },
+      {
+        "id": 6,
+        "title": "Чайковский ",
+        "weight": [50, 500],
+        "price": [180, 1600],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Алкогольные коктейли ",
+    "set": [{
+      "id": 0,
+      "title": "Мегобари ",
+      "weight": [],
+      "price": [450],
+      "description": "на основе красного вина и водки"
+    },
+      {
+        "id": 1,
+        "title": "Чача раз, два, три! ",
+        "weight": [],
+        "price": [390],
+        "description": "на основе чачи"
+      },
+      {
+        "id": 2,
+        "title": "Лазури ",
+        "weight": [],
+        "price": [380],
+        "description": "на основе текилы"
+      },
+      {
+        "id": 3,
+        "title": "Ночной Кутаиси ",
+        "weight": [],
+        "price": [410],
+        "description": "на основе коньяка"
+      },
+      {
+        "id": 4,
+        "title": "Мохито ",
+        "weight": [],
+        "price": [400],
+        "description": "на основе рома"
+      },
+      {
+        "id": 5,
+        "title": "Апероль Шприц ",
+        "weight": [],
+        "price": [450],
+        "description": "ликер апероль, игрстое, содовая"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Домашние лимонады ",
+    "set": [{
+      "id": 0,
+      "title": "Ягодный ",
+      "weight": [500, 1000],
+      "price": [300, 600],
+      "description": ""
+    },
+      {
+        "id": 1,
+        "title": "Апельсиновый ",
+        "weight": [500, 1000],
+        "price": [300, 600],
+        "description": ""
+      },
+      {
+        "id": 2,
+        "title": "Лимонный ",
+        "weight": [500, 1000],
+        "price": [300, 600],
+        "description": ""
+      },
+      {
+        "id": 3,
+        "title": "Мохито ",
+        "weight": [500, 1000],
+        "price": [250, 500],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 11,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Милкшейк",
+    "set": [{
+      "id": 0,
+      "title": "Грузинский лимонад ",
+      "weight": [250],
+      "price": [300],
+      "description": ""
+    },
+      {
+        "id": 1,
+        "title": "Вода саирме ",
+        "weight": [250],
+        "price": [300],
+        "description": ""
+      },
+      {
+        "id": 2,
+        "title": "Вода набеглави ",
+        "weight": [250],
+        "price": [300],
+        "description": ""
+      }
+    ]
+  }
+]

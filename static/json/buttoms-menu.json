@@ -1,0 +1,50 @@
+[
+  {
+    "id": 0,
+    "name": "Меню",
+    "url": "menu",
+    "page": "Menu"
+  },
+  {
+    "id": 1,
+    "name": "Бизнес-ланч",
+    "url": "lunch",
+    "page": "Lunch"
+  },
+  {
+    "id": 2,
+    "name": "Карта бара",
+    "url": "map-bar",
+    "page": "MapBar"
+  },
+  {
+    "id": 3,
+    "name": "Шоу-программа",
+    "url": "show-program",
+    "page": "ShowProgram"
+  },
+  {
+    "id": 4,
+    "name": "Доставка",
+    "url": "delivery",
+    "page": "Delivery"
+  },
+  {
+    "id": 5,
+    "name": "Галерея",
+    "url": "photo-gallery",
+    "page": "PhotoGallery"
+  },
+  {
+    "id": 6,
+    "name": "Банкеты",
+    "url": "feast",
+    "page": "Feast"
+  },
+  {
+    "id": 7,
+    "name": "О нас",
+    "url": "About",
+    "page": "about"
+  }
+]

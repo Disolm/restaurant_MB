@@ -1,0 +1,44 @@
+[
+  {
+    "id": 0,
+    "name": "воскресенье",
+    "timeOpen": "11:30",
+    "timeClose": "23:00"
+  },
+  {
+    "id": 1,
+    "name": "понедельник",
+    "timeOpen": "11:30",
+    "timeClose": "23:00"
+  },
+  {
+    "id": 2,
+    "name": "вторник",
+    "timeOpen": "11:30",
+    "timeClose": "23:00"
+  },
+  {
+    "id": 3,
+    "name": "среда",
+    "timeOpen": "11:30",
+    "timeClose": "23:00"
+  },
+  {
+    "id": 4,
+    "name": "четверг",
+    "timeOpen": "11:30",
+    "timeClose": "23:00"
+  },
+  {
+    "id": 5,
+    "name": "пятница",
+    "timeOpen": "11:30",
+    "timeClose": "24:00"
+  },
+  {
+    "id": 6,
+    "name": "суббота",
+    "timeOpen": "11:30",
+    "timeClose": "24:00"
+  }
+]

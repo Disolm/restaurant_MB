@@ -1,0 +1,60 @@
+{
+  "header": {
+    "name": "megobari",
+    "site": "Новосибирск, ",
+    "address": "ул Романова 39",
+    "phone": "+7-(383)-311-04-24",
+    "phoneHref": "tel:+7-383-311-04-24",
+    "addressURL2gis": "https://2gis.ru/novosibirsk/firm/70000001040265022?m=82.922458%2C55.035128%2F16"
+  },
+  "index": {
+    "description" : "Megobari - это ресторан-кафе с традиционной грузинской кухней, национальными танцами и самым душевным гостеприимством.",
+    "showMap": "показать на карте",
+    "hideMap": "скрыть карту"
+  },
+  "footer": {
+    "timetable": "Сегодня работаем:",
+    "from": "c",
+    "to": "до",
+    "lunch": "Ланч 11:00-17:00",
+    "social-network-website": [
+      {
+        "id": 0,
+        "name": "flamp",
+        "url": "https://novosibirsk.flamp.ru/firm/megobari_restoran_kafe-70000001040265022",
+        "logo": "/image/snw/flamp.png",
+        "apiRating": ""
+      },
+      {
+        "id": 1,
+        "name": "Яндекс Карты",
+        "url": "https://yandex.ru/maps/org/megobari/198770147175",
+        "logo": "/image/snw/yandex.png",
+        "apiRating": ""
+      },
+      {
+        "id": 2,
+        "name": "Google Карты",
+        "url": "https://www.google.com/maps/place/MEGOBARI/@55.035443,82.9204003,17z/data=!4m8!1m2!3m1!2sMEGOBARI!3m4!1s0x42dfe50cb1206c6b:0x29a671ce3eece635!8m2!3d55.035443!4d82.922589",
+        "logo": "/image/snw/google.png",
+        "apiRating": ""
+      }
+    ]
+
+  },
+  "menu": {
+    "currency": "р",
+    "backgroundUrl": "image/background-menu.jpg",
+    "decor": "image/grape.svg"
+  },
+  "barMap": {
+    "currency": "р",
+    "backgroundUrl": "image/background-bar.png",
+    "decor": "image/glasses.svg"
+  },
+  "lunch": {
+    "currency": "р",
+    "backgroundUrl": "image/background-lunch.png",
+    "decor": "image/khinkali.svg"
+  }
+}

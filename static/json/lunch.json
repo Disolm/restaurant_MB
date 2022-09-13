@@ -1,0 +1,260 @@
+[
+  {
+    "id": 0,
+    "isShow": false,
+    "dimension": "гр",
+    "type": "Холодные закуски",
+    "set": [
+      {
+        "id": 0,
+        "title": "Пхали ",
+        "weight": [100],
+        "price": [150],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 1,
+    "isShow": false,
+    "dimension": "гр",
+    "type": "Салаты",
+    "set": [
+      {
+        "id": 0,
+        "title": "Овощной салат по-грузински ",
+        "weight": [110],
+        "price": [125],
+        "description": ""
+      },{
+        "id": 1,
+        "title": "Салат Мясной ",
+        "weight": [100],
+        "price": [180],
+        "description": ""
+      },{
+        "id": 2,
+        "title": "Куриный Ацецили ",
+        "weight": [100],
+        "price": [150],
+        "description": ""
+      },{
+        "id": 3,
+        "title": "Гемриели свекольный ",
+        "weight": [100],
+        "price": [110],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "isShow": false,
+    "dimension": "гр",
+    "type": "Супы",
+    "set": [
+      {
+        "id": 0,
+        "title": "Харчо",
+        "weight": [200],
+        "price": [200],
+        "description": ""
+      },{
+        "id": 1,
+        "title": "Борщ по-грузински ",
+        "weight": [200],
+        "price": [180],
+        "description": ""
+      },{
+        "id": 2,
+        "title": "Домашний куриный суп ",
+        "weight": [200],
+        "price": [125],
+        "description": ""
+      },{
+        "id": 3,
+        "title": "Грибной крем-суп",
+        "weight": [200],
+        "price": [195],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "isShow": false,
+    "dimension": "гр",
+    "type": "Горячее",
+    "set": [
+      {
+        "id": 0,
+        "title": "Чашушули ",
+        "weight": [150],
+        "price": [220],
+        "description": ""
+      },{
+        "id": 1,
+        "title": "Чкмерули ",
+        "weight": [150],
+        "price": [200],
+        "description": ""
+      },{
+        "id": 2,
+        "title": "Судак жареный ",
+        "weight": [100],
+        "price": [245],
+        "description": ""
+      },{
+        "id": 3,
+        "title": "Лобио по-имеретински ",
+        "weight": [125],
+        "price": [155],
+        "description": ""
+      },{
+        "id": 4,
+        "title": "Оджахури со свининой ",
+        "weight": [170],
+        "price": [225],
+        "description": ""
+      },{
+        "id": 5,
+        "title": "Кучмачи",
+        "weight": [125],
+        "price": [195],
+        "description": ""
+      },{
+        "id": 6,
+        "title": "Эскалоп из свинины",
+        "weight": [130],
+        "price": [210],
+        "description": ""
+      },{
+        "id": 7,
+        "title": "Соло из говядины",
+        "weight": [110],
+        "price": [270],
+        "description": ""
+      },{
+        "id": 8,
+        "title": "Хинкали  с бараниной",
+        "weight": [300],
+        "price": [200],
+        "description": ""
+      },{
+        "id": 9,
+        "title": "Хинкали  с грибами",
+        "weight": [300],
+        "price": [200],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "isShow": false,
+    "dimension": "гр",
+    "type": "Гарнир",
+    "set": [
+      {
+        "id": 0,
+        "title": "Картофельное пюре",
+        "weight": [80],
+        "price": [75],
+        "description": ""
+      },{
+        "id": 1,
+        "title": "Рис с овощами ",
+        "weight": [75],
+        "price": [80],
+        "description": ""
+      },{
+        "id": 2,
+        "title": "Гречка ",
+        "weight": [75],
+        "price": [75],
+        "description": ""
+      },{
+        "id": 3,
+        "title": "Картошка по домашнему",
+        "weight": [80],
+        "price": [75],
+        "description": ""
+      },{
+        "id": 4,
+        "title": "Картошка фри",
+        "weight": [80],
+        "price": [75],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "isShow": false,
+    "dimension": "гр",
+    "type": "Грузинская выпечка",
+    "set": [
+      {
+        "id": 0,
+        "title": "Хачапури по-имеретински",
+        "weight": [185],
+        "price": [200],
+        "description": ""
+      },{
+        "id": 1,
+        "title": "Хачапури по – аджарски ",
+        "weight": [200],
+        "price": [200],
+        "description": ""
+      },{
+        "id": 2,
+        "title": "Хлеб Шоти",
+        "weight": [50],
+        "price": [25],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "isShow": false,
+    "dimension": "гр",
+    "type": "Десерты",
+    "set": [
+      {
+        "id": 0,
+        "title": "Наполеон ",
+        "weight": [55],
+        "price": [100],
+        "description": ""
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "isShow": false,
+    "dimension": "мл",
+    "type": "Напитки",
+    "set": [
+      {
+        "id": 0,
+        "title": "Чай черный/зеленый",
+        "weight": [150],
+        "price": [30],
+        "description": "пакетированный"
+      },{
+        "id": 1,
+        "title": "Морс ягодный ",
+        "weight": [250],
+        "price": [55],
+        "description": ""
+      },{
+        "id": 2,
+        "title": "Вино домашнее ",
+        "weight": [100],
+        "price": [140],
+        "description": "красное сух.,  красное  пл/сл., белое сух."
+      }
+    ]
+  }
+]
