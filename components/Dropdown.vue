@@ -11,6 +11,8 @@
         alt=""
       >
     </div>
+    <!--    Я бы по возможности избегал инлайн стилей, поскольку это потом не оч удобно дебажить ну и вообще не оч по БЭМУ.
+    Лучше стараться решать такие штуки модификаторами классов-->
     <div
       v-if="isOpen"
       :style="positionSelects()"
@@ -57,11 +59,17 @@ export default {
     }
   },
   methods: {
+    /**
+     * я б не выносил в отдельный метод, прям в шаблоне бы написал, но это так, вкусовщина
+     */
     closeDropdown () {
       this.isOpen = false
     },
     positionSelects () {
       return {
+        // Обращение к родителю не оч хороший паттерн, потому что у появляется лишняя сцепленность между компонентами.
+        // получается у родителя должен быть $refs.buttonsNavbar, а если не будет, тут будет ошибка в рантайме.
+        // Лучше такие штуки решать на уровне вёрстки
         top: `${this.$parent.$refs.buttonsNavbar.clientHeight +
           this.$parent.$refs.buttonsNavbar.offsetTop}px`,
         right: `${(document.documentElement.clientWidth -
@@ -70,6 +78,7 @@ export default {
     },
     styleOption () {
       return {
+        // Ну и тут соответственно тоже
         height: `${this.$parent.$refs.dropdownMenu.$el.offsetHeight}px`
       }
     }

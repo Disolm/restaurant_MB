@@ -44,6 +44,9 @@ export default {
   Components: { Navbar },
   data () {
     return {
+      /**
+       * А зачем все эти штуки в дате лежат? Они будут меняться разве?
+       */
       address: content.header.address,
       phone: content.header.phone,
       phoneHref: content.header.phoneHref,

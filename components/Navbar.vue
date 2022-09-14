@@ -31,7 +31,7 @@
       class="navbar__pageup"
       :style="positionPageup"
       @click="pageup">
-      <img src="/image/pageup.svg" alt="В верх" title="В верх">
+      <img src="/image/pageup.svg" alt="Вверх" title="Вверх">
     </div>
   </div>
 </template>
@@ -60,6 +60,10 @@ export default {
     this.$nextTick(() => {
       this.capacityCheck()
       this.calcPositionPageup()
+      /**
+       * Если навешиваешь слушатели, то нужно от них отписываться при дестрое компонента,
+       * потому что сами они никуда не денутся при переходе на другую страницу, например
+       */
       window.addEventListener('resize', this.capacityCheck)
       window.addEventListener('scroll', this.addButtonPageUp)
     })
@@ -69,6 +73,9 @@ export default {
       this.buttonsDataNavbar = [...buttonsData]
       this.buttonsDataDropdown = []
     },
+    /**
+     * checkCapacity
+     */
     capacityCheck () {
       this.addButtonsInArrForNavbar()
       this.calcPositionPageup()
@@ -83,6 +90,10 @@ export default {
         }
         sumWidthButtons += this.widthButtons[i]
       })
+
+      /**
+       * Я бы не использовал for(...) из-за избыточности. Тем более строчкой выше ты спокойно использовал forEach
+       */
       for (let i = this.buttonsDataNavbar.length - 1; i > 0; i--) {
         if (this.widthNavbar < sumWidthButtons) {
           sumWidthButtons -= this.widthButtons[i]
@@ -99,11 +110,7 @@ export default {
     addButtonPageUp () {
       this.calcPositionPageup()
       const HEIGHT = this.$refs.buttonsNavbar.offsetHeight + this.$refs.buttonsNavbar.offsetTop
-      if (HEIGHT < window.scrollY) {
-        this.isShowPageup = true
-      } else {
-        this.isShowPageup = false
-      }
+      this.isShowPageup = HEIGHT < window.scrollY
     },
     pageup () {
       window.scrollTo(0, 0)

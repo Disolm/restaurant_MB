@@ -39,16 +39,27 @@
 
 <script>
 import timetable from 'static/json/timetable'
+/**
+ * Я заметил, что ты в нескольких местах импортируешь эти данные. Наверное, логично было бы подключить стору,
+ * запрашивать данные там и хранить в ней же.
+ *
+ * Совсем круто будет - это вынести получение данных в отдельный апи-слой (не в стору),
+ * и к примеру, когда тебе надо будет получать их не из json, а с какого-нибудь апи, то ты просто поменяешь в этом слое.
+ * Короче, это про букву D в SOLID
+ */
 import content from 'static/json/content'
 
 export default {
   name: 'Footer',
   data () {
     return {
-      snw: content.footer['social-network-website']
+      snw: content.footer['social-network-website'] // тут сокращение запутывает, мне кажется. Лучше бы полностью назвать
     }
   },
   methods: {
+    /**
+     *  Обычно метод это действие, поэтому именуют их начиная с глагола. Ну и по неймингу `which` не оч ясно что это такое)
+     */
     schedule (which) {
       const dayOfWeek = new Date().getDay()
       const open = timetable[dayOfWeek].timeOpen
