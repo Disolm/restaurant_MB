@@ -69,8 +69,7 @@ export default {
 <style lang="scss">
 .footer {
   width: 100%;
-  min-height: 52px;
-  margin: 0 auto;
+  min-height: 42px;
   background-color: #c9f2f2;
   display: flex;
   align-content: center;
@@ -80,7 +79,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
-    padding: 2px;
+    padding: 2px 8px;
   }
   &__timetable{
     margin-right: 8px;

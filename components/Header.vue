@@ -66,7 +66,7 @@ export default {
   width: 100%;
   background-color: #c9f2f2;
   &__contacts {
-    height: 66px;
+    height: 52px;
     display: grid;
     align-content: center;
     justify-items: center;
@@ -74,7 +74,7 @@ export default {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     @media screen and (min-width: 540px) {
-      height: 52px;
+      height: 42px;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1fr;
     }

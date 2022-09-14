@@ -330,21 +330,21 @@
     "type": "Милкшейк",
     "set": [{
       "id": 0,
-      "title": "Грузинский лимонад ",
+      "title": "клубничный",
       "weight": [250],
       "price": [300],
       "description": ""
     },
       {
         "id": 1,
-        "title": "Вода саирме ",
+        "title": "шоколадный",
         "weight": [250],
         "price": [300],
         "description": ""
       },
       {
         "id": 2,
-        "title": "Вода набеглави ",
+        "title": "ванильный",
         "weight": [250],
         "price": [300],
         "description": ""

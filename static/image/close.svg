@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
+ <!-- Created with SVG-edit - https://github.com/SVG-Edit/svgedit-->
+ <g class="layer">
+  <title>Layer 1</title>
+  <g id="svg_8">
+   <line fill="none" fill-opacity="0" id="svg_1" stroke="#000000" stroke-linecap="round" stroke-width="2" transform="rotate(-45 38.9071 38.0848)" x1="38.907105" x2="38.907105" y1="-0.445978" y2="76.615671"/>
+   <line fill="none" fill-opacity="0" id="svg_2" stroke="#000000" stroke-linecap="round" transform="rotate(-45 70.2973 69.3494)" x1="65.631009" x2="74.963655" y1="64.683082" y2="74.015729"/>
+   <line fill="none" fill-opacity="0" id="svg_3" stroke="#000000" stroke-linecap="round" transform="rotate(-45 77.7407 76.5948)" x1="73.07437" x2="82.407017" y1="71.928445" y2="81.261092"/>
+   <line fill="none" fill-opacity="0" id="svg_4" stroke="#000000" stroke-linecap="round" transform="rotate(-45 73.6325 72.9845)" x1="68.966178" x2="78.298824" y1="68.318217" y2="77.650863"/>
+   <line fill="none" fill-opacity="0" id="svg_5" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-width="2" transform="rotate(-45 80.6936 80.8672)" x1="80.693564" x2="80.693564" y1="79.191245" y2="82.543215"/>
+   <circle cx="85.110543" cy="85.035225" fill="none" fill-opacity="0" id="svg_6" r="3.980713" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-width="2" transform="rotate(-45 85.1105 85.0352)"/>
+  </g>
+  <g id="svg_9">
+   <line fill="none" fill-opacity="0" id="svg_10" stroke="#000000" stroke-linecap="round" stroke-width="2" transform="rotate(45 62.0217 38.8367)" x1="62.0217" x2="62.0217" y1="0.928313" y2="76.745054"/>
+   <line fill="none" fill-opacity="0" id="svg_11" stroke="#000000" stroke-linecap="round" transform="rotate(45 31.1973 69.7868)" x1="26.530959" x2="35.863605" y1="65.120444" y2="74.453091"/>
+   <line fill="none" fill-opacity="0" id="svg_12" stroke="#000000" stroke-linecap="round" transform="rotate(45 23.9519 77.2301)" x1="19.285595" x2="28.618241" y1="72.563805" y2="81.896452"/>
+   <line fill="none" fill-opacity="0" id="svg_13" stroke="#000000" stroke-linecap="round" transform="rotate(45 27.5621 73.1219)" x1="22.895824" x2="32.228471" y1="68.455616" y2="77.788262"/>
+   <line fill="none" fill-opacity="0" id="svg_14" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-width="2" transform="rotate(45 19.6795 80.183)" x1="19.679451" x2="19.679451" y1="78.507014" y2="81.858984"/>
+   <circle cx="15.511457" cy="84.599977" fill="none" fill-opacity="0" id="svg_15" r="3.980713" stroke="#000000" stroke-dasharray="null" stroke-linecap="round" stroke-width="2" transform="rotate(45 15.5115 84.6)"/>
+  </g>
+ </g>
+</svg>

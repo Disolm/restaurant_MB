@@ -41,10 +41,10 @@ export default {
   min-height: 100%;
   margin: 0 auto;
   background-color: #FFF2E7;
-  font-size: 12px;
+  font-size: 10px;
   font-family: Montserrat, Verdana, sans-serif;
   color: #272727;
-  @media screen and (min-width: 769px) {
+  @media screen and (min-width: 540px) {
     font-size: 14px;
   }
   a {

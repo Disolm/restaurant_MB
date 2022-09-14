@@ -34,15 +34,14 @@ export default {
   data () {
     return {
       isShowMap: false,
-      descriptionText: content.index.description
     }
   },
   computed: {
     showMapText () {
-      return content.index.showMap
+      return content.about.showMap
     },
     hideMapText () {
-      return content.index.hideMap
+      return content.about.hideMap
     }
   }
 }

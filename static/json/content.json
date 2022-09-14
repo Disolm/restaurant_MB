@@ -8,9 +8,24 @@
     "addressURL2gis": "https://2gis.ru/novosibirsk/firm/70000001040265022?m=82.922458%2C55.035128%2F16"
   },
   "index": {
+    "title": "Megobari",
     "description" : "Megobari - это ресторан-кафе с традиционной грузинской кухней, национальными танцами и самым душевным гостеприимством.",
-    "showMap": "показать на карте",
-    "hideMap": "скрыть карту"
+    "buttons": [
+      {
+        "id": 0,
+        "title": "Забронировать стол",
+        "clickStatus": false
+      },
+      {
+        "id": 1,
+        "title": "Доставка",
+        "clickStatus": false
+      }
+    ],
+    "reserveTable": {
+      "title": "Забронировать столик",
+      "content": "Чтобы забронировать столик в ресторане, можно позвонить нам по телефону +7-(383)-311-04-24, указав день, время, количество гостей, а также любые другие пожелания.\n"
+    }
   },
   "footer": {
     "timetable": "Сегодня работаем:",
@@ -56,5 +71,9 @@
     "currency": "р",
     "backgroundUrl": "image/background-lunch.png",
     "decor": "image/khinkali.svg"
+  },
+  "about": {
+    "showMap": "показать на карте",
+    "hideMap": "скрыть карту"
   }
 }
