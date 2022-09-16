@@ -31,7 +31,7 @@
       class="navbar__pageup"
       :style="positionPageup"
       @click="pageup">
-      <img src="/image/pageup.svg" alt="В верх" title="В верх">
+      <img src="/image/pageup.svg" alt="Вверх" title="В верх">
     </div>
   </div>
 </template>

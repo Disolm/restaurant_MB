@@ -78,7 +78,7 @@ export default {
   align-items: stretch;
   justify-content: flex-start;
   position: relative;
-  background: url("static/image/foto/index/photo_5303202403811704257_y.jpg") no-repeat 50%;
+  background: url("static/image/foto/index/photo_5303202403811704257_y.jpg") no-repeat center;
   background-size: cover;
   &__wrapper {
     margin: 24px 12px;
@@ -138,7 +138,7 @@ export default {
     display: inline;
     float: right;
     padding: 4px;
-    margin: -32px -32px 0 0;
+    margin: -22px -32px 0 0;
     border: 2px solid rgba(0, 0, 0, 0);
     img {
       filter: invert(100%);

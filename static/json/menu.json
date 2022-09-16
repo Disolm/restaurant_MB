@@ -10,60 +10,60 @@
         "title": "Бадриджани",
         "weight": [120],
         "price": [310],
-        "description": "красное сухое «Братья Асканели»"
+        "description": ""
       },
       {
         "id": 1,
         "title": "Пхали",
         "weight": [150],
         "price": [300],
-        "description": "красное сухое «Братья Асканели»"
+        "description": ""
       },
       {
         "id": 2,
         "title": "Аджапсандали",
         "weight": [200],
         "price": [370],
-        "description": "красное полусладкое «Братья Асканели»"
+        "description": ""
       },
       {
         "id": 3,
-        "title": "Сациви ",
+        "title": "Сациви",
         "weight": [250],
         "price": [470],
         "description": ""
       },
       {
         "id": 4,
-        "title": "Ассорти грузинских сыров ",
+        "title": "Ассорти грузинских сыров",
         "weight": [250],
         "price": [520],
         "description": ""
       },
       {
         "id": 5,
-        "title": "Овощное ассорти ",
+        "title": "Овощное ассорти",
         "weight": [300],
         "price": [430],
         "description": ""
       },
       {
         "id": 6,
-        "title": "Домашние соленья Мцнилеули ",
+        "title": "Домашние соленья Мцнилеули",
         "weight": [350],
         "price": [550],
         "description": ""
       },
       {
         "id": 7,
-        "title": "Семга слабосоленая ",
+        "title": "Семга слабосоленая",
         "weight": [100],
         "price": [600],
         "description": ""
       },
       {
         "id": 8,
-        "title": "Джонджоли – королева грузинских солений ",
+        "title": "Джонджоли",
         "weight": [100],
         "price": [240],
         "description": ""
@@ -78,38 +78,38 @@
     "set": [
       {
         "id": 0,
-        "title": "Харчо ",
+        "title": "Харчо",
         "weight": [350],
         "price": [450],
         "description": ""
       },
       {
         "id": 1,
-        "title": "Чакапули ",
+        "title": "Чакапули",
         "weight": [350],
         "price": [490],
         "description": ""
       },
       {
         "id": 2,
-        "title": "Борщ с грузинским акцентом ",
+        "title": "Борщ с грузинским акцентом",
         "weight": [350],
         "price": [410],
         "description": ""
       },
       {
         "id": 3,
-        "title": "Грибной крем ",
+        "title": "Грибной крем-суп",
         "weight": [300],
         "price": [380],
         "description": ""
       },
       {
         "id": 4,
-        "title": "",
+        "title": "Домашний куриный суп",
         "weight": [350],
         "price": [320],
-        "description": "Домашний куриный суп "
+        "description": ""
       }
     ]
   },
@@ -120,35 +120,35 @@
     "type": "Салаты",
     "set": [{
       "id": 0,
-      "title": "Овощной салат по-грузински ",
+      "title": "Овощной салат по-грузински",
       "weight": [200],
       "price": [290],
       "description": ""
     },
       {
         "id": 1,
-        "title": "Овощной салат по-грузински с грецким орехом ",
+        "title": "Овощной салат по-грузински с грецким орехом",
         "weight": [250],
         "price": [360],
         "description": ""
       },
       {
         "id": 2,
-        "title": "Салат Мясной ",
+        "title": "Салат Мясной",
         "weight": [200],
         "price": [450],
         "description": ""
       },
       {
         "id": 3,
-        "title": "Куриный Ацецили ",
+        "title": "Куриный Ацецили",
         "weight": [200],
         "price": [330],
         "description": ""
       },
       {
         "id": 4,
-        "title": "Годогани ",
+        "title": "Годогани",
         "weight": [250],
         "price": [495],
         "description": ""
@@ -162,17 +162,17 @@
       },
       {
         "id": 6,
-        "title": "",
+        "title": "Теплый салат Имеди",
         "weight": [400],
         "price": [550],
-        "description": "Теплый салат Имеди "
+        "description": ""
       },
       {
         "id": 7,
-        "title": "",
+        "title": "Гемриели",
         "weight": [200],
         "price": [290],
-        "description": "Гемриели "
+        "description": ""
       }
     ]
   },
