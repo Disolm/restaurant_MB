@@ -13,7 +13,7 @@ RUN npm install \
 RUN npm run build
 
 RUN rm -rf node_modules && \
-  NODE_ENV=production yarn install \
+  NODE_ENV=production npm install \
   --prefer-offline \
   --pure-lockfile \
   --non-interactive \
