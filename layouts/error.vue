@@ -33,11 +33,11 @@ export default {
     &__link:hover {
       border-bottom: 2px solid rgba(0, 0, 0, 1);
       cursor: pointer;
-      color: #A67145;
+      color: $brown;
     }
   }
   h1 {
     margin: auto;
-    color: #272727;
+    color: $black;
   }
 </style>

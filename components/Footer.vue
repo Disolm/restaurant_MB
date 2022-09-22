@@ -69,8 +69,10 @@ export default {
 <style lang="scss">
 .footer {
   width: 100%;
-  min-height: 42px;
-  background-color: #c9f2f2;
+  min-height: $height-footer;
+  background: rgba($black, 0.7);
+  color: #dadada;
+  //background-color: #c9f2f2;
   display: flex;
   align-content: center;
   justify-content: space-around;

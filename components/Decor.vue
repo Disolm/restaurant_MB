@@ -37,7 +37,7 @@ export default {
   data () {
     return {
       backgroundDecor: {
-        background: `url("${this.decorUrl}") center ${this.positionX} / auto 22px repeat-x`,
+        background: `url("${this.decorUrl}") center ${this.positionX} / auto 22px  space`,
       }
     }
   },

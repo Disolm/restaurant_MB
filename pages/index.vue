@@ -98,7 +98,7 @@ export default {
     line-height: 26px;
     font-size: 14px;
     letter-spacing: 1px;
-    @media screen and (min-width: 540px) {
+    @media screen and (min-width: $width-mobile) {
       font-size: 18px;
     }
     &_reserve {
@@ -117,7 +117,7 @@ export default {
     letter-spacing: 0.8px;
     font-size: 12px;
     background-color: rgba(166, 113, 69, 0.2);
-    @media screen and (min-width: 540px) {
+    @media screen and (min-width: $width-mobile) {
       font-size: 14px;
     }
   }

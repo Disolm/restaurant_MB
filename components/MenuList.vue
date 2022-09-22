@@ -15,49 +15,51 @@
         >
           {{ section.type.toUpperCase() }}
         </div>
-        <template
-          v-if="section.isShow"
-        >
+        <transition name="fade">
           <div
-            v-for="dish in section.set"
-            :key="dish.id"
-            class="menu-list__dish"
+            v-if="!section.isShow"
           >
-            <div class="menu-list__block-top">
-              <div class="menu-list__dish-title">
-                {{ dish.title.toUpperCase() }}
-                <template v-if="!!dish.weight">
-                  <span
-                    v-for="(itemWeight, idxW) in dish.weight"
-                    :key="idxW"
-                    class="menu-list__dish-weight"
+            <div
+              v-for="dish in section.set"
+              :key="dish.id"
+              class="menu-list__dish"
+            >
+              <div class="menu-list__block-top">
+                <div class="menu-list__dish-title">
+                  {{ dish.title.toUpperCase() }}
+                  <template v-if="!!dish.weight">
+                    <span
+                      v-for="(itemWeight, idxW) in dish.weight"
+                      :key="idxW"
+                      class="menu-list__dish-weight"
+                    >
+                      {{ itemWeight }}{{ section.dimension }}
+                      <span v-if="idxW + 1 < dish.weight.length"> /</span>
+                    </span>
+                  </template>
+                </div>
+                <div class="menu-list__dish-prices">
+                  <div
+                    v-for="(itemPrice, idxP) in dish.price"
+                    :key="idxP"
+                    class="menu-list__dish-price"
                   >
-                    {{ itemWeight }}{{ section.dimension }}
-                    <span v-if="idxW + 1 < dish.weight.length"> /</span>
-                  </span>
-                </template>
+                    {{ itemPrice }}{{ content.menu.currency }}
+                    <span v-if="idxP + 1 < dish.weight.length"> /</span>
+                  </div>
+                </div>
               </div>
-              <div class="menu-list__dish-prices">
+              <div class="menu-list__block-bottom">
                 <div
-                  v-for="(itemPrice, idxP) in dish.price"
-                  :key="idxP"
-                  class="menu-list__dish-price"
+                  v-if="!!dish.description"
+                  class="menu-list__dish-description"
                 >
-                  {{ itemPrice }}{{ content.menu.currency }}
-                  <span v-if="idxP + 1 < dish.weight.length"> /</span>
+                  {{ dish.description }}
                 </div>
               </div>
             </div>
-            <div class="menu-list__block-bottom">
-              <div
-                v-if="!!dish.description"
-                class="menu-list__dish-description"
-              >
-                {{ dish.description }}
-              </div>
-            </div>
           </div>
-        </template>
+        </transition>
       </div>
     </div>
   </div>
@@ -107,10 +109,13 @@ export default {
     padding-bottom: 10px;
   }
   &__section-name {
-    width: fit-content;
-    margin: 0 auto;
+    //width: fit-content;
+    margin: 4px auto;
     position: sticky;
-    top: 0;
+    top: calc($height-header-desktop);
+    @media screen and (min-width: $width-mobile) {
+      top: calc($height-header-mobile);
+    }
     text-decoration: underline;
     font-weight: bold;
     letter-spacing: 0.05rem;
@@ -125,11 +130,11 @@ export default {
     margin: 10px auto;
   }
   &__dish-title {
-    color: #A67145;
+    color: $brown;
     font-weight: bold;
   }
   &__dish-weight {
-    color: #272727;
+    color: $black;
     font-size: 10px;
     font-weight: normal;
     white-space: nowrap;
@@ -159,5 +164,11 @@ export default {
     flex-direction: row;
     justify-content: flex-start
   }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>

@@ -54,7 +54,7 @@ export default {
     border-bottom: 1px solid #FFF2E7;
   }
   &__button:hover {
-    border-bottom: 1px solid #272727;
+    border-bottom: 1px solid $black;
     cursor: pointer;
   }
   &__iframe {

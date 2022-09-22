@@ -1,43 +1,49 @@
 <template>
-  <div class="navbar">
+  <div
+    class="navbar"
+  >
     <div
-      ref="buttonsNavbar"
-      class="navbar__buttons"
+      :class="{'navbar__scroll-down': isShowPageup}"
+      class="navbar__panel"
     >
       <div
-        v-for="button in buttonsDataNavbar"
-        ref="setButtonsRef"
-        :key="button.id"
-        class="navbar__wrapper-button"
+        ref="buttonsNavbar"
+        class="navbar__buttons"
       >
-        <nuxt-link
-          class="navbar__link"
-          :to="button.page"
+        <div
+          v-for="button in buttonsDataNavbar"
+          ref="setButtonsRef"
+          :key="button.id"
+          class="navbar__wrapper-button"
         >
-          <div class="navbar__button navbar__button_indent">
+          <nuxt-link
+            class="navbar__link navbar__link_indent"
+            :to="button.page"
+            exact-active-class="navbar__link_active-page"
+          >
             {{ button.name }}
-          </div>
-        </nuxt-link>
+          </nuxt-link>
+        </div>
+        <Dropdown
+          v-if="isShowDropdownMenu"
+          ref="dropdownMenu"
+          class="navbar__dropdown"
+          :buttons="buttonsDataDropdown"
+          :scroll-down="isShowPageup"
+        />
       </div>
-      <Dropdown
-        v-if="isShowDropdownMenu"
-        ref="dropdownMenu"
-        class="navbar__dropdown"
-        :buttons="buttonsDataDropdown"
-      />
     </div>
     <div
       v-if="isShowPageup"
       class="navbar__pageup"
-      :style="positionPageup"
       @click="pageup">
-      <img src="/image/pageup.svg" alt="Вверх" title="В верх">
+      <img src="/image/pageup.svg" alt="Вверх" title="Вверх">
     </div>
   </div>
 </template>
 
 <script>
-import buttonsData from 'static/json/buttoms-menu'
+import buttonsData from 'static/json/buttoms-menu-temp'
 const RESERVE_MARGIN = 4
 export default {
   name: 'Navbar',
@@ -49,17 +55,12 @@ export default {
       widthButtons: [],
       isShowDropdownMenu: true,
       isShowPageup: false,
-      positionPageup: {
-        bottom: 0,
-        right: 0
-      }
     }
   },
   mounted () {
     this.addButtonsInArrForNavbar()
     this.$nextTick(() => {
       this.capacityCheck()
-      this.calcPositionPageup()
       window.addEventListener('resize', this.capacityCheck)
       window.addEventListener('scroll', this.addButtonPageUp)
     })
@@ -71,7 +72,6 @@ export default {
     },
     capacityCheck () {
       this.addButtonsInArrForNavbar()
-      this.calcPositionPageup()
       this.widthNavbar = this.$refs.buttonsNavbar?.offsetWidth || 0
       if (!this.widthNavbar) {
         return
@@ -79,7 +79,7 @@ export default {
       let sumWidthButtons = RESERVE_MARGIN + Math.ceil(this.$refs.dropdownMenu?.$el.clientWidth) || 0
       this.buttonsDataNavbar.forEach((button, i) => {
         if (this.$refs.setButtonsRef[i]) {
-          this.widthButtons[i] = this.$refs.setButtonsRef[i].offsetWidth
+          this.widthButtons[i] = this.$refs.setButtonsRef[i]?.offsetWidth || 0
         }
         sumWidthButtons += this.widthButtons[i]
       })
@@ -92,18 +92,10 @@ export default {
       }
       this.isShowDropdownMenu = !!this.buttonsDataDropdown.length
     },
-    calcPositionPageup () {
-      this.positionPageup.bottom = '80px'
-      this.positionPageup.right = `${(window.innerWidth - this.$refs.buttonsNavbar.offsetWidth) / 2 + 40}px`
-    },
+
     addButtonPageUp () {
-      this.calcPositionPageup()
-      const HEIGHT = this.$refs.buttonsNavbar.offsetHeight + this.$refs.buttonsNavbar.offsetTop
-      if (HEIGHT < window.scrollY) {
-        this.isShowPageup = true
-      } else {
-        this.isShowPageup = false
-      }
+      const HEIGHT = (this.$refs.buttonsNavbar?.offsetHeight || 0) + (this.$refs.buttonsNavbar?.offsetTop || 0)
+      this.isShowPageup = HEIGHT < window.scrollY
     },
     pageup () {
       window.scrollTo(0, 0)
@@ -114,9 +106,14 @@ export default {
 
 <style lang="scss">
 .navbar {
-  height: 52px;
-  margin: 0 auto;
-  background-color: #E1F9F9;
+  width: 100%;
+  height: 100%;
+  &__panel {
+    height: $height-header-desktop;
+    @media screen and (min-width: $width-mobile) {
+      height: $height-header-mobile;
+    }
+  }
   &__buttons {
     height: 100%;
     display: flex;
@@ -125,27 +122,35 @@ export default {
     flex-wrap: nowrap;
     align-items: center;
   }
-  &__button {
-    height: 100%;
-    white-space: nowrap;
-    &_indent {
-      padding: 6px 18px;
-    }
-    &_indent:hover {
-      color: #A67145;
-      border-bottom: 2px solid #A67145;
-      cursor: pointer;
-    }
-  }
+
   &__link {
     text-decoration: none;
+    height: 100%;
+    white-space: nowrap;
+    color: $white;
+    &_indent {
+      padding: 6px 18px;
+      border-bottom: 2px solid rgba(255, 255, 255, 0);
+    }
+    &_indent:hover {
+      color: $brown;
+      border-bottom: 2px solid $brown;
+      cursor: pointer;
+    }
+    &_active-page {
+      color: $brown;
+      //border-bottom: 2px solid $brown;
+    }
   }
   &__pageup {
     position: fixed;
+    bottom: 70px;
+    right: 40px;
     z-index: 50;
     img {
       width: 32px;
       height: 32px;
+      //filter: invert(100%);
       border-radius: 18px;
       box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
     }
@@ -154,6 +159,15 @@ export default {
     img {
       height: 36px;
     }
+  }
+  &__scroll-down {
+    position: fixed;
+    margin: 0 auto;
+    top: 0;
+    left: 50%;
+    width: calc(100% - $main-margin * 2);
+    transform: translateX(-50%);
+    background-color: rgba($black, 1);
   }
 }
 </style>

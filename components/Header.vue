@@ -64,36 +64,38 @@ export default {
 <style lang="scss">
 .header{
   width: 100%;
-  background-color: #c9f2f2;
+  background: rgba($black, 0.7);
   &__contacts {
-    height: 52px;
+    height: $height-header-desktop;
     display: grid;
     align-content: center;
     justify-items: center;
     align-items: center;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    @media screen and (min-width: 540px) {
-      height: 42px;
+    @media screen and (min-width: $width-mobile) {
+      height: $height-header-mobile;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1fr;
     }
   }
   &__link-address {
+    margin-left: auto;
     grid-area: 2 / 1 / 3 / 2;
-    @media screen and (min-width: 540px) {
+    @media screen and (min-width: $width-mobile) {
       grid-area: 1 / 1 / 2 / 2;
     }
   }
   &__link-name {
     grid-area: 1 / 1 / 2 / 3;
-    @media screen and (min-width: 540px) {
+    @media screen and (min-width: $width-mobile) {
       grid-area: 1 / 2 / 2 / 3;
     }
   }
   &__link-phone {
+    margin-right: auto;
     grid-area: 2 / 2 / 3 / 3;
-    @media screen and (min-width: 540px) {
+    @media screen and (min-width: $width-mobile) {
       grid-area: 1 / 3 / 2 / 4;
     }
   }
@@ -101,24 +103,25 @@ export default {
     font-weight: bold;
     font-size: 18px;
     letter-spacing: 0.4rem;
-    border-bottom: 2px solid #272727 !important;
+    border-bottom: 2px solid rgba(39, 39, 39, 0) !important;
     margin: 0 !important;
   }
   &__link {
     text-decoration: none;
+    color: #dadada;
   }
   &__contact {
     white-space: nowrap;
-    margin-top: 4px;
-    border-bottom: 2px solid #c9f2f2;
+    margin: 4px;
+    border-bottom: 2px solid rgba(201, 242, 242, 0);
     &_site, &_address {
       margin-left: 4px;
       color: inherit;
     }
   }
   &__contact:hover {
-    color: #A67145;
-    border-bottom: 2px solid #A67145 !important;
+    color: $brown;
+    border-bottom: 2px solid $brown !important;
     cursor: pointer;
   }
   &__address-full {

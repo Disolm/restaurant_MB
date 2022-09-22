@@ -13,18 +13,18 @@
     </div>
     <div
       v-if="isOpen"
-      :style="positionSelects()"
+      :style="{'top': positionDropDown.top, 'right': positionDropDown.right}"
       class="dropdown__buttons dropdown__buttons_select"
     >
       <div
         v-for="button in buttons"
         :key="button.id"
-        :style="styleOption()"
         class="dropdown__button dropdown__button_option"
       >
         <nuxt-link
           class="dropdown__link"
           :to="button.page"
+          exact-active-class="dropdown__link_active-page"
         >
           <div class="dropdown__name-button">
             {{ button.name }}
@@ -50,27 +50,47 @@ export default {
         return []
       }
     },
+    scrollDown: {
+      type: Boolean,
+      required: true,
+    }
   },
   data () {
     return {
-      isOpen: false
+      isOpen: false,
+      positionDropDown: {
+        top: 0,
+        right: 0
+      }
     }
+  },
+  watch: {
+    scrollDown () {
+      this.positionSelects()
+    }
+  },
+  mounted () {
+    this.positionSelects()
   },
   methods: {
     closeDropdown () {
       this.isOpen = false
     },
     positionSelects () {
-      return {
-        top: `${this.$parent.$refs.buttonsNavbar.clientHeight +
-          this.$parent.$refs.buttonsNavbar.offsetTop}px`,
-        right: `${(document.documentElement.clientWidth -
-          this.$parent.$refs.buttonsNavbar.clientWidth) / 2}px`,
+      let topPosition = 0
+      let rightPosition = 0
+      const offsetTop = this.$parent.$refs.buttonsNavbar.offsetTop
+      const clientHeight = this.$parent.$refs.buttonsNavbar.clientHeight
+      const clientWidth = this.$parent.$refs.buttonsNavbar.clientWidth
+      if (offsetTop) {
+        topPosition = clientHeight + offsetTop
+      } else {
+        topPosition = clientHeight
       }
-    },
-    styleOption () {
-      return {
-        height: `${this.$parent.$refs.dropdownMenu.$el.offsetHeight}px`
+      rightPosition = (document.documentElement.clientWidth - clientWidth) / 2
+      this.positionDropDown = {
+        top: `${topPosition}px`,
+        right: `${rightPosition}px`,
       }
     }
   }
@@ -85,6 +105,10 @@ export default {
       display: inline-flex;
       flex-direction: column;
       z-index: 10;
+      height: $height-header-desktop;
+      @media screen and (min-width: $width-mobile) {
+        height: $height-header-mobile;
+      }
     }
   }
   &__button {
@@ -95,7 +119,7 @@ export default {
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
     &_option:hover {
-      color: #A67145;
+      color: $brown;
       background-color: white;
       cursor: pointer;
     }
@@ -109,15 +133,23 @@ export default {
   }
   &__link {
     text-decoration: none;
+    color: $black;
+    &_active-page {
+      width: 100%;
+      height: 100%;
+      color: $brown !important;
+      background-color: white !important;
+    }
   }
   &__img {
     width: 50px;
     height: 30px;
+    filter: invert(100%);
   }
   &__img:hover {
-    border-bottom: 3px solid #E1F9F9;
+    //border-bottom: 3px solid #E1F9F9;
     cursor: pointer;
-    opacity: 70%;
+    opacity: 60%;
   }
 }
 </style>
