@@ -30,6 +30,7 @@
           class="navbar__dropdown"
           :buttons="buttonsDataDropdown"
           :scroll-down="isShowPageup"
+          :width-changed="widthChanged"
         />
       </div>
     </div>
@@ -55,6 +56,7 @@ export default {
       widthButtons: [],
       isShowDropdownMenu: true,
       isShowPageup: false,
+      widthChanged: 0
     }
   },
   mounted () {
@@ -72,6 +74,7 @@ export default {
     },
     capacityCheck () {
       this.addButtonsInArrForNavbar()
+      this.widthChanged = window.innerWidth
       this.widthNavbar = this.$refs.buttonsNavbar?.offsetWidth || 0
       if (!this.widthNavbar) {
         return
@@ -109,9 +112,9 @@ export default {
   width: 100%;
   height: 100%;
   &__panel {
-    height: $height-header-desktop;
-    @media screen and (min-width: $width-mobile) {
-      height: $height-header-mobile;
+    height: $height-navbar-mobile;
+      @media screen and (min-width: $width-mobile) {
+    height: $height-navbar-desktop;
     }
   }
   &__buttons {

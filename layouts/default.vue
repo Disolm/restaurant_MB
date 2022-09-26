@@ -11,6 +11,12 @@
         class="container__footer"
       />
     </div>
+    <transition name="fade">
+      <LoadingPage
+        v-if="isLoadingPageShow"
+        class="container__loading-page"
+      />
+    </transition>
   </main>
 </template>
 
@@ -21,8 +27,20 @@ import Footer from '@/components/Footer'
 export default {
   name: 'Default',
   Components: {
-    Header,
-    Footer
+    Footer, Header
+  },
+  data () {
+    return {
+      isLoadingPageShow: false
+    }
+  },
+  mounted () {
+    this.$nextTick(() => {
+      this.$nuxt.$loading.start()
+      this.isLoadingPageShow = true
+      this.$nuxt.$loading.finish()
+      this.isLoadingPageShow = false
+    })
   }
 }
 </script>
@@ -58,11 +76,12 @@ export default {
     flex: 1 0 auto;
     display: flex;
     flex-direction: column;
+    padding-bottom: $height-footer;
+    padding-top: calc($height-header-desktop + $height-navbar-mobile);
     margin-top: calc($main-margin + 4px);
-    padding-bottom: calc($height-footer + $main-margin);
-    padding-top: calc($height-header-desktop * 2 + $main-margin * 2);
     @media screen and (min-width: $width-mobile) {
-      padding-top: calc($height-header-mobile * 2 + $main-margin);
+      padding-top: calc($height-header-mobile + $height-navbar-desktop);
+      margin-top: calc($main-margin + 14px);
     }
   }
   &__footer {
@@ -70,5 +89,20 @@ export default {
     flex-shrink: 0;
     margin-top: -$height-footer;
   }
+  &__loading-page {
+    position: absolute;
+    //background-color: rgba($black, 0.95);
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 9;
+  }
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity .5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 </style>

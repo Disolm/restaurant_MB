@@ -1,9 +1,9 @@
 <template>
   <div class="dropdown">
     <div
-      v-click-outside="closeDropdown"
+      v-click-outside="clickOutside"
       class="dropdown__button dropdown__button_indent"
-      @click="isOpen = !isOpen"
+      @click.down="isOpen = !isOpen"
     >
       <img
         class="dropdown__img"
@@ -24,9 +24,12 @@
         <nuxt-link
           class="dropdown__link"
           :to="button.page"
-          exact-active-class="dropdown__link_active-page"
+          exact-active-class.stop="dropdown__link_active-page"
         >
-          <div class="dropdown__name-button">
+          <div
+            class="dropdown__name-button"
+            @click="isOpen = false"
+          >
             {{ button.name }}
           </div>
         </nuxt-link>
@@ -36,11 +39,11 @@
 </template>
 
 <script>
-import ClickOutside from 'vue-click-outside'
+import vClickOutside from 'v-click-outside'
 export default {
   name: 'Dropdown',
   directives: {
-    ClickOutside
+    clickOutside: vClickOutside.directive
   },
   props: {
     buttons: {
@@ -52,6 +55,10 @@ export default {
     },
     scrollDown: {
       type: Boolean,
+      required: true,
+    },
+    widthChanged: {
+      type: Number,
       required: true,
     }
   },
@@ -67,14 +74,19 @@ export default {
   watch: {
     scrollDown () {
       this.positionSelects()
+    },
+    widthChanged () {
+      this.positionSelects()
     }
   },
   mounted () {
     this.positionSelects()
   },
   methods: {
-    closeDropdown () {
-      this.isOpen = false
+    clickOutside (ev) {
+      if (ev.target.className !== 'dropdown__name-button') {
+        this.isOpen = false
+      }
     },
     positionSelects () {
       let topPosition = 0
@@ -114,7 +126,7 @@ export default {
   &__button {
     display: inline-block;
     &_option {
-      background-color: #E1F9F9;
+      background-color: $beige;
       width: 160px;
       box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
     }
@@ -128,7 +140,7 @@ export default {
     }
   }
   &__name-button {
-    margin: 5% 0;
+    padding: 5% 0;
     text-align: center;
   }
   &__link {

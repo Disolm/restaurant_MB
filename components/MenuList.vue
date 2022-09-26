@@ -109,12 +109,11 @@ export default {
     padding-bottom: 10px;
   }
   &__section-name {
-    //width: fit-content;
-    margin: 4px auto;
+    margin: 6px auto 0;
     position: sticky;
-    top: calc($height-header-desktop);
+    top: $height-navbar-mobile;
     @media screen and (min-width: $width-mobile) {
-      top: calc($height-header-mobile);
+      top: $height-navbar-desktop;
     }
     text-decoration: underline;
     font-weight: bold;

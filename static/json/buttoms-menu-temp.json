@@ -28,11 +28,5 @@
     "name": "Доставка",
     "url": "delivery",
     "page": "Delivery"
-  },
-  {
-    "id": 8,
-    "name": "О нас",
-    "url": "About",
-    "page": "about"
   }
 ]

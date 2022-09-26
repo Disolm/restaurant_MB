@@ -69,7 +69,7 @@ export default {
 <style lang="scss">
 .footer {
   width: 100%;
-  min-height: $height-footer;
+  height: $height-footer;
   background: rgba($black, 0.7);
   color: #dadada;
   //background-color: #c9f2f2;

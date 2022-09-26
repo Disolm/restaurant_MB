@@ -18,7 +18,7 @@
             class="index__button"
             @click="clickButtons(button.title)"
           >
-            {{button.title}}
+            {{ button.title }}
           </div>
         </div>
       </div>
@@ -110,21 +110,21 @@ export default {
     flex-direction: row;
   }
   &__button {
-    border: 1px solid #E1F9F9;
+    border: 1px solid $white;
     padding: 8px;
     margin: 8px;
-    color: #E1F9F9;
+    color: $white;
     letter-spacing: 0.8px;
     font-size: 12px;
-    background-color: rgba(166, 113, 69, 0.2);
+    background-color: rgba($black, 0.2);
     @media screen and (min-width: $width-mobile) {
       font-size: 14px;
     }
   }
   &__button:hover {
     cursor: pointer;
-    background-color: rgba(225, 255, 255, 0.1);
-    border: 1px solid #1b1b1b;
+    //color: $brown;
+    border: 1px solid $brown;
   }
   &__wrapper-RF {
     position: absolute;

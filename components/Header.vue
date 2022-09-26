@@ -19,7 +19,7 @@
         class="header__link header__link-name"
         to="/"
       >
-        <div class="header__contact header__contacts_name">
+        <div class="header__contact header__contact_name">
           {{ name }}
         </div>
       </nuxt-link>
@@ -27,7 +27,7 @@
         :href="phoneHref"
         class="header__link header__link-phone"
       >
-        <div class="header__contact header__contacts_phone">
+        <div class="header__contact header__contact_phone">
           {{ phone }}
         </div>
       </a>
@@ -81,6 +81,7 @@ export default {
   }
   &__link-address {
     margin-left: auto;
+    padding-right: 4px;
     grid-area: 2 / 1 / 3 / 2;
     @media screen and (min-width: $width-mobile) {
       grid-area: 1 / 1 / 2 / 2;
@@ -94,12 +95,13 @@ export default {
   }
   &__link-phone {
     margin-right: auto;
+    padding-left: 4px;
     grid-area: 2 / 2 / 3 / 3;
     @media screen and (min-width: $width-mobile) {
       grid-area: 1 / 3 / 2 / 4;
     }
   }
-  &__contacts_name {
+  &__contact_name {
     font-weight: bold;
     font-size: 18px;
     letter-spacing: 0.4rem;
@@ -118,11 +120,22 @@ export default {
       margin-left: 4px;
       color: inherit;
     }
+    &_phone {
+      padding-left: 22px;
+      background-image: url("/image/icon-phone.svg");
+      background-repeat: no-repeat;
+    }
+    &_phone:hover {
+      background-image: url("/image/icon-phone-hover.svg");
+    }
   }
   &__contact:hover {
     color: $brown;
     border-bottom: 2px solid $brown !important;
     cursor: pointer;
+    &_phone:hover {
+      background-image: url("/image/icon-phone-hover.svg");
+    }
   }
   &__address-full {
     display: flex;

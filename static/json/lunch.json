@@ -61,7 +61,7 @@
         "description": ""
       },{
         "id": 1,
-        "title": "Борщ по-грузински",
+        "title": "Борщ с грузинским акцунтом",
         "weight": [200],
         "price": [180],
         "description": ""
@@ -136,15 +136,15 @@
         "description": ""
       },{
         "id": 8,
-        "title": "Хинкали  с бараниной",
+        "title": "Хинкали  с бараниной 3шт",
         "weight": [300],
-        "price": [200],
+        "price": [220],
         "description": ""
       },{
         "id": 9,
-        "title": "Хинкали  с грибами",
+        "title": "Хинкали  с грибами 3шт",
         "weight": [300],
-        "price": [200],
+        "price": [220],
         "description": ""
       }
     ]
