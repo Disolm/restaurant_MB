@@ -78,7 +78,7 @@ export default {
   align-items: stretch;
   justify-content: flex-start;
   position: relative;
-  background: url("static/image/foto/index/photo_5303202403811704257_y.jpg") no-repeat center;
+  background: url("static/image/foto/index/Megobari-index_2x.jpg") no-repeat center;
   background-size: cover;
   &__wrapper {
     margin: 24px 12px;
@@ -108,6 +108,7 @@ export default {
   &__buttons {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
   }
   &__button {
     border: 1px solid $white;
@@ -123,7 +124,6 @@ export default {
   }
   &__button:hover {
     cursor: pointer;
-    //color: $brown;
     border: 1px solid $brown;
   }
   &__wrapper-RF {
@@ -161,6 +161,5 @@ export default {
     padding: 32px 42px;
     margin: calc(50vh + 5% - 260px) auto;
   }
-
 }
 </style>

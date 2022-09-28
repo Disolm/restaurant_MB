@@ -27,6 +27,7 @@
         <Dropdown
           v-if="isShowDropdownMenu"
           ref="dropdownMenu"
+          key="dropdown"
           class="navbar__dropdown"
           :buttons="buttonsDataDropdown"
           :scroll-down="isShowPageup"
@@ -37,8 +38,13 @@
     <div
       v-if="isShowPageup"
       class="navbar__pageup"
-      @click="pageup">
-      <img src="/image/pageup.svg" alt="Вверх" title="Вверх">
+      @click="pageup"
+    >
+      <img
+        src="/image/pageup.svg"
+        alt="Вверх"
+        title="Вверх"
+      >
     </div>
   </div>
 </template>
@@ -125,7 +131,6 @@ export default {
     flex-wrap: nowrap;
     align-items: center;
   }
-
   &__link {
     text-decoration: none;
     height: 100%;

@@ -19,6 +19,7 @@ export default {
       class: ['size'],
     },
   },
+  // loading: '~/components/LoadingPage.vue',
   loading: {
     color: '#A67145',
     height: '2px'
@@ -26,7 +27,8 @@ export default {
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
-    '~assets/scss/global-style.scss'
+    '~assets/scss/global-style.scss',
+    '~assets/main.css'
   ],
 
   styleResources: {

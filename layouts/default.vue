@@ -11,12 +11,6 @@
         class="container__footer"
       />
     </div>
-    <transition name="fade">
-      <LoadingPage
-        v-if="isLoadingPageShow"
-        class="container__loading-page"
-      />
-    </transition>
   </main>
 </template>
 
@@ -31,17 +25,8 @@ export default {
   },
   data () {
     return {
-      isLoadingPageShow: false
     }
   },
-  mounted () {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-      this.isLoadingPageShow = true
-      this.$nuxt.$loading.finish()
-      this.isLoadingPageShow = false
-    })
-  }
 }
 </script>
 <style lang="scss">
@@ -62,6 +47,7 @@ export default {
   font-size: 10px;
   font-family: Montserrat, Verdana, sans-serif;
   color: $black;
+  background-color: $black;
   @media screen and (min-width: $width-mobile) {
     font-size: 14px;
   }
@@ -98,11 +84,5 @@ export default {
     left: 0;
     z-index: 9;
   }
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 </style>

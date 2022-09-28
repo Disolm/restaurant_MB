@@ -70,7 +70,7 @@ export default {
 .footer {
   width: 100%;
   height: $height-footer;
-  background: rgba($black, 0.7);
+  background: rgba($black, $opacity-header-and-footer);
   color: #dadada;
   //background-color: #c9f2f2;
   display: flex;

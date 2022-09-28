@@ -62,7 +62,7 @@ export default {
     background-color: rgba($black, 0.4);
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    @media screen and (min-width: $width-mobile) {
+    @media screen and (min-width: $width-tablet) {
       grid-template-columns: repeat(2, 1fr);
       grid-template-rows: repeat(2, 1fr);
     }
@@ -114,7 +114,6 @@ export default {
   }
   &__void {
     grid-area: 1 / 1 / 3 / 2;
-    padding-top: 100%
   }
   &__img {
     width: 90%;

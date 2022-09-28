@@ -64,7 +64,7 @@ export default {
 <style lang="scss">
 .header{
   width: 100%;
-  background: rgba($black, 0.7);
+  background: rgba($black, $opacity-header-and-footer);
   &__contacts {
     height: $height-header-desktop;
     display: grid;
