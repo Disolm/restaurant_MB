@@ -1,13 +1,19 @@
 <template>
   <div class="dropdown">
     <div
-      v-click-outside="clickOutside"
       class="dropdown__button dropdown__button_indent"
-      @click.down="isOpen = !isOpen"
+      @click="isOpen = !isOpen"
     >
       <img
+        v-if="isOpen"
         class="dropdown__img"
-        src="/image/icons8-меню-384.svg"
+        src="/image/menu-off.svg"
+        alt=""
+      >
+      <img
+        v-else
+        class="dropdown__img"
+        src="/image/menu-on.svg"
         alt=""
       >
     </div>
@@ -22,7 +28,7 @@
         class="dropdown__link dropdown__button dropdown__button_option"
         :to="button.page"
         exact-active-class="dropdown__link_active-page"
-        @click="isOpen = false"
+        @click.native="isOpen = false"
       >
         {{ button.name }}
       </nuxt-link>
@@ -31,12 +37,8 @@
 </template>
 
 <script>
-import vClickOutside from 'v-click-outside'
 export default {
   name: 'Dropdown',
-  directives: {
-    clickOutside: vClickOutside.directive
-  },
   props: {
     buttons: {
       type: Array,
@@ -75,11 +77,6 @@ export default {
     this.positionSelects()
   },
   methods: {
-    clickOutside (ev) {
-      if (ev.target.className !== 'dropdown__name-button') {
-        this.isOpen = false
-      }
-    },
     positionSelects () {
       let topPosition = 0
       let rightPosition = 0
