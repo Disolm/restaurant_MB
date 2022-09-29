@@ -46,7 +46,8 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/pwa',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -61,4 +62,28 @@ export default {
     port: 3000,
     host: '0.0.0.0',
   },
+  pwa: {
+    // meta: {
+    //   name: 'Megobari',
+    //   theme_color: '#A67145',
+    //   lang: 'ru',
+    // },
+    icon: {
+      icons: [64, 120, 144, 152, 192, 384, 512],
+      purpose: 'any'
+    },
+    manifest: {
+      name: 'Megobari',
+      short_name: 'MB',
+      description: 'ресторан грузинской кухни',
+      start_url: '/',
+      display: 'standalone',
+      background_color: '#A67145',
+      theme_color: '#f4f4f4',
+      lang: 'ru',
+      useWebmanifestExtension: false,
+    },
+    workbox: {
+    }
+  }
 }

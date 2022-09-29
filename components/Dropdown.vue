@@ -141,7 +141,7 @@ export default {
   }
   &__img:hover {
     cursor: pointer;
-    opacity: 60%;
+    opacity: 0.6;
   }
 }
 </style>
