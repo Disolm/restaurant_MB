@@ -34,16 +34,19 @@ export default {
   height: calc(100% - $main-margin);
   width: calc(100% - $main-margin);
 }
-#__nuxt, #__layout, main {
+#__nuxt, #__layout {
   height: 100%;
+}
+main {
+  height: calc(100% + $height-footer + $main-margin);
+  padding-bottom: $main-margin;
 }
 .container {
   display: flex;
   flex-direction: column;
-  //max-width: 960px;
   min-width: 280px;
   min-height: 100%;
-  margin: 0 auto;
+  margin: 0 auto $main-margin;
   font-size: 10px;
   font-family: Montserrat, Verdana, sans-serif;
   color: $black;
@@ -74,15 +77,6 @@ export default {
     z-index: 1;
     flex-shrink: 0;
     margin-top: -$height-footer;
-  }
-  &__loading-page {
-    position: absolute;
-    //background-color: rgba($black, 0.95);
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 9;
   }
 }
 </style>

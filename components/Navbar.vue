@@ -3,6 +3,10 @@
     class="navbar"
   >
     <div
+      v-if="isShowPageup"
+      class="navbar__panel navbar__panel_copy"
+    />
+    <div
       :class="{'navbar__scroll-down': isShowPageup}"
       class="navbar__panel"
     >
@@ -38,7 +42,7 @@
     <div
       v-if="isShowPageup"
       class="navbar__pageup"
-      @click="pageup"
+      @click="pageup(0,0)"
     >
       <img
         src="/image/pageup.svg"
@@ -103,11 +107,11 @@ export default {
     },
 
     addButtonPageUp () {
-      const HEIGHT = (this.$refs.buttonsNavbar?.offsetHeight || 0) + (this.$refs.buttonsNavbar?.offsetTop || 0)
+      const HEIGHT = (this.$refs.buttonsNavbar?.offsetHeight || 0)
       this.isShowPageup = HEIGHT < window.scrollY
     },
-    pageup () {
-      window.scrollTo(0, 0)
+    pageup (x, y) {
+      window.scrollTo(x, y)
     },
   }
 }
@@ -147,7 +151,6 @@ export default {
     }
     &_active-page {
       color: $brown;
-      //border-bottom: 2px solid $brown;
     }
   }
   &__pageup {
@@ -158,7 +161,6 @@ export default {
     img {
       width: 32px;
       height: 32px;
-      //filter: invert(100%);
       border-radius: 18px;
       box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
     }

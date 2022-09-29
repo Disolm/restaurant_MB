@@ -1,39 +1,44 @@
 <template>
   <div class="footer">
-    <div class="footer__timetables">
-      <div class="footer__timetable footer__timetable_common">
-        <div class="footer__timetable">
-          {{ schedule('common-text') }}
-        </div>
-        <div class="footer__timetable">
-          {{ schedule('common-time') }}
-        </div>
-      </div>
-      <div class="footer__timetable footer__timetable_lunch">
-        {{ schedule('lunch') }}
-      </div>
-    </div>
-    <div class="footer__ratings">
-      <div
-        v-for="rating in snw"
-        :key="rating.id"
-        class="footer__snw"
-      >
-        <a
-          :href="rating.url"
-          class="footer__link"
-          target="_blank"
-        >
-          <div class="footer__logo">
-            <img
-              class="footer__img"
-              :src="rating.logo"
-              :alt="rating.name"
-            >
+    <div class="footer__wrapper">
+      <div class="footer__timetables">
+        <div class="footer__timetable footer__timetable_common">
+          <div class="footer__timetable">
+            {{ schedule('common-text') }}
           </div>
-        </a>
+          <div class="footer__timetable">
+            {{ schedule('common-time') }}
+          </div>
+        </div>
+        <div class="footer__timetable footer__timetable_lunch">
+          {{ schedule('lunch') }}
+        </div>
+      </div>
+      <div class="footer__ratings">
+        <div
+          v-for="rating in snw"
+          :key="rating.id"
+          class="footer__snw"
+        >
+          <a
+            :href="rating.url"
+            class="footer__link"
+            target="_blank"
+          >
+            <div class="footer__logo">
+              <img
+                class="footer__img"
+                :src="rating.logo"
+                :alt="rating.name"
+              >
+            </div>
+          </a>
+        </div>
       </div>
     </div>
+    <div
+      class="footer__margin"
+    />
   </div>
 </template>
 
@@ -70,13 +75,17 @@ export default {
 .footer {
   width: 100%;
   height: $height-footer;
-  background: rgba($black, $opacity-header-and-footer);
-  color: #dadada;
-  //background-color: #c9f2f2;
-  display: flex;
-  align-content: center;
-  justify-content: space-around;
-  align-items: center;
+  &__wrapper {
+    width: 100%;
+    height: 100%;
+    background: rgba($black, $opacity-header-and-footer);
+    color: #dadada;
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: $main-margin;
+  }
   &__timetables {
     display: flex;
     flex-wrap: wrap;
@@ -109,6 +118,11 @@ export default {
     border-radius: 10px;
     max-width: 20px;
     max-height: 20px;
+  }
+  &__margin {
+    width: 100%;
+    height: $main-margin;
+    background-color: $white;
   }
 }
 </style>

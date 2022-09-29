@@ -57,7 +57,7 @@ export default {
     site () {
       return `${content.header.site} `
     }
-  }
+  },
 }
 </script>
 

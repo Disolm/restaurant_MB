@@ -1,11 +1,11 @@
 .page-enter-active, .page-leave-active {
-  transition: opacity .5s;
+  transition: opacity .3s;
 }
 .page-enter, .page-leave-active {
   opacity: 0;
 }
 .home-enter-active, .home-leave-active {
-  transition: opacity .5s;
+  transition: opacity .4s;
 }
 .home-enter, .home-leave-active {
   opacity: 0;
