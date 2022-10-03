@@ -4,21 +4,21 @@
       <div class="footer__timetables">
         <div class="footer__timetable footer__timetable_common">
           <div class="footer__timetable">
-            {{ schedule('common-text') }}
+            {{ outputOfWorkSchedule('common-text') }}
           </div>
           <div class="footer__timetable">
-            {{ schedule('common-time') }}
+            {{ outputOfWorkSchedule('common-time') }}
           </div>
         </div>
         <div class="footer__timetable footer__timetable_lunch">
-          {{ schedule('lunch') }}
+          {{ outputOfWorkSchedule('lunch') }}
         </div>
       </div>
       <div class="footer__ratings">
         <div
-          v-for="rating in snw"
+          v-for="rating in socialNetworkWebsite"
           :key="rating.id"
-          class="footer__snw"
+          class="footer__socialNetworkWebsite"
         >
           <a
             :href="rating.url"
@@ -50,24 +50,24 @@ export default {
   name: 'Footer',
   data () {
     return {
-      snw: content.footer['social-network-website']
+      socialNetworkWebsite: content.footer['social-network-website']
     }
   },
   methods: {
-    schedule (which) {
+    outputOfWorkSchedule (subType) {
       const dayOfWeek = new Date().getDay()
       const open = timetable[dayOfWeek].timeOpen
       const close = timetable[dayOfWeek].timeClose
-      if (which === 'common-text') {
+      if (subType === 'common-text') {
         return `${content.footer.timetable} `
-      } else if (which === 'common-time') {
+      } else if (subType === 'common-time') {
         return `${content.footer.from}
       ${open} ${content.footer.to} ${close}`
       } else {
         return `${content.footer.lunch}`
       }
     },
-  },
+  }
 }
 </script>
 

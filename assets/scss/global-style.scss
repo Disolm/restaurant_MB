@@ -14,3 +14,8 @@ $black: #272727;
 $white: #f4f4f4;
 $brown: #A67145;
 $beige: #FFF2E7;
+
+//export css in js
+:export {
+  mainMargin: $main-margin;
+}

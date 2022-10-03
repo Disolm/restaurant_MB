@@ -1,39 +1,42 @@
 <template>
   <div
-    :style="{background: `url('${urlImg}')`}"
+    :style="{background: `url('${content.barMap.backgroundUrl}')`}"
     class="map-bar"
   >
-    <Decor
-      :decor-url="decor"
-      position-x="top"
+    <DecorMenu
+      :decor-url="content.barMap.decor"
+      position-y="top"
     />
     <MenuList
-      :background-url="urlImg"
+      :background-url="content.barMap.backgroundUrl"
       :menu-list="beverages"
     />
-    <Decor
-      :decor-url="decor"
-      position-x="bottom"
+    <DecorMenu
+      :decor-url="content.barMap.decor"
+      position-y="bottom"
     />
   </div>
 </template>
 
 <script>
 import contentJson from 'static/json/content'
-import barJson from 'static/json/mapBar'
 import MenuList from '@/components/MenuList'
+import DecorMenu from '@/components/DecorMenu'
 
 export default {
   name: 'MapBar',
-  Components: { MenuList },
+  Components: { MenuList, DecorMenu },
+  async asyncData ({ $axios }) {
+    const mapBarApi = await $axios.$get('/json/mapBar.json')
+    return {
+      beverages: mapBarApi
+    }
+  },
   data () {
     return {
       content: contentJson,
-      beverages: barJson,
-      urlImg: contentJson.barMap.backgroundUrl,
-      decor: contentJson.barMap.decor
     }
-  }
+  },
 }
 </script>
 

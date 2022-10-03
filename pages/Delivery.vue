@@ -20,7 +20,6 @@
           <a
             :href="content.header.phoneHref"
             class="delivery__link"
-            target="_blank"
           >
             {{ content.header.phone }}
           </a>

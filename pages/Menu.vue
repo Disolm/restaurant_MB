@@ -1,36 +1,40 @@
 <template>
   <div
     class="menu"
-    :style="{background: `url('${urlImg}')`}"
+    :style="{background: `url('${content.menu.backgroundUrl}')`}"
   >
-    <Decor
-      :decor-url="decor"
-      position-x="top"
+    <DecorMenu
+      :decor-url="content.menu.decor"
+      position-y="top"
     />
     <MenuList
-      :background-url="urlImg"
+      :background-url="content.menu.backgroundUrl"
       :menu-list="foodMenu"
     />
-    <Decor
-      :decor-url="decor"
-      position-x="bottom"
+    <DecorMenu
+      :decor-url="content.menu.decor"
+      position-y="bottom"
     />
   </div>
 </template>
 
 <script>
 import contentJson from 'static/json/content'
-import menuJson from 'static/json/menu'
 import MenuList from '@/components/MenuList'
+import DecorMenu from '@/components/DecorMenu'
+
 export default {
   name: 'Menu',
-  Components: { MenuList },
+  Components: { MenuList, DecorMenu },
+  async asyncData ({ $axios }) {
+    const menuApi = await $axios.$get('/json/menu.json')
+    return {
+      foodMenu: menuApi
+    }
+  },
   data () {
     return {
       content: contentJson,
-      foodMenu: menuJson,
-      urlImg: contentJson.menu.backgroundUrl,
-      decor: contentJson.menu.decor
     }
   }
 }

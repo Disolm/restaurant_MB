@@ -54,7 +54,8 @@
 </template>
 
 <script>
-import buttonsData from 'static/json/buttoms-menu-temp'
+import buttonsData from 'static/json/buttons-menu-temp'
+
 const RESERVE_MARGIN = 4
 export default {
   name: 'Navbar',
@@ -70,6 +71,7 @@ export default {
     }
   },
   mounted () {
+    // this.getMenuListbuttons()
     this.addButtonsInArrForNavbar()
     this.$nextTick(() => {
       this.capacityCheck()

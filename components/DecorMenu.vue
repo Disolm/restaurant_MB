@@ -1,23 +1,23 @@
 <template>
   <div
-    class="decor"
+    class="decor-menu"
   >
     <div
-      class="decor__wrapper"
+      class="decor-menu__wrapper"
       :style="turn"
     >
       <div
-        class="decor__pattern"
+        class="decor-menu__pattern"
         :style="backgroundDecor"
       />
-      <div class="decor__band"/>
+      <div class="decor-menu__band"/>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'Decor',
+  name: 'DecorMenu',
   props: {
     decorUrl: {
       type: String,
@@ -26,7 +26,7 @@ export default {
         return ''
       }
     },
-    positionX: {
+    positionY: {
       type: String,
       required: false,
       default () {
@@ -37,7 +37,7 @@ export default {
   data () {
     return {
       backgroundDecor: {
-        background: `url("${this.decorUrl}") center ${this.positionX} / auto 22px  space`,
+        background: `url("${this.decorUrl}") center ${this.positionY} / auto 22px  space`,
       }
     }
   },
@@ -45,7 +45,7 @@ export default {
     turn () {
       return {
         display: 'flex',
-        'flex-direction': this.positionX === 'top' ? 'column-reverse' : 'column'
+        'flex-direction': this.positionY === 'top' ? 'column-reverse' : 'column'
       }
     }
   }
@@ -53,7 +53,7 @@ export default {
 </script>
 
 <style lang="scss">
-.decor {
+.decor-menu {
   width: 100%;
   &__pattern{
     height: 24px
