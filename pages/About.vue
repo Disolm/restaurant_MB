@@ -17,10 +17,12 @@
         <a href="https://yandex.ru/maps/org/megobari/198770147175/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:0px;">Megobari</a>
         <a href="https://yandex.ru/maps/65/novosibirsk/category/cafe/184106390/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:14px;">Кафе в Новосибирске</a>
         <a href="https://yandex.ru/maps/65/novosibirsk/category/banquet_hall/184108315/?utm_medium=mapframe&utm_source=maps" style="color:#eee;font-size:12px;position:absolute;top:28px;">Банкетный зал в Новосибирске</a>
-        <iframe src="https://yandex.ru/map-widget/v1/-/CCUVeXU4~A"
-                frameborder="1"
-                allowfullscreen="true"
-                style="position:relative;"/>
+        <iframe
+          src="https://yandex.ru/map-widget/v1/-/CCUVeXU4~A"
+          frameborder="1"
+          allowfullscreen="true"
+          style="position:relative;"
+        />
       </div>
     </div>
   </div>

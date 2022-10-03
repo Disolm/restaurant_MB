@@ -3,13 +3,12 @@
     <div class="error">
       <h1>Error 404</h1>
       <h2>Такой страницы не существует или ещё в разработке</h2>
-      <div >
-        <nuxt-link
-          class="error__link"
-          to="/">
-          Вернусться на главную страницу
-        </nuxt-link>
-      </div>
+      <nuxt-link
+        class="error__link"
+        to="/"
+      >
+        Вернусться на главную страницу
+      </nuxt-link>
     </div>
   </section>
 </template>

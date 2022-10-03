@@ -37,7 +37,7 @@
             {{ reserveTableText.title }}
           </h3>
           <div class="index__description index__description_reserve">
-            {{ reserveTableText.content}}
+            {{ reserveTableText.content }}
           </div>
         </div>
       </div>

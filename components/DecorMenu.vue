@@ -10,7 +10,9 @@
         class="decor-menu__pattern"
         :style="backgroundDecor"
       />
-      <div class="decor-menu__band"/>
+      <div
+        class="decor-menu__band"
+      />
     </div>
   </div>
 </template>
