@@ -154,7 +154,7 @@ export default {
       const pictures = [...Array(12)]
       pictures.forEach((pic, i) => {
         pictures[i] = Object.assign({}, {
-          src: `/image/gallery/${i}.jpg`,
+          src: `/image/gallery/${i}.JPG`,
           id: i
         })
       })
