@@ -40,12 +40,14 @@ export default {
   //   '~/plugins/axios'
   // ],
   axios: {
-    baseURL: 'http://localhost:3000',
-    browserBaseURL: 'http://localhost:3000',
-    // proxy: false,
+    // proxy: true,
   },
   // proxy: {
-  //   '/api/': 'https://megobari-nsk.ru',
+  //   // Simple proxy
+  //   '/api/': {
+  //     target: 'https://megobari-nsk.ru/',
+  //     pathRewrite: { '^/api/': '' }
+  //   }
   // },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
