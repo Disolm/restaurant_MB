@@ -27,7 +27,7 @@ export default {
   name: 'Lunch',
   Components: { MenuList, DecorMenu },
   async asyncData ({ $axios }) {
-    const lunchApi = await $axios.$get('/json/lunch.json')
+    const lunchApi = await $axios.$get('http://localhost:3000/json/lunch.json')
     return {
       lunchMenu: lunchApi
     }

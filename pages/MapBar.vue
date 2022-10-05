@@ -27,7 +27,7 @@ export default {
   name: 'MapBar',
   Components: { MenuList, DecorMenu },
   async asyncData ({ $axios }) {
-    const mapBarApi = await $axios.$get('/json/mapBar.json')
+    const mapBarApi = await $axios.$get('http://localhost:3000/json/mapBar.json')
     return {
       beverages: mapBarApi
     }

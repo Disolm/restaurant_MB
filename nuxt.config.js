@@ -36,16 +36,17 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [
-    '~/plugins/axios'
-  ],
+  // plugins: [
+  //   '~/plugins/axios'
+  // ],
   axios: {
     baseURL: 'http://localhost:3000',
-    proxy: true,
+    browserBaseURL: 'http://localhost:3000',
+    // proxy: false,
   },
-  proxy: {
-    '/api/': 'https://megobari-nsk.ru',
-  },
+  // proxy: {
+  //   '/api/': 'https://megobari-nsk.ru',
+  // },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
