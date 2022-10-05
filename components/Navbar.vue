@@ -109,7 +109,7 @@ export default {
     },
 
     addButtonPageUp () {
-      const HEIGHT = (this.$refs.buttonsNavbar?.offsetHeight || 0)
+      const HEIGHT = (this.$refs.buttonsNavbar?.offsetTop || 0)
       this.isShowPageup = HEIGHT < window.scrollY
     },
     pageup (x, y) {

@@ -39,6 +39,13 @@ export default {
   plugins: [
     '~/plugins/axios'
   ],
+  axios: {
+    baseURL: 'http://localhost:3000',
+    proxy: true,
+  },
+  proxy: {
+    '/api/': 'https://megobari-nsk.ru',
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
