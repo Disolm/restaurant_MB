@@ -40,15 +40,15 @@ export default {
   //   '~/plugins/axios'
   // ],
   axios: {
-    // proxy: true,
+    proxy: true,
   },
-  // proxy: {
-  //   // Simple proxy
-  //   '/api/': {
-  //     target: 'https://megobari-nsk.ru/',
-  //     pathRewrite: { '^/api/': '' }
-  //   }
-  // },
+  proxy: {
+    // Simple proxy
+    '/json/': {
+      target: 'https://megobari-nsk.ru/',
+      pathRewrite: { '^/json/': '' }
+    }
+  },
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,

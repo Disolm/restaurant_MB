@@ -128,7 +128,7 @@ export default {
     clickOutside: vClickOutside.directive
   },
   async asyncData ({ $axios }) {
-    const contentApi = await $axios.$get('http://localhost:3000/json/content.json')
+    const contentApi = await $axios.$get('/json/content.json')
     return {
       content: contentApi
     }

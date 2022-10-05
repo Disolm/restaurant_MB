@@ -71,7 +71,6 @@ export default {
     }
   },
   mounted () {
-    // this.getMenuListbuttons()
     this.addButtonsInArrForNavbar()
     this.$nextTick(() => {
       this.capacityCheck()
