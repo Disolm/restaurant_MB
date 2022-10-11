@@ -44,7 +44,7 @@ main {
 .container {
   display: flex;
   flex-direction: column;
-  min-width: 280px;
+  min-width: calc($width-minimal - $main-margin * 2);
   min-height: 100%;
   margin: 0 auto $main-margin;
   font-size: 10px;

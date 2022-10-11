@@ -1,5 +1,8 @@
 <template>
-  <div class="header">
+  <div
+    ref="header"
+    class="header"
+  >
     <div class="header__contacts">
       <a
         :href="addressUrl"

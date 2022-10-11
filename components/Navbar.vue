@@ -55,6 +55,7 @@
 
 <script>
 import buttonsData from 'static/json/buttons-menu-temp'
+import globalStyleCSS from 'assets/scss/global-style.scss'
 
 const RESERVE_MARGIN = 4
 export default {
@@ -108,7 +109,8 @@ export default {
     },
 
     addButtonPageUp () {
-      const HEIGHT = (this.$refs.buttonsNavbar?.offsetTop || 0)
+      const MARGIN_TOP = parseInt(globalStyleCSS.mainMargin, 10)
+      const HEIGHT = (this.$parent.$refs.header.clientHeight + MARGIN_TOP - (this.$refs.buttonsNavbar?.clientHeight || 0))
       this.isShowPageup = HEIGHT < window.scrollY
     },
     pageup (x, y) {
@@ -121,6 +123,7 @@ export default {
 <style lang="scss">
 .navbar {
   width: 100%;
+  //min-width: $width-minimal;
   height: 100%;
   &__panel {
     height: $height-navbar-mobile;
@@ -175,9 +178,13 @@ export default {
     position: fixed;
     margin: 0 auto;
     top: 0;
-    left: 50%;
     width: calc(100% - $main-margin * 2);
     transform: translateX(-50%);
+    left: 50%;
+    @media screen and (max-width: calc($width-minimal + $main-margin * 2)) {
+      left: calc($width-minimal / 2);
+      width: calc($width-minimal - 2 * $main-margin);
+    }
     background-color: rgba($black, 1);
   }
 }

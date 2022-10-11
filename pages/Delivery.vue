@@ -7,21 +7,16 @@
         {{ content.delivery.title }}
       </div>
       <div class="delivery__buttons">
-        <div class="delivery__button">
+        <div
+          v-for="button in content.delivery.buttons"
+          :key="button.id"
+          class="delivery__button">
           <a
-            href="https://eda.yandex.ru/novosibirsk/r/megobari"
+            :href="button.href"
             class="delivery__link"
-            target="_blank"
+            :target="button.target"
           >
-            Яндекс еда
-          </a>
-        </div>
-        <div class="delivery__button">
-          <a
-            :href="content.header.phoneHref"
-            class="delivery__link"
-          >
-            {{ content.header.phone }}
+            {{ button.title }}
           </a>
         </div>
       </div>
@@ -51,7 +46,7 @@ export default {
   align-items: stretch;
   justify-content: flex-start;
   position: relative;
-  background: url("static/image/foto/delivery/6835f3d7-d6d9-4cfe-a0ad-048654cc81c8.jpg") no-repeat center;
+  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("static/image/foto/delivery/6835f3d7-d6d9-4cfe-a0ad-048654cc81c8.jpg") no-repeat center;
   background-size: cover;
   &__wrapper {
     height: 100%;
@@ -76,6 +71,7 @@ export default {
     grid-area: 1 / 2 / 2 / 3;
     padding: 16px;
     margin: auto 0;
+    font-size: 16px;
     line-height: 16px;
     @media screen and (min-width: $width-mobile) {
       line-height: 24px;
@@ -109,7 +105,6 @@ export default {
   &__link:hover {
     cursor: pointer;
     border: 1px solid $brown;
-    //color: $brown;
   }
   &__void {
     grid-area: 1 / 1 / 3 / 2;

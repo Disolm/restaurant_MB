@@ -11,7 +11,7 @@
         <div
           class="menu-list__section-name"
           :style="{background: `url('${backgroundUrl}')`}"
-          @click="section.isShow = !section.isShow"
+          @click="section.isShow = !!section.isShow"
         >
           {{ section.type.toUpperCase() }}
         </div>
@@ -109,7 +109,8 @@ export default {
     padding-bottom: 10px;
   }
   &__section-name {
-    margin: 6px auto 0;
+    padding: 6px 0;
+    margin: 0 auto;
     position: sticky;
     top: $height-navbar-mobile;
     @media screen and (min-width: $width-mobile) {
@@ -120,17 +121,19 @@ export default {
     letter-spacing: 0.05rem;
     text-align: center;
   }
-  &__section-name:hover {
-    cursor: pointer;
-    color: #BFB8B1;
-  }
+  //&__section-name:hover {
+  //  cursor: pointer;
+  //  color: #BFB8B1;
+  //}
   &__dish {
     max-width: 600px;
     margin: 10px auto;
   }
   &__dish-title {
     color: $brown;
+    font-size: 16px;
     font-weight: bold;
+    padding-right: 30px;
   }
   &__dish-weight {
     color: $black;
@@ -143,6 +146,7 @@ export default {
     flex-direction: row;
     flex-wrap: nowrap;
     margin-left: auto;
+    font-size: 16px;
   }
   &__dish-price {
     margin-left: 3px;
@@ -151,6 +155,7 @@ export default {
   &__dish-description {
     font-size: 10px;
     letter-spacing: 0.05rem;
+    padding-right: 60px;
   }
   &__block-top {
     display: flex;

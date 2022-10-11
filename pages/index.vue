@@ -5,10 +5,10 @@
         v-if="!isShowReserveTable"
         class="index__info"
       >
-        <h1 class="index__title">
+        <h1 class="index__title index__title_color-light">
           {{ content.index.title }}
         </h1>
-        <h2 class="index__description">
+        <h2 class="index__description index__description_color-light">
           {{ content.index.description }}
         </h2>
         <div class="index__buttons">
@@ -36,10 +36,10 @@
           >
             <img src="/image/close.svg" alt="close">
           </div>
-          <h3 class="index__description index__title_reserve">
+          <h3 class="index__description index__title_decor">
             {{ content.index.reserveTable.title }}
           </h3>
-          <h5 class="index__description index__description_reserve">
+          <h5 class="index__description index__description">
             {{ content.index.reserveTable.content }}
           </h5>
           <a
@@ -54,10 +54,10 @@
       </div>
     </div>
     <div class="index__welcome-slogan">
-      <h3 class="index__title index__title_mod">
+      <h3 class="index__title index__title_color-dark">
         {{ content.index.headline.toUpperCase() }}
       </h3>
-      <h5 class="index__description index__description_mod">
+      <h5 class="index__description index__description_color-dark">
         {{ content.index.welcomeSlogan }}
       </h5>
     </div>
@@ -65,16 +65,17 @@
       <img
         v-for="picture in getPictures()"
         :key="picture.id"
-        class="index__picture"
+        v-scroll="handleScroll"
+        class="index__picture animation"
         :src="picture.src"
         :alt="content.index.title"
       >
     </div>
     <div class="index__menu-list-buttons">
-      <h3 class="index__description">
+      <h3 class="index__title index__title_color-light">
         {{ content.index.menuInfo.title.toUpperCase() }}
       </h3>
-      <h5 class="index__description">
+      <h5 class="index__description index__description_color-light">
         {{ content.index.menuInfo.description }}
       </h5>
       <div class="index__buttons index__buttons_positions">
@@ -89,41 +90,57 @@
       </div>
     </div>
     <div class="index__sale">
-      <h3 class="index__title index__title_mod">
+      <h3 class="index__title index__title_color-dark">
         {{ content.index.sale.title.toUpperCase() }}
       </h3>
-      <h5 class="index__description index__description_mod">
-        {{ content.index.sale.description }}
-      </h5>
+      <div class="index__sale-wrapper">
+        <div
+          v-for="sale in content.index.sale.description"
+          :key="sale.id"
+          class="index__sale-block"
+          :style="{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${sale.url}`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}"
+        >
+          <h5
+            v-for="(t, idx) in sale.titles"
+            :key="idx"
+            class="index__description index__description_color-light index__description_margin"
+          >
+            {{ t }}
+          </h5>
+        </div>
+      </div>
     </div>
     <div class="index__address">
-      <div class="index__address-title index__title index__title_mod">
+      <div class="index__address-title index__title index__title_color-dark">
         {{ content.index.address.title }}
       </div>
-      <div class="index__address-description index__description index__description_mod">
+      <div class="index__address-description index__description index__description_color-dark">
         <span>
           {{ content.index.address.adds }}
         </span>
         <span>
-          {{ content.header.phone }}
+          <a
+            class="index__description_color-dark"
+            :href="content.header.phoneHref"
+          >
+            {{ content.header.phone }}
+          </a>
         </span>
       </div>
-      <div class="index__map">
-        <iframe
-          class="index__iframe"
-          src="https://yandex.ru/map-widget/v1/?um=constructor%3A0496edbd1df2309fbab7a02a463e11160a35220c0af3f8ddd2f4f63e3da01b8d&amp;source=constructor"
-          height="100%"
-          width="100%"
-        />
-      </div>
+      <MapIframe
+        class="index__map"
+      />
     </div>
   </div>
 </template>
 
 <script>
 import vClickOutside from 'v-click-outside'
+import MapIframe from '@/components/MapIframe'
+
 export default {
   name: 'Index',
+  Components: { MapIframe },
   directives: {
     clickOutside: vClickOutside.directive
   },
@@ -159,7 +176,17 @@ export default {
         })
       })
       return pictures
-    }
+    },
+    handleScroll (evt, el) {
+      const factor = 1.8
+      if (window.scrollY > el.offsetTop / factor) {
+        el.setAttribute(
+          'style',
+          'opacity: 1; transform: translate3d(0, -10px, 0)'
+        )
+      }
+      return window.scrollY > el.offsetTop / factor
+    },
   }
 }
 </script>
@@ -195,28 +222,30 @@ export default {
   &__title {
     display: block;
     font-weight: 600;
-    &_reserve {
-      margin-top: 0;
+    line-height: 46px;
+    font-size: 32px;
+    &_decor{
       text-decoration: underline;
     }
   }
+  &__description {
+    line-height: 26px;
+    font-weight: 200;
+    font-size: 20px;
+  }
   &__title, &__description {
     max-width: $width-tablet;
-    color: #E1F9F9;
     margin: 16px;
-    font-weight: 200;
-    line-height: 26px;
-    font-size: 16px;
     letter-spacing: 1px;
     text-align: center;
-    @media screen and (min-width: $width-mobile) {
-      font-size: 20px;
+    &_margin {
+      margin: 0;
     }
-    &_reserve {
-      margin-left: 0;
+    &_color-light {
+      color: $turquoise
     }
-    &_mod {
-      color: $black !important;
+    &_color-dark {
+      color: $black
     }
   }
   &__buttons {
@@ -224,7 +253,7 @@ export default {
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
-    //flex-direction: column;
+    padding: 18px 0;
     @media screen and (min-width: $width-mobile) {
       flex-direction: row;
     }
@@ -270,7 +299,7 @@ export default {
     display: inline;
     float: right;
     padding: 4px;
-    margin: -22px -32px 0 0;
+    margin: -22px -32px 0 auto;
     border: 2px solid rgba(0, 0, 0, 0);
     img {
       filter: invert(100%);
@@ -280,7 +309,7 @@ export default {
   }
   &__close:hover {
     cursor: pointer;
-    border: 2px solid #E1F9F9;
+    border: 2px solid $turquoise;
   }
   &__reserve-table {
     position: fixed;
@@ -294,11 +323,15 @@ export default {
     }
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
     background: rgba(166, 113, 69, 0.5);
-    color: #E1F9F9;
+    color: $turquoise;
     letter-spacing: 0.8px;
-    border: 1px solid #E1F9F9;
+    border: 1px solid $turquoise;
     padding: 32px 42px;
     margin: calc($height-header-desktop + $height-navbar-mobile + 3 * $main-margin) auto;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    flex-direction: column;
   }
   &__welcome-slogan, &__address, &__sale {
     width: 100%;
@@ -309,7 +342,29 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 18px 0;
+    padding: 38px 0;
+  }
+  &__sale-wrapper {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  &__sale-block {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 16px;
+    width: 80vw;
+    height: 70vw;
+    @media screen and (min-width: $width-tablet) {
+      width: 40vw;
+      height: 28vw;
+    }
   }
   &__gallery-container {
     display: flex;
@@ -336,7 +391,7 @@ export default {
   }
   &__menu-list-buttons {
     width: 100%;
-    height: 110vw;
+    min-height: 94vw;
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("/image/foto/index/foto-menu.jpg") no-repeat fixed left bottom;
     background-size: cover;
     @media screen and (min-width: $width-mobile) {
@@ -364,21 +419,9 @@ export default {
       margin: 8px;
     }
   }
-  &__map {
-    width: 90%;
-    height: calc(90vw / 4 * 3);
-    @media screen and (min-width: $width-mobile) {
-      width: 80%;
-      height: calc(80vw / 4 * 3);
-    }
-    @media screen and (min-width: $width-tablet) {
-      width: 60%;
-      height: calc(60vw / 4 * 3);
-    }
-    @media screen and (min-width: $width-desktop) {
-      width: 50%;
-      height: calc(50vw / 4 * 3);
-    }
-  }
+}
+.animation {
+  opacity: 0;
+  transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 </style>

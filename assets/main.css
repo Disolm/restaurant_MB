@@ -10,3 +10,10 @@
 .home-enter, .home-leave-active {
   opacity: 0;
 }
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('~assets/fonts/Montserrat-Medium.ttf') format('truetype');
+}

@@ -36,9 +36,14 @@ export default {
   },
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  // plugins: [
-  //   '~/plugins/axios'
-  // ],
+  plugins: [
+    '~/plugins/directives.js',
+  //   '~/plugins/axios',
+  //   {
+  //     src: '~/plugins/ymapPlugin.js',
+  //     mode: 'client'
+  //   }
+  ],
   axios: {
     proxy: true,
   },
