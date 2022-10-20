@@ -42,5 +42,6 @@ export default {
 
 <style lang="scss">
 .menu {
+  margin-top: 0;
 }
 </style>

@@ -42,5 +42,6 @@ export default {
 
 <style lang="scss">
 .map-bar {
+  margin-top: 0;
 }
 </style>

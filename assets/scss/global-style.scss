@@ -1,10 +1,11 @@
 // size
-$height-header-desktop: 62px;
-$height-header-mobile: 42px;
-$height-navbar-desktop: 52px;
-$height-navbar-mobile: 42px;
+$height-header-navbar-desktop: 52px;
+$height-header-navbar-mobile: 42px;
+$height-header-contact-desktop: 52px;
+$height-header-contact-mobile: 104px;
+$height-header-desktop: calc($height-header-navbar-desktop + $height-header-contact-desktop);
+$height-header-mobile: calc($height-header-navbar-mobile + $height-header-contact-mobile);
 $height-footer: 42px;
-$main-margin: 8px;
 $width-mobile: 540px;
 $width-tablet: 720px;
 $width-desktop: 1080px;
@@ -18,7 +19,10 @@ $brown: #A67145;
 $beige: #FFF2E7;
 $turquoise: #E1F9F9;
 
-//export css in js
-:export {
-  mainMargin: $main-margin;
+//mixin
+@mixin padding-top-main {
+  padding-top: $height-header-mobile;
+  @media screen and (min-width: $width-mobile) {
+    padding-top: $height-header-desktop;
+  }
 }

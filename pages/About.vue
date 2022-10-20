@@ -56,6 +56,7 @@ export default {
 
 <style lang="scss">
 .about {
+  margin-top: 0;
   &__button {
     display: inline-block;
     border-bottom: 1px solid #FFF2E7;

@@ -30,23 +30,24 @@ export default {
 }
 </script>
 <style lang="scss">
+body {
+  margin: 0;
+}
 .size {
-  height: calc(100% - $main-margin);
-  width: calc(100% - $main-margin);
+  height: 100%;
+  width: 100%;
 }
 #__nuxt, #__layout {
   height: 100%;
 }
 main {
-  height: calc(100% + $height-footer + $main-margin);
-  padding-bottom: $main-margin;
+  height: calc(100% + $height-footer);
 }
 .container {
   display: flex;
   flex-direction: column;
-  min-width: calc($width-minimal - $main-margin * 2);
+  min-width: $width-minimal;
   min-height: 100%;
-  margin: 0 auto $main-margin;
   font-size: 10px;
   font-family: Montserrat, Verdana, sans-serif;
   color: $black;
@@ -58,7 +59,10 @@ main {
     text-decoration: none;
   }
   &__header{
-    margin-bottom: calc(($height-header-desktop * 2 - $main-margin)*(-1));
+    margin-bottom: calc($height-header-mobile * (-1));
+    @media screen and (min-width: $width-mobile) {
+      margin-bottom: calc($height-header-desktop * (-1));
+    }
     z-index: 1;
   }
   &__nuxt {
@@ -66,11 +70,11 @@ main {
     display: flex;
     flex-direction: column;
     padding-bottom: $height-footer;
-    padding-top: calc($height-header-desktop + $height-navbar-mobile);
-    margin-top: calc($main-margin + 4px);
+    padding-top: $height-header-mobile;
+    margin-top:  - $height-header-mobile;
     @media screen and (min-width: $width-mobile) {
-      padding-top: calc($height-header-mobile + $height-navbar-desktop);
-      margin-top: calc($main-margin + 14px);
+      padding-top: $height-header-desktop;
+      margin-top: - $height-header-desktop;
     }
   }
   &__footer {

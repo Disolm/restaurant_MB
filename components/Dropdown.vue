@@ -19,8 +19,8 @@
     </div>
     <div
       v-if="isOpen"
-      :style="{'top': positionDropDown.top, 'right': positionDropDown.right}"
-      class="dropdown__buttons dropdown__buttons_select"
+      :class="{'dropdown__buttons_position-default': !scrollDown, 'dropdown__buttons_position-scroll': scrollDown}"
+      class="dropdown__buttons"
     >
       <nuxt-link
         v-for="button in buttons"
@@ -51,51 +51,12 @@ export default {
       type: Boolean,
       required: true,
     },
-    widthChanged: {
-      type: Number,
-      required: true,
-    }
   },
   data () {
     return {
       isOpen: false,
-      positionDropDown: {
-        top: 0,
-        right: 0
-      }
     }
   },
-  watch: {
-    scrollDown () {
-      this.positionSelects()
-    },
-    widthChanged () {
-      this.positionSelects()
-    }
-  },
-  mounted () {
-    this.positionSelects()
-  },
-  methods: {
-    positionSelects () {
-      let topPosition = 0
-      let rightPosition = 0
-      const offsetTop = this.$parent.$refs.buttonsNavbar?.offsetTop || 0
-      const clientHeight = this.$parent.$refs.buttonsNavbar?.clientHeight || 0
-      const clientWidth = this.$parent.$refs.buttonsNavbar?.clientWidth || 0
-      if (offsetTop) {
-        topPosition = clientHeight + offsetTop
-        rightPosition = (document.documentElement.clientWidth - clientWidth) / 2
-      } else {
-        topPosition = clientHeight
-        rightPosition = 0
-      }
-      this.positionDropDown = {
-        top: `${topPosition}px`,
-        right: `${rightPosition}px`,
-      }
-    }
-  }
 }
 </script>
 
@@ -103,17 +64,30 @@ export default {
 .dropdown{
   &__buttons {
     width: 170px;
-    &_select {
+    display: flex;
+    flex-direction: column-reverse;
+    z-index: 10;
+    &_position-default {
       position: absolute;
-      display: flex;
-      flex-direction: column;
-      z-index: 10;
+      right: 0;
+      top: $height-header-mobile;
+      @media screen and (min-width: $width-mobile) {
+        top: $height-header-desktop;
+      }
+    }
+    &_position-scroll {
+      position: fixed;
+      right: 0;
+      top: $height-header-navbar-mobile;
+      @media screen and (min-width: $width-mobile) {
+        top: $height-header-navbar-desktop;
+      }
     }
   }
   &__button {
     display: block;
     &_option {
-      background-color: rgba($black, calc($opacity-header-and-footer + 0.1));
+      background-color: rgba($black, calc($opacity-header-and-footer));
       box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
     }
     &_option:hover {

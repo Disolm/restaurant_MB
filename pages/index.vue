@@ -194,15 +194,12 @@ export default {
 .index {
   width: 100%;
   &__top {
-    padding-top: calc($height-header-desktop + $height-navbar-desktop);
-    //padding-bottom: calc($height-footer);
-    height: calc(100vh - $height-header-desktop - $height-navbar-desktop - $main-margin);
+    @include padding-top-main;
+    min-height: calc(100vh - $height-header-mobile);
     @media screen and (min-width: $width-mobile) {
-      margin-top: calc(0px - $height-header-mobile - $height-navbar-mobile - $main-margin - 2px);
-      height: calc(100vh - $height-header-mobile - $height-navbar-mobile + $main-margin - 2px - $height-footer);
+      min-height: calc(100vh - $height-header-desktop);
     }
     width: 100%;
-    margin-top: calc($main-margin - $height-header-desktop - $height-navbar-desktop + 2px);
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -327,7 +324,7 @@ export default {
     letter-spacing: 0.8px;
     border: 1px solid $turquoise;
     padding: 32px 42px;
-    margin: calc($height-header-desktop + $height-navbar-mobile + 3 * $main-margin) auto;
+    margin: $height-header-desktop auto;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;

@@ -35,7 +35,6 @@
           class="navbar__dropdown"
           :buttons="buttonsDataDropdown"
           :scroll-down="isShowPageup"
-          :width-changed="widthChanged"
         />
       </div>
     </div>
@@ -55,9 +54,8 @@
 
 <script>
 import buttonsData from 'static/json/buttons-menu-temp'
-import globalStyleCSS from 'assets/scss/global-style.scss'
 
-const RESERVE_MARGIN = 4
+const RESERVE_MARGIN = 8
 export default {
   name: 'Navbar',
   data () {
@@ -68,7 +66,6 @@ export default {
       widthButtons: [],
       isShowDropdownMenu: true,
       isShowPageup: false,
-      widthChanged: 0
     }
   },
   mounted () {
@@ -86,7 +83,6 @@ export default {
     },
     capacityCheck () {
       this.addButtonsInArrForNavbar()
-      this.widthChanged = window.innerWidth
       this.widthNavbar = this.$refs.buttonsNavbar?.offsetWidth || 0
       if (!this.widthNavbar) {
         return
@@ -98,19 +94,19 @@ export default {
         }
         sumWidthButtons += this.widthButtons[i]
       })
-      for (let i = this.buttonsDataNavbar.length - 1; i > 0; i--) {
-        if (this.widthNavbar < sumWidthButtons) {
-          sumWidthButtons -= this.widthButtons[i]
-          this.buttonsDataDropdown.unshift(this.buttonsDataNavbar[i])
-          this.buttonsDataNavbar.pop()
-        }
-      }
+      const buttonsDataTemp = [...this.buttonsDataNavbar]
+      buttonsDataTemp.reverse().forEach((button, i) => {
+          if (this.widthNavbar < sumWidthButtons) {
+            sumWidthButtons -= this.widthButtons[i]
+            this.buttonsDataDropdown.push(button)
+            this.buttonsDataNavbar.pop()
+          }
+      })
       this.isShowDropdownMenu = !!this.buttonsDataDropdown.length
     },
 
     addButtonPageUp () {
-      const MARGIN_TOP = parseInt(globalStyleCSS.mainMargin, 10)
-      const HEIGHT = (this.$parent.$refs.header.clientHeight + MARGIN_TOP - (this.$refs.buttonsNavbar?.clientHeight || 0))
+      const HEIGHT = (this.$parent.$refs.header.clientHeight - (this.$refs.buttonsNavbar?.clientHeight || 0))
       this.isShowPageup = HEIGHT < window.scrollY
     },
     pageup (x, y) {
@@ -126,9 +122,9 @@ export default {
   //min-width: $width-minimal;
   height: 100%;
   &__panel {
-    height: $height-navbar-mobile;
+    height: $height-header-navbar-mobile;
       @media screen and (min-width: $width-mobile) {
-    height: $height-navbar-desktop;
+    height: $height-header-navbar-desktop;
     }
   }
   &__buttons {
@@ -178,12 +174,12 @@ export default {
     position: fixed;
     margin: 0 auto;
     top: 0;
-    width: calc(100% - $main-margin * 2);
+    width: 100%;
     transform: translateX(-50%);
     left: 50%;
-    @media screen and (max-width: calc($width-minimal + $main-margin * 2)) {
+    @media screen and (max-width: $width-minimal) {
       left: calc($width-minimal / 2);
-      width: calc($width-minimal - 2 * $main-margin);
+      width: $width-minimal;
     }
     background-color: rgba($black, 1);
   }

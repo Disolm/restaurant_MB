@@ -69,7 +69,7 @@ export default {
   width: 100%;
   background: rgba($black, $opacity-header-and-footer);
   &__contacts {
-    height: $height-header-desktop;
+    height: $height-header-contact-mobile;
     display: grid;
     align-content: center;
     justify-items: center;
@@ -77,7 +77,7 @@ export default {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(2, 1fr);
     @media screen and (min-width: $width-mobile) {
-      height: $height-header-mobile;
+      height: $height-header-contact-desktop;
       grid-template-columns: repeat(3, 1fr);
       grid-template-rows: 1fr;
     }

@@ -84,7 +84,6 @@ export default {
     align-content: center;
     justify-content: space-around;
     align-items: center;
-    margin-bottom: $main-margin;
   }
   &__timetables {
     display: flex;
@@ -121,7 +120,6 @@ export default {
   }
   &__margin {
     width: 100%;
-    height: $main-margin;
     background-color: $white;
   }
 }

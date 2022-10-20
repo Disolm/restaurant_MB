@@ -112,9 +112,9 @@ export default {
     padding: 6px 0;
     margin: 0 auto;
     position: sticky;
-    top: $height-navbar-mobile;
+    top: $height-header-navbar-mobile;
     @media screen and (min-width: $width-mobile) {
-      top: $height-navbar-desktop;
+      top: $height-header-navbar-desktop;
     }
     text-decoration: underline;
     font-weight: bold;

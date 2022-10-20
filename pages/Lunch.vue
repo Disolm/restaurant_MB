@@ -42,5 +42,6 @@ export default {
 
 <style lang="scss">
 .lunch {
+  margin-top: 0;
 }
 </style>
