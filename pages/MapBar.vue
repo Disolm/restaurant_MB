@@ -10,6 +10,7 @@
     <MenuList
       :background-url="content.barMap.backgroundUrl"
       :menu-list="beverages"
+      :name-file-menu="nameFileMenu"
     />
     <DecorMenu
       :decor-url="content.barMap.decor"
@@ -27,9 +28,11 @@ export default {
   name: 'MapBar',
   Components: { MenuList, DecorMenu },
   async asyncData ({ $axios }) {
-    const mapBarApi = await $axios.$get('/json/mapBar.json')
+    const NAME_FILE_MENU = 'mapBar'
+    const MAP_BAR_API = await $axios.$get('/json/' + NAME_FILE_MENU + '.json')
     return {
-      beverages: mapBarApi
+      beverages: MAP_BAR_API,
+      nameFileMenu: NAME_FILE_MENU
     }
   },
   data () {

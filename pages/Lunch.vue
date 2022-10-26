@@ -10,6 +10,7 @@
     <MenuList
       :background-url="content.lunch.backgroundUrl"
       :menu-list="lunchMenu"
+      :name-file-menu="nameFileMenu"
     />
     <DecorMenu
       :decor-url="content.lunch.decor"
@@ -27,9 +28,11 @@ export default {
   name: 'Lunch',
   Components: { MenuList, DecorMenu },
   async asyncData ({ $axios }) {
-    const lunchApi = await $axios.$get('/json/lunch.json')
+    const NAME_FILE_MENU = 'lunch'
+    const LUNCH_API = await $axios.$get('/json/' + NAME_FILE_MENU + '.json')
     return {
-      lunchMenu: lunchApi
+      lunchMenu: LUNCH_API,
+      nameFileMenu: NAME_FILE_MENU
     }
   },
   data () {

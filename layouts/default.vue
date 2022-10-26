@@ -63,7 +63,7 @@ main {
     @media screen and (min-width: $width-mobile) {
       margin-bottom: calc($height-header-desktop * (-1));
     }
-    z-index: 1;
+    z-index: 5;
   }
   &__nuxt {
     flex: 1 0 auto;

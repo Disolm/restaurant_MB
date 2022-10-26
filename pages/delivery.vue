@@ -29,7 +29,7 @@
 import contentJson from 'static/json/content'
 
 export default {
-  name: 'Delivery',
+  name: 'delivery',
   data () {
     return {
       content: contentJson

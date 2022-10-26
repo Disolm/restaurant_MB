@@ -24,7 +24,10 @@
               :key="dish.id"
               class="menu-list__dish"
             >
-              <div class="menu-list__block-top">
+              <div
+                :key="keyItemCart"
+                class="menu-list__block-top"
+              >
                 <div class="menu-list__dish-title">
                   {{ dish.title.toUpperCase() }}
                   <template v-if="!!dish.weight">
@@ -48,6 +51,29 @@
                     <span v-if="idxP + 1 < dish.weight.length"> /</span>
                   </div>
                 </div>
+                <transition name="fade">
+                  <div v-if="isShowChangeCart"
+                       class="menu-list__change-cart-wrapper"
+                       @click="minusItemInCart(section.id, dish.id)"
+                  >
+                    <img
+                      class="menu-list__change-cart-img"
+                      :class="{'menu-list__change-cart-img_disable': itemInCart[section.id][dish.id] === MIN_ITEM_IN_CART}"
+                      src="/image/decrease.svg"
+                      alt="-"
+                      title="-"
+                    >
+                    <div class="menu-list__change-cart-input">{{ itemInCart[section.id][dish.id] }}</div>
+                    <img
+                      class="menu-list__change-cart-img"
+                      :class="{'menu-list__change-cart-img_disable': itemInCart[section.id][dish.id] === MAX_ITEM_IN_CART}"
+                      src="/image/increase.svg"
+                      alt="+"
+                      title="+"
+                      @click="addItemInCart(section.id, dish.id)"
+                    >
+                  </div>
+                </transition>
               </div>
               <div class="menu-list__block-bottom">
                 <div
@@ -84,12 +110,87 @@ export default {
         return ''
       }
     },
+    nameFileMenu: {
+      type: String,
+      required: true,
+      default () {
+        return ''
+      }
+    },
   },
   data () {
     return {
       content: contentJson,
+      isShowChangeCart: false,
+      itemInCart: {},
+      keyItemCart: 5555,
+      MAX_ITEM_IN_CART: 9,
+      MIN_ITEM_IN_CART: 0,
     }
   },
+  methods: {
+    addItemInCart (section, dish) {
+      if (this.itemInCart[section][dish] < this.MAX_ITEM_IN_CART) {
+        this.itemInCart[section][dish] += 1
+      }
+      this.keyItemCart += 1
+      this.saveCats(this.nameFileMenu, section, dish, this.itemInCart[section][dish])
+    },
+    minusItemInCart (section, dish) {
+      if (this.itemInCart[section][dish] > this.MIN_ITEM_IN_CART) {
+        this.itemInCart[section][dish] -= 1
+      }
+      this.keyItemCart += 1
+      this.saveCats(this.nameFileMenu, section, dish, this.itemInCart[section][dish])
+    },
+    createItemInCart () {
+      this.menuList.forEach(item => {
+        this.itemInCart[item.id] = {}
+        item.set.forEach(lot => {
+          const cartStorage = JSON.parse(localStorage.getItem('cart'));
+          if (cartStorage?.[this.nameFileMenu]?.[item.id]?.[lot.id]) {
+            this.itemInCart[item.id][lot.id] = cartStorage[this.nameFileMenu][item.id][lot.id]
+          } else {
+            this.itemInCart[item.id][lot.id] = 0
+          }
+        })
+      })
+      this.isShowChangeCart = true
+      localStorage.removeItem('cart');
+    },
+    saveCats(namePage, section, dish, quantity) {
+      let cartStorage = {}
+      if (localStorage.getItem('cart')) {
+      cartStorage = JSON.parse(localStorage.getItem('cart'));
+      }
+      if (cartStorage[namePage]){
+        if (cartStorage[namePage][section]) {
+          cartStorage[namePage][section] = Object.assign(cartStorage[namePage][section], {
+            [dish]: quantity,
+          })
+        } else {
+          cartStorage[namePage] = Object.assign(cartStorage[namePage], {
+            [section]: {
+              [dish]: quantity,
+            }
+          })
+        }
+      } else {
+        cartStorage = Object.assign(cartStorage, {
+          [namePage]: {
+            [section]: {
+              [dish]: quantity,
+            }
+          }
+        })
+      }
+      const parsed = JSON.stringify(cartStorage);
+      localStorage.setItem('cart', parsed);
+    },
+  },
+  mounted() {
+    this.createItemInCart()
+  }
 }
 </script>
 
@@ -112,21 +213,22 @@ export default {
     padding: 6px 0;
     margin: 0 auto;
     position: sticky;
-    top: $height-header-navbar-mobile;
+    top: calc($height-header-navbar-mobile - 1px);
     @media screen and (min-width: $width-mobile) {
-      top: $height-header-navbar-desktop;
+      top: calc($height-header-navbar-desktop - 1px);
     }
     text-decoration: underline;
     font-weight: bold;
     letter-spacing: 0.05rem;
     text-align: center;
+    z-index: 1;
   }
   //&__section-name:hover {
   //  cursor: pointer;
   //  color: #BFB8B1;
   //}
   &__dish {
-    max-width: 600px;
+    max-width: 660px;
     margin: 10px auto;
   }
   &__dish-title {
@@ -155,18 +257,48 @@ export default {
   &__dish-description {
     font-size: 10px;
     letter-spacing: 0.05rem;
-    padding-right: 60px;
+    padding-right: 120px;
   }
   &__block-top {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: flex-end;
+    align-items: center;
   }
   &__block-bottom {
     display: flex;
     flex-direction: row;
     justify-content: flex-start
+  }
+  &__change-cart-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-left: 8px;
+    z-index: 0;
+  }
+  &__change-cart-input {
+    width: 16px;
+    text-align: center;
+    font-size: 16px;
+    margin: 0 4px;
+    border: solid 1px $brown;
+    border-radius: 2px;
+    background-color: $white;
+  }
+  &__change-cart-img {
+    width: 18px;
+    height: 18px;
+    //padding: 4px;
+    &_disable {
+      opacity: 0.3;
+    }
+  }
+  &__change-cart-img:hover {
+    cursor: pointer;
+    border-radius: 9px;
+    box-shadow: 0 0 0 1px rgba($black, 0.2);
   }
 }
 .fade-enter-active, .fade-leave-active {
