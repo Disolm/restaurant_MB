@@ -5,11 +5,11 @@ $height-header-contact-desktop: 52px;
 $height-header-contact-mobile: 104px;
 $height-header-desktop: calc($height-header-navbar-desktop + $height-header-contact-desktop);
 $height-header-mobile: calc($height-header-navbar-mobile + $height-header-contact-mobile);
-$height-footer: 42px;
+$height-footer: 52px;
 $width-mobile: 540px;
 $width-tablet: 720px;
 $width-desktop: 1080px;
-$width-minimal: 400px;
+$width-minimal: 280px;
 $opacity-header-and-footer: 0.8;
 
 //color
@@ -17,6 +17,7 @@ $black: #272727;
 $white: #f4f4f4;
 $brown: #A67145;
 $beige: #FFF2E7;
+$red: #6C1616;
 $turquoise: #E1F9F9;
 
 //mixin

@@ -1,0 +1,15 @@
+<svg width="300" height="300" xmlns="http://www.w3.org/2000/svg">
+  <g class="layer">
+    <title>Layer 1</title>
+    <path d="m74.83568,218.21127c0,0 19.71831,19.95305 30.04695,19.95305c10.32864,0 91.31455,0.23474 101.17371,0c9.85915,-0.23474 28.87324,-19.48357 28.87324,-19.71831" fill="#000000" fill-opacity="0" id="svg_1" stroke="#272727" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="8"/>
+    <line fill="none" fill-opacity="0" id="svg_2" stroke="#272727" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="8" x1="65.21127" x2="245.25883" y1="217.97653" y2="217.97653"/>
+    <path d="m95.02347,217.74178c0,0 0,-19.95305 20.1878,-19.95305c20.18779,0 19.95305,19.95305 19.83568,19.83568" fill="#000000" fill-opacity="0" id="svg_3" stroke="#272727" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="8"/>
+    <path d="m135.09568,217.85915c0,0 0,-19.95305 20.18779,-19.95305c20.18779,0 19.95305,19.95305 19.83568,19.83568" fill="#000000" fill-opacity="0" id="svg_4" stroke="#272727" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="8"/>
+    <path d="m175.23652,217.85915c0,0 0,-19.95305 20.18779,-19.95305c20.18779,0 19.95305,19.95305 19.83568,19.83568" fill="#000000" fill-opacity="0" id="svg_5" stroke="#272727" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="8"/>
+    <path d="m75.07042,150.37089c0,0 -0.23474,-67.42877 80.04695,-67.60574c80.28169,-0.17698 80.04695,67.25179 79.92958,67.1633" fill="#000000" fill-opacity="0" id="svg_6" stroke="#272727" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="8"/>
+    <ellipse cx="155.35211" cy="149.66666" fill="#000000" fill-opacity="0" id="svg_7" rx="79.81221" ry="14.55399" stroke="#272727" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="8"/>
+    <path d="m144.78873,83.23474c0,0 0,-15.25822 10.56338,-15.25822c10.56338,0 9.85915,15.02347 9.74178,14.9061" fill="#000000" fill-opacity="0" id="svg_8" stroke="#272727" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="8"/>
+    <line fill="none" id="svg_9" stroke="#272727" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="5" x1="9.77654" x2="290.31749" y1="10" y2="290.54095"/>
+    <line fill="none" id="svg_12" stroke="#272727" stroke-dasharray="null" stroke-linecap="round" stroke-linejoin="bevel" stroke-width="5" x1="290.22347" x2="12.01116" y1="10.55866" y2="286.17085"/>
+  </g>
+</svg>

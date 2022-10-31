@@ -28,11 +28,5 @@
     "name": "Доставка",
     "url": "delivery",
     "page": "delivery"
-  },
-  {
-    "id": 6,
-    "name": "Корзина",
-    "url": "cart",
-    "page": "cart"
   }
 ]

@@ -271,6 +271,7 @@ export default {
     @media screen and (min-width: $width-mobile) {
       font-size: 16px;
     }
+    border-radius: 6px;
   }
   &__button:hover, &__link:hover {
     cursor: pointer;

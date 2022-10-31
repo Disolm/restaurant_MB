@@ -95,7 +95,7 @@ export default {
       cursor: pointer;
     }
     &_indent {
-      padding: 0 20px;
+      padding-right: 20px;
     }
   }
   &__link {

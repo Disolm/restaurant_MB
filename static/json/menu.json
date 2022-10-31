@@ -675,34 +675,48 @@
     "type": "Чай",
     "set": [{
       "id": 0,
-      "title": "Черный чай / зеленый чай / классический",
+      "title": "Черный чай",
       "weight": [500],
       "price": [150],
       "description": ""
-    },
+      },
       {
-        "id": 1,
+      "id": 1,
+      "title": "Зеленый чай",
+      "weight": [500],
+      "price": [150],
+      "description": ""
+      },
+      {
+        "id": 2,
+        "title": "Классический чай",
+        "weight": [500],
+        "price": [150],
+        "description": ""
+      },
+      {
+        "id": 3,
         "title": "Фирменный гранатовый",
         "weight": [500],
         "price": [290],
         "description": ""
       },
       {
-        "id": 2,
+        "id": 4,
         "title": "Имбирный травяной",
         "weight": [500],
         "price": [290],
         "description": ""
       },
       {
-        "id": 3,
+        "id": 5,
         "title": "Клюквенный цитрус",
         "weight": [500],
         "price": [290],
         "description": ""
       },
       {
-        "id": 4,
+        "id": 6,
         "title": "Облепиховый",
         "weight": [500],
         "price": [290],

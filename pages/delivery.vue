@@ -73,9 +73,9 @@ export default {
     padding: 16px;
     margin: auto 0;
     font-size: 16px;
-    line-height: 16px;
+    line-height: 22px;
     @media screen and (min-width: $width-mobile) {
-      line-height: 24px;
+      line-height: 32px;
       padding: 24px;
     }
   }
@@ -94,6 +94,7 @@ export default {
   &__link {
     text-decoration: none;
     border: 1px solid $white;
+    border-radius: 6px;
     padding: 10px;
     color: $white;
     letter-spacing: 0.8px;

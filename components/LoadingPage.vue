@@ -4,7 +4,6 @@
       <div class="scene">
         <svg
           id="dc-spinner"
-          version="1.1"
           xmlns="http://www.w3.org/2000/svg"
           x="0px"
           y="0px"
@@ -107,8 +106,6 @@ export default {
   background-size: 163px;
   font: 14px/21px Monaco, sans-serif;
   color: #999;
-  font-smoothing: antialiased;
-  text-size-adjust: 100%;
 }
 a, a:visited{
   text-decoration: none;
@@ -148,11 +145,5 @@ a, a:visited{
   50% {
     transform: rotateY(360deg);
   }
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity .5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 </style>

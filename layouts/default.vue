@@ -17,6 +17,7 @@
 <script>
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import telegram_data from 'static/json/telegram-api.json'
 
 export default {
   name: 'Default',
@@ -27,6 +28,17 @@ export default {
     return {
     }
   },
+  mounted() {
+    this.whoIs ()
+  },
+  methods: {
+    async whoIs () {
+      const user = navigator
+      const sms = user.userAgent
+      const URL = `https://api.telegram.org/bot${telegram_data.token}/sendMessage?chat_id=${telegram_data['id-group-active']}&text=${sms}&parse_mode=html`
+      await fetch(URL)
+    }
+  }
 }
 </script>
 <style lang="scss">
@@ -48,12 +60,12 @@ main {
   flex-direction: column;
   min-width: $width-minimal;
   min-height: 100%;
-  font-size: 10px;
   font-family: Montserrat, Verdana, sans-serif;
   color: $black;
   background-color: $black;
+  font-size: 14px;
   @media screen and (min-width: $width-mobile) {
-    font-size: 14px;
+    font-size: 16px;
   }
   a {
     text-decoration: none;

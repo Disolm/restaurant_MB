@@ -28,6 +28,21 @@
             {{ button.name }}
           </nuxt-link>
         </div>
+        <div
+          ref="cartInNavbar"
+          class="navbar__wrapper-button"
+        >
+          <nuxt-link
+            to="/cart"
+            class="navbar__link navbar__link_indent navbar__link_cart"
+            exact-active-class="navbar__link_active-page navbar__link_cart-active"
+          >
+            <div class="navbar__link-title-cart">
+              Корзина
+            </div>
+          </nuxt-link>
+        </div>
+
         <Dropdown
           v-if="isShowDropdownMenu"
           ref="dropdownMenu"
@@ -87,7 +102,7 @@ export default {
       if (!this.widthNavbar) {
         return
       }
-      let sumWidthButtons = RESERVE_MARGIN + Math.ceil(this.$refs.dropdownMenu?.$el.clientWidth) || 0
+      let sumWidthButtons = RESERVE_MARGIN + this.$refs.cartInNavbar.offsetWidth + (Math.ceil(this.$refs.dropdownMenu?.$el.clientWidth) || 0)
       this.buttonsDataNavbar.forEach((button, i) => {
         if (this.$refs.setButtonsRef[i]) {
           this.widthButtons[i] = this.$refs.setButtonsRef[i]?.offsetWidth || 0
@@ -106,7 +121,7 @@ export default {
     },
 
     addButtonPageUp () {
-      const HEIGHT = (this.$parent.$refs.header.clientHeight - (this.$refs.buttonsNavbar?.clientHeight || 0))
+      const HEIGHT = ((this.$parent.$refs.header?.clientHeight || 0) - (this.$refs.buttonsNavbar?.clientHeight || 0))
       this.isShowPageup = HEIGHT < window.scrollY
     },
     pageup (x, y) {
@@ -127,6 +142,9 @@ export default {
     height: $height-header-navbar-desktop;
     }
   }
+  &__wrapper-button {
+    height: 90%;
+  }
   &__buttons {
     height: 100%;
     display: flex;
@@ -136,12 +154,15 @@ export default {
     align-items: center;
   }
   &__link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     text-decoration: none;
     height: 100%;
     white-space: nowrap;
     color: $white;
     &_indent {
-      padding: 6px 18px;
+      padding: 0 12px;
       border-bottom: 2px solid rgba(255, 255, 255, 0);
     }
     &_indent:hover {
@@ -151,6 +172,17 @@ export default {
     }
     &_active-page {
       color: $brown;
+    }
+    &_cart {
+      padding-right: 40px;
+      height: 100%;
+      background-image: url("/image/food-cart.svg");
+      background-repeat: no-repeat;
+      background-size: 36px 30px;
+      background-position: center right;
+    }
+    &_cart:hover, &_cart-active  {
+      background-image: url("/image/food-cart-active.svg");
     }
   }
   &__pageup {
