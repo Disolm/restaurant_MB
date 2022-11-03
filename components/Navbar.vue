@@ -31,6 +31,7 @@
         <div
           ref="cartInNavbar"
           class="navbar__wrapper-button"
+          v-if="isShowCart"
         >
           <nuxt-link
             to="/cart"
@@ -59,7 +60,7 @@
       @click="pageup(0,0)"
     >
       <img
-        src="/image/pageup.svg"
+        src="/image/icon/pageup.svg"
         alt="Вверх"
         title="Вверх"
       >
@@ -83,6 +84,11 @@ export default {
       isShowPageup: false,
     }
   },
+  computed: {
+    isShowCart() {
+      return this.$store.state.cart.isShowCart
+    }
+  },
   mounted () {
     this.addButtonsInArrForNavbar()
     this.$nextTick(() => {
@@ -102,7 +108,7 @@ export default {
       if (!this.widthNavbar) {
         return
       }
-      let sumWidthButtons = RESERVE_MARGIN + this.$refs.cartInNavbar.offsetWidth + (Math.ceil(this.$refs.dropdownMenu?.$el.clientWidth) || 0)
+      let sumWidthButtons = RESERVE_MARGIN + (this.$refs.cartInNavbar?.offsetWidth || 0) + (Math.ceil(this.$refs.dropdownMenu?.$el.clientWidth) || 0)
       this.buttonsDataNavbar.forEach((button, i) => {
         if (this.$refs.setButtonsRef[i]) {
           this.widthButtons[i] = this.$refs.setButtonsRef[i]?.offsetWidth || 0
@@ -176,13 +182,13 @@ export default {
     &_cart {
       padding-right: 40px;
       height: 100%;
-      background-image: url("/image/food-cart.svg");
+      background-image: url("/image/icon/food-cart.svg");
       background-repeat: no-repeat;
       background-size: 36px 30px;
       background-position: center right;
     }
     &_cart:hover, &_cart-active  {
-      background-image: url("/image/food-cart-active.svg");
+      background-image: url("/image/icon/food-cart-active.svg");
     }
   }
   &__pageup {

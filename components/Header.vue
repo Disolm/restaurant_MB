@@ -125,11 +125,11 @@ export default {
     }
     &_phone {
       padding-left: 22px;
-      background-image: url("/image/icon-phone.svg");
+      background-image: url("/image/icon/icon-phone.svg");
       background-repeat: no-repeat;
     }
     &_phone:hover {
-      background-image: url("/image/icon-phone-hover.svg");
+      background-image: url("/image/icon/icon-phone-hover.svg");
     }
   }
   &__contact:hover {
@@ -137,7 +137,7 @@ export default {
     border-bottom: 2px solid $brown !important;
     cursor: pointer;
     &_phone:hover {
-      background-image: url("/image/icon-phone-hover.svg");
+      background-image: url("/image/icon/icon-phone-hover.svg");
     }
   }
   &__address-full {

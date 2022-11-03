@@ -3,14 +3,24 @@
     <div class="cart__wrapper">
       <div class="cart__container">
         <div class="cart__header">
-          <!--        <h5 class="cart__title">"Корзина" в разработке, для офрмления заказа звоните по 311-04-24</h5>-->
-          <h5 class="cart__title">Корзина</h5>
-          <div
-            @click="clearOut"
-            v-if="!emptyBasket"
-            class="cart__clear-cart"
-            key="clearOut"
-          />
+          <h5 class="cart__title">"Корзина" в разработке, для офрмления заказа позвоните по 311-04-24</h5>
+<!--          <h5 class="cart__title">Корзина</h5>-->
+
+          <div>
+            <input
+              type="checkbox"
+              key="checkbox"
+              class="cart__checkbox-cart-on"
+              v-model="checked"
+            >
+            <div>Вкл корз</div>
+            <div
+              @click="clearOut"
+              v-if="!emptyBasket"
+              class="cart__clear-cart"
+              key="clearOut"
+            />
+          </div>
         </div>
         <template>
         <transition name="fade" mode="out-in">
@@ -77,7 +87,6 @@
         class="cart__form-wrapper"
       >
         <template>
-        <transition name="slide-fade" mode="out-in">
           <div
             v-if="!emptyBasket"
             class="cart__form"
@@ -119,30 +128,32 @@
               {{ validError ? 'Ошибка ввода данных' : 'Оформить заказ' }}
             </button>
           </div>
-          <div
-            v-else-if="statusMessage === 200 && emptyBasket"
-            class="cart__form"
-            key="statusMessageGood"
-          >
+          <transition-group name="slide-fade" mode="in-out">
             <div
-              class="cart__status-send-message cart__statusSendMessage_good"
+              v-if="statusMessage === 200 && emptyBasket"
+              class="cart__form"
+              key="statusMessageGood"
             >
-              Заказ отправлен<br><br>
-              Ожидайте звонка от аминистратора ресторана для подтверждения заказа
+              <div
+                class="cart__status-send-message cart__statusSendMessage_good"
+              >
+                Заказ отправлен<br><br>
+                Ожидайте звонка от аминистратора ресторана для подтверждения заказа
+              </div>
             </div>
-          </div>
-          <div
-            v-else-if="statusMessage !== 200 && statusMessage !== 0 && emptyBasket"
-            class="cart__form"
-            key="statusMessageError"
-          >
             <div
-              class="cart__status-send-message cart__statusSendMessage_bead"
+              v-if="statusMessage !== 200 && statusMessage !== ''"
+              class="cart__form"
+              key="statusMessageError"
             >
-              Ошибка отправки заказа
+              <div
+                class="cart__status-send-message cart__statusSendMessage_bead"
+              >
+                Ошибка отправки заказа #{{ statusMessage }}<br>
+                Оформите заказ по телефону <br> 311-04-24
+              </div>
             </div>
-          </div>
-        </transition>
+          </transition-group>
         </template>
       </div>
     </div>
@@ -167,7 +178,7 @@ export default {
         cart: '',
       },
       loading: true,
-      statusMessage: 0,
+      statusMessage: '',
       textCart: [],
       fullCart: false,
       validError: false,
@@ -178,7 +189,17 @@ export default {
       cartKey: 0,
       total: 0,
       discount: 0.1,
-      emptyBasket: false,
+      emptyBasket: true,
+    }
+  },
+  computed: {
+    checked: {
+      get() {
+        return this.$store.state.cart.isShowCart
+      },
+      set(val) {
+        this.$store.commit('cart/invertState', val)
+      }
     }
   },
   methods: {
@@ -200,10 +221,12 @@ export default {
         .then(response => {this.statusMessage = response.status})
         .catch(error => console.log(error))
         .finally(() => this.loading = false)
-      this.message = {name:'', phone: '', comment: '', cart: ''}
-      localStorage.removeItem('cart')
-      this.loadingItemInCart()
-      this.cartKey += 1
+      if (this.statusMessage === 200) {
+        this.message = {name:'', phone: '', comment: '', cart: ''}
+        localStorage.removeItem('cart')
+        this.loadingItemInCart()
+        this.cartKey += 1
+      }
     },
     composeTextForMessage () {
       const date = new Date().toLocaleString()
@@ -309,7 +332,7 @@ export default {
   margin: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient( rgba(256, 256, 256, 0.8), rgba(0, 0, 0, 0.5) ),url("/image/background-cart.jpg") 0 0 repeat;
+  background: linear-gradient( rgba(256, 256, 256, 0.8), rgba(0, 0, 0, 0.5) ),url("/image/background/background-cart.jpg") 0 0 repeat;
   &__empty-basket {
     margin: 16px auto;
     font-size: 18px;
@@ -357,11 +380,12 @@ export default {
     }
   }
   &__clear-cart {
+    flex-shrink: 0;
     border: solid 1px $white;
     margin: 2px;
     border-radius: 6px;
     background-color: rgba($white, 0.5);
-    background-image: url("/image/food-cart-clear.svg");
+    background-image: url("/image/icon/food-cart-clear.svg");
     background-size: cover;
     width: 32px;
     height: 32px;

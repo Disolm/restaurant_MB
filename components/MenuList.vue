@@ -86,7 +86,7 @@
                       <img
                         class="menu-list__change-cart-img"
                         :class="{'menu-list__change-cart-img_disable': itemInCart[section.id][dish.id][0] === MIN_ITEM_IN_CART}"
-                        src="/image/decrease.svg"
+                        src="/image/icon/decrease.svg"
                         alt="-"
                         title="-"
                         @click="changeItemInCart(section.id, dish.id, -1, itemInCart[section.id][dish.id][1])"
@@ -95,7 +95,7 @@
                       <img
                         class="menu-list__change-cart-img"
                         :class="{'menu-list__change-cart-img_disable': itemInCart[section.id][dish.id][0] === MAX_ITEM_IN_CART}"
-                        src="/image/increase.svg"
+                        src="/image/icon/increase.svg"
                         alt="+"
                         title="+"
                         @click="changeItemInCart(section.id, dish.id, +1, itemInCart[section.id][dish.id][1])"
@@ -149,13 +149,23 @@ export default {
       MIN_ITEM_IN_CART: 0,
     }
   },
+  // computed: {
+  //   isShowChangeCart() {
+  //     // return this.$store.getters['cart/getStatus']
+  //     return true
+  //   }
+  // },
+
   methods: {
+    // log() {
+    //   console.log(this.$store.state.cart.isShowCart)
+    // },
     changeItemInCart (section, dish, operator, choice) {
       const quantityOld = this.itemInCart[section][dish][0]
       this.itemInCart[section][dish][1] = choice
       if (operator === 1 && quantityOld < this.MAX_ITEM_IN_CART) {
         this.itemInCart[section][dish][0] += 1
-      } else if  (operator === -1 && quantityOld > this.MIN_ITEM_IN_CART) {
+      } else if (operator === -1 && quantityOld > this.MIN_ITEM_IN_CART) {
         this.itemInCart[section][dish][0] -= 1
       } else {
         this.keyItemCart += 1
@@ -179,7 +189,7 @@ export default {
           }
         })
       })
-      this.isShowChangeCart = true
+      this.isShowChangeCart = this.$store.state.cart.isShowCart
     },
     saveCats(namePage, section, dish, quantity, choice) {
       let cartStorage = {}

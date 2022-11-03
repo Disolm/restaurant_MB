@@ -7,13 +7,13 @@
       <img
         v-if="isOpen"
         class="dropdown__img"
-        src="/image/menu-off.svg"
+        src="/image/icon/menu-off.svg"
         alt=""
       >
       <img
         v-else
         class="dropdown__img"
-        src="/image/menu-on.svg"
+        src="/image/icon/menu-on.svg"
         alt=""
       >
     </div>

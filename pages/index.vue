@@ -34,7 +34,7 @@
             class="index__close"
             @click="isShowReserveTable = false"
           >
-            <img src="/image/close.svg" alt="close">
+            <img src="/image/icon/close.svg" alt="close">
           </div>
           <h3 class="index__description index__title_decor">
             {{ content.index.reserveTable.title }}

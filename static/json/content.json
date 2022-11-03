@@ -101,25 +101,25 @@
   },
   "menu": {
     "currency": "р",
-    "backgroundUrl": "image/background-menu.jpg",
-    "decor": "image/grape.svg"
+    "backgroundUrl": "image/background/background-menu.jpg",
+    "decor": "image/icon/grape.svg"
   },
   "barMap": {
     "currency": "р",
-    "backgroundUrl": "image/background-bar.png",
-    "decor": "image/glasses.svg"
+    "backgroundUrl": "image/background/background-bar.png",
+    "decor": "image/icon/glasses.svg"
   },
   "lunch": {
     "currency": "р",
-    "backgroundUrl": "image/background-lunch.png",
-    "decor": "image/khinkali.svg"
+    "backgroundUrl": "image/background/background-lunch.png",
+    "decor": "image/icon/khinkali.svg"
   },
   "about": {
     "showMap": "показать на карте",
     "hideMap": "скрыть карту"
   },
   "delivery": {
-    "background": "image/background-delivery.png",
+    "background": "image/background/background-delivery.png",
     "title": "Megobari предоставляет возможность заказать грузинские блюда от нашего шеф повара с доставкой на дом с помощью сервиса наших партнёров, а так же Вы можете сделать заказ на сайте или по телефону и забрать заказ из ресторана со скидкой 10%",
     "details": "Подробности стоимости и времени доставки или самовывоза можно уточнить у менеджера по телефону.",
     "buttons": [
