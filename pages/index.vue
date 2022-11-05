@@ -393,13 +393,13 @@ export default {
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("/image/foto/index/foto-menu.jpg") no-repeat fixed left bottom;
     background-size: cover;
     @media screen and (min-width: $width-mobile) {
-      height: calc(90vw / 4 * 3);
+      height: calc(90vh / 4 * 3);
     }
     @media screen and (min-width: $width-tablet) {
-      height: calc(80vw / 4 * 3);
+      height: calc(80vh / 4 * 3);
     }
     @media screen and (min-width: $width-desktop) {
-      height: calc(70vw / 4 * 3);
+      height: calc(70vh / 4 * 3);
     }
     display: flex;
     flex-direction: column;
