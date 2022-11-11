@@ -3,9 +3,13 @@
     class="delivery"
   >
     <div class="delivery__wrapper">
-      <div class="delivery__title">
-        {{ content.delivery.title }}
-      </div>
+      <transition name="slide-fade">
+        <template v-if="isLoading">
+          <div class="delivery__title" :key="keyTitle">
+            {{ content.delivery.title }}
+          </div>
+        </template>
+      </transition>
       <div class="delivery__buttons">
         <div
           v-for="button in content.delivery.buttons"
@@ -26,15 +30,23 @@
 </template>
 
 <script>
-import contentJson from 'static/json/content'
-
 export default {
   name: 'delivery',
-  data () {
+  async asyncData ({ $axios }) {
+    const contentApi = await $axios.$get('/json/content.json')
     return {
-      content: contentJson
+      content: contentApi
     }
   },
+  data () {
+    return {
+      isLoading: false,
+      keyTitle: 0,
+    }
+  },
+  mounted() {
+    this.isLoading = true
+  }
 }
 </script>
 
@@ -66,7 +78,7 @@ export default {
     background: rgba($black, 0.2);
     box-shadow: 0 0 50px rgba($black, 0.5);
     border-radius: 32px;
-    color: white;
+    color: $white;
     letter-spacing: 1px;
     font-weight: 400;
     grid-area: 1 / 2 / 2 / 3;

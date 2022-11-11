@@ -1,63 +1,74 @@
 <template>
   <div class="index">
     <div class="index__top">
-      <div
-        v-if="!isShowReserveTable"
-        class="index__info"
-      >
-        <h1 class="index__title index__title_color-light">
-          {{ content.index.title }}
-        </h1>
-        <h2 class="index__description index__description_color-light">
-          {{ content.index.description }}
-        </h2>
-        <div class="index__buttons">
-          <div
-            v-for="button in content.index.buttons"
-            :key="button.id"
-            class="index__button"
-            @click="clickButtons(button.title)"
-          >
-            {{ button.title }}
+        <div
+          v-if="!isShowReserveTable"
+          class="index__info animation-fade"
+          v-scroll="{handleScroll, type:'fade'}"
+          key="info"
+        >
+          <h1 class="index__title index__title_color-light">
+            {{ content.index.title }}
+          </h1>
+          <h2 class="index__description index__description_color-light">
+            {{ content.index.description }}
+          </h2>
+          <div class="index__buttons">
+            <div
+              v-for="button in content.index.buttons"
+              :key="button.id"
+              class="index__button"
+              @click="clickButtons(button.title)"
+            >
+              {{ button.title }}
+            </div>
           </div>
         </div>
-      </div>
-      <div
-        v-if="isShowReserveTable"
-        class="index__wrapper-RF"
-      >
+      <transition name="fade" mode="out-in">
         <div
-          v-click-outside="onClickOutside"
-          class="index__reserve-table"
+          v-if="isShowReserveTable"
+          class="index__wrapper-RF"
+          key="reserve-table"
         >
           <div
-            class="index__close"
-            @click="isShowReserveTable = false"
+            v-click-outside="onClickOutside"
+            class="index__reserve-table"
           >
-            <img src="/image/icon/close.svg" alt="close">
-          </div>
-          <h3 class="index__description index__title_decor">
-            {{ content.index.reserveTable.title }}
-          </h3>
-          <h5 class="index__description index__description">
-            {{ content.index.reserveTable.content }}
-          </h5>
-          <a
-            class="index__description index__link"
-            :href="content.header.phoneHref"
-          >
-            <div class="index__button-title">
-              {{ content.header.phone }}
+            <div
+              class="index__close"
+              @click="isShowReserveTable = false"
+            >
+              <img src="/image/icon/close.svg" alt="close">
             </div>
-          </a>
+            <h3 class="index__description index__title_decor">
+              {{ content.index.reserveTable.title }}
+            </h3>
+            <h5 class="index__description">
+              {{ content.index.reserveTable.content }}
+            </h5>
+            <a
+              class="index__description index__link"
+              :href="content.header.phoneHref"
+            >
+              <div class="index__button-title">
+                {{ content.header.phone }}
+              </div>
+            </a>
+          </div>
         </div>
-      </div>
+      </transition>
     </div>
     <div class="index__welcome-slogan">
-      <h3 class="index__title index__title_color-dark">
+      <h3
+        v-scroll="{handleScroll, type:'slide-fade'}"
+        class="index__title index__title_color-dark animation-slide"
+      >
         {{ content.index.headline.toUpperCase() }}
       </h3>
-      <h5 class="index__description index__description_color-dark">
+      <h5
+        v-scroll="{handleScroll, type:'slide-fade'}"
+        class="index__description index__description_color-dark animation-slide"
+      >
         {{ content.index.welcomeSlogan }}
       </h5>
     </div>
@@ -65,28 +76,41 @@
       <img
         v-for="picture in getPictures()"
         :key="picture.id"
-        v-scroll="handleScroll"
-        class="index__picture animation"
+        v-scroll="{handleScroll, type:'fade'}"
+        class="index__picture animation-fade"
         :src="picture.src"
         :alt="content.index.title"
+        @click="openModalImage(picture.id)"
       >
     </div>
-    <div class="index__menu-list-buttons">
-      <h3 class="index__title index__title_color-light">
-        {{ content.index.menuInfo.title.toUpperCase() }}
-      </h3>
-      <h5 class="index__description index__description_color-light">
-        {{ content.index.menuInfo.description }}
-      </h5>
-      <div class="index__buttons index__buttons_positions">
-        <nuxt-link
-          v-for="button in content.index.menuInfo.buttonsMenu"
-          :key="button.id"
-          class="index__button"
-          :to="button.url"
-        >
-          {{ button.title }}
-        </nuxt-link>
+    <ModalImage
+      :array-src-images = "getPictures()"
+      :index-image-active = "indexImageActive"
+      :is-active-modal = "isActiveModal"
+      @modalClose = "isActiveModal = $event"
+      @newIndex = "indexImageActive = $event"
+    />
+    <div class="index__menu-list-wrapper">
+      <div
+        v-scroll="{handleScroll, type:'slide-fade'}"
+        class="index__menu-list-buttons animation-slide"
+      >
+        <h3 class="index__title index__title_color-light">
+          {{ content.index.menuInfo.title.toUpperCase() }}
+        </h3>
+        <h5 class="index__description index__description_color-light">
+          {{ content.index.menuInfo.description }}
+        </h5>
+        <div class="index__buttons index__buttons_positions">
+          <nuxt-link
+            v-for="button in content.index.menuInfo.buttonsMenu"
+            :key="button.id"
+            class="index__button"
+            :to="button.url"
+          >
+            {{ button.title }}
+          </nuxt-link>
+        </div>
       </div>
     </div>
     <div class="index__sale">
@@ -110,8 +134,42 @@
         </div>
       </div>
     </div>
+    <div class="index__show-program">
+      <div
+        v-scroll="{handleScroll, type:'slide-fade'}"
+        class="index__left-block animation-slide"
+      >
+        <div class="index__title index__title_color-light">
+          {{ content.index.showProgram.title }}
+        </div>
+        <div class="index__description index__description_color-light">
+          {{ content.index.showProgram.description }}
+        </div>
+        <div class="index__buttons">
+          <nuxt-link
+            class="index__button"
+            :to="content.index.showProgram.url"
+          >
+            {{ content.index.showProgram.more }}
+          </nuxt-link>
+        </div>
+      </div>
+      <div class="index__right-block">
+        <div
+          v-scroll="{handleScroll, type:'fade'}"
+          class="index__picture index__show-program-img-block index__show-program-img-block_one animation-fade"
+        />
+        <div
+          v-scroll="{handleScroll, type:'fade'}"
+          class="index__picture index__show-program-img-block index__show-program-img-block_two animation-fade"
+        />
+      </div>
+    </div>
     <div class="index__address">
-      <div class="index__address-title index__title index__title_color-dark">
+      <div
+        v-scroll="{handleScroll, type:'slide-fade'}"
+        class="index__address-title index__title index__title_color-dark animation-slide"
+      >
         {{ content.index.address.title }}
       </div>
       <div class="index__address-description index__description index__description_color-dark">
@@ -135,6 +193,7 @@
 </template>
 
 <script>
+const ARRAY_LENGTH_GALLERY = 9
 import vClickOutside from 'v-click-outside'
 import MapIframe from '@/components/MapIframe'
 
@@ -152,7 +211,10 @@ export default {
   },
   data () {
     return {
-      isShowReserveTable: false
+      fade: 'fade',
+      isShowReserveTable: false,
+      isActiveModal: false,
+      indexImageActive: 0,
     }
   },
   methods: {
@@ -168,24 +230,40 @@ export default {
       this.isShowReserveTable = false
     },
     getPictures () {
-      const pictures = [...Array(12)]
+      const pictures = [...Array(ARRAY_LENGTH_GALLERY)]
       pictures.forEach((pic, i) => {
         pictures[i] = Object.assign({}, {
-          src: `/image/gallery/${i}.JPG`,
+          src: `/image/gallery-index/${i}.JPG`,
           id: i
         })
       })
       return pictures
     },
-    handleScroll (evt, el) {
-      const factor = 1.8
-      if (window.scrollY > el.offsetTop / factor) {
-        el.setAttribute(
-          'style',
-          'opacity: 1; transform: translate3d(0, -10px, 0)'
-        )
+    openModalImage(indexImg) {
+      this.indexImageActive = indexImg
+      this.isActiveModal = true
+    },
+    handleScroll (evt, el, type) {
+      const HEIGHT_UP_ON = el.offsetTop - window.innerHeight * 0.8
+      const HEIGHT_UP_OFF = el.offsetTop - window.innerHeight * 0.7
+      const HEIGHT_DOWN_ON = el.offsetTop
+      const HEIGHT_DOWN_OFF = el.offsetTop - window.innerHeight * 0.1
+      if (window.scrollY > HEIGHT_UP_ON && window.scrollY < HEIGHT_DOWN_ON) {
+        if (type === 'fade') {
+          el.setAttribute(
+            'style',
+            // 'opacity: 1; transform: translate3d(0, -10px, 0);'
+            'opacity: 1;'
+          )
+        }
+        if (type === 'slide-fade') {
+          el.setAttribute(
+            'style',
+            'opacity: 1; transform: translateX(0);'
+          )
+        }
       }
-      return window.scrollY > el.offsetTop / factor
+      return window.scrollY > HEIGHT_UP_OFF && window.scrollY < HEIGHT_DOWN_OFF
     },
   }
 }
@@ -250,6 +328,7 @@ export default {
     flex-wrap: wrap;
     align-content: flex-start;
     justify-content: center;
+    text-align: center;
     padding: 18px 0;
     @media screen and (min-width: $width-mobile) {
       flex-direction: row;
@@ -266,14 +345,19 @@ export default {
     margin: 14px;
     color: $white;
     letter-spacing: 0.8px;
-    font-size: 14px;
+    font-size: 16px;
     background-color: rgba($black, 0.2);
     @media screen and (min-width: $width-mobile) {
-      font-size: 16px;
+      font-size: 20px;
     }
     border-radius: 6px;
   }
   &__button:hover, &__link:hover {
+    cursor: pointer;
+    border: 1px solid $brown;
+  }
+  &__button:active, &__link:active {
+    color: $brown;
     cursor: pointer;
     border: 1px solid $brown;
   }
@@ -358,7 +442,7 @@ export default {
     justify-content: center;
     margin: 16px;
     width: 80vw;
-    height: 70vw;
+    height: 70vh;
     @media screen and (min-width: $width-tablet) {
       width: 40vw;
       height: 28vw;
@@ -369,11 +453,13 @@ export default {
     flex-wrap: wrap;
     flex-direction: row;
     justify-content: center;
+    align-items: center;
     width: 90%;
     margin: 0 auto;
     padding: 44px 0;
   }
   &__picture {
+    border-radius: 6px;
     margin: 12px;
     width: 80vw;
     height: 70vw;
@@ -387,20 +473,62 @@ export default {
     }
     object-fit: cover;
   }
+  &__picture:hover {
+    cursor: pointer;
+    -webkit-filter: sepia(100%);
+    filter: sepia(100%);
+  }
+  &__show-program {
+    width: calc(100% - 22px * 2);
+    padding: 44px 22px;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("static/image/foto/index/bg-show-program.jpg") no-repeat center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    @media screen and (min-width: $width-tablet) {
+      flex-direction: row;
+      max-height: 70vh;
+    }
+  }
+  &__left-block {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  &__right-block {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: row;
+    @media screen and (min-width: $width-tablet) {
+      flex-direction: column;
+    }
+  }
+  &__show-program-img-block {
+    border: solid 4px $white;
+    border-radius: 2px;
+    &_one {
+      background: url("static/image/foto/index/photo_one.jpg") no-repeat center;
+      background-size: cover;
+    }
+    &_two {
+      background: url("static/image/foto/index/photo_two.jpg") no-repeat center;
+      background-size: cover;
+    }
+  }
+  &__menu-list-wrapper {
+    width: 100%;
+    height: 80vh;
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("static/image/foto/index/foto-menu.jpg") no-repeat fixed left bottom;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+  }
   &__menu-list-buttons {
     width: 100%;
-    min-height: 94vw;
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("/image/foto/index/foto-menu.jpg") no-repeat fixed left bottom;
-    background-size: cover;
-    @media screen and (min-width: $width-mobile) {
-      height: calc(90vh / 4 * 3);
-    }
-    @media screen and (min-width: $width-tablet) {
-      height: calc(80vh / 4 * 3);
-    }
-    @media screen and (min-width: $width-desktop) {
-      height: calc(70vh / 4 * 3);
-    }
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -417,9 +545,5 @@ export default {
       margin: 8px;
     }
   }
-}
-.animation {
-  opacity: 0;
-  transition: 1.5s all cubic-bezier(0.39, 0.575, 0.565, 1);
 }
 </style>

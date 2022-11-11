@@ -149,17 +149,7 @@ export default {
       MIN_ITEM_IN_CART: 0,
     }
   },
-  // computed: {
-  //   isShowChangeCart() {
-  //     // return this.$store.getters['cart/getStatus']
-  //     return true
-  //   }
-  // },
-
   methods: {
-    // log() {
-    //   console.log(this.$store.state.cart.isShowCart)
-    // },
     changeItemInCart (section, dish, operator, choice) {
       const quantityOld = this.itemInCart[section][dish][0]
       this.itemInCart[section][dish][1] = choice

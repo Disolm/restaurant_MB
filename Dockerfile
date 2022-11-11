@@ -1,4 +1,5 @@
-FROM node:lts as builder
+#FROM node:lts as builder
+FROM node:16.16.0 as builder
 
 WORKDIR /app
 
@@ -19,7 +20,8 @@ RUN rm -rf node_modules && \
   --non-interactive \
   --production=true
 
-FROM node:lts
+#FROM node:lts
+FROM node:16.16.0
 
 WORKDIR /app
 

@@ -24,6 +24,12 @@
     "page": "MapBar"
   },
   {
+    "id": 4,
+    "name": "Шоу-программа",
+    "url": "show-program",
+    "page": "showProgram"
+  },
+  {
     "id": 5,
     "name": "Доставка",
     "url": "delivery",
