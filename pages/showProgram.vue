@@ -4,7 +4,7 @@
       <div class="show-program__left-top-block"/>
       <transition-group name="slide-fade" class="show-program__right-top-block">
         <template v-if="isLoading">
-          <div class="show-program__title" :key="keyTitle">
+          <div class="show-program__title" key="keyTitle">
             {{ content.showProgram.title }}
           </div>
           <div
@@ -60,7 +60,6 @@ export default {
       isActiveModal: false,
       isLoading: false,
       indexImageActive: 0,
-      keyTitle: 5000,
       images: [...Array(ARRAY_LENGTH_GALLERY)]
     }
   },
@@ -72,7 +71,7 @@ export default {
       this.images.forEach((pic, i) => {
         this.images[i] = Object.assign({},
           {
-            src: `/image/gallery-show-program/${i}.jpg`,
+            src: `/image/gallery-show/${i}.jpg`,
             id: i,
           })
       })
@@ -93,7 +92,7 @@ export default {
   margin-top: 0;
   width: 100%;
   height: auto;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("/image/background/background-show-program.jpg") 20% 20%;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url("/image/background/background-show-program.jpg") 20% 20%;
   background-size: cover;
   transition: height 0.75s ease-in;
   @media screen and (min-width: $width-mobile) {

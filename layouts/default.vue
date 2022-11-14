@@ -1,13 +1,13 @@
 <template>
   <main>
     <div class="container">
-      <Header
+      <TheHeader
         class="container__header"
       />
       <nuxt
         class="container__nuxt"
       />
-      <Footer
+      <TheFooter
         class="container__footer"
       />
     </div>
@@ -15,8 +15,8 @@
 </template>
 
 <script>
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import Header from '@/components/TheHeader'
+import Footer from '@/components/TheFooter'
 import telegram_data from 'static/json/telegram-api.json'
 
 export default {

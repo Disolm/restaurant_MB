@@ -3,21 +3,6 @@
     class="yandex-map"
   >
     <div
-      v-if="showMap"
-      class="yandex-map__api"
-    >
-      <client-only>
-        <yandex-map
-          ref="mapyndx"
-          class="ymap"
-          :coords="[82.922951,55.035083]"
-          zoom="17"
-          :settings="settings"
-        />
-      </client-only>
-    </div>
-    <div
-      v-else
       class="yandex-map__iframe-container"
     >
       <a
@@ -42,7 +27,6 @@
         ref="iframeYandexMap"
         class="yandex-map__iframe"
         src="https://yandex.ru/map-widget/v1/-/CCUVeXU4~A"
-        fullscreen="true"
         style="position:relative;"
         height="100%"
         width="100%"
@@ -55,30 +39,11 @@
 </template>
 
 <script>
-import { yandexMap, loadYmap } from 'vue-yandex-maps'
-// import { yandexMap, ymapMarker, loadYmap } from 'vue-yandex-maps'
 
 export default {
   name: 'MapIframe',
-  components: { yandexMap },
-  // components: { yandexMap, ymapMarker },
   data () {
-    return {
-      showMap: false,
-      // coords: [],
-      // zoom: '17',
-      settings: {
-        apiKey: '1aa3908a-3f47-4582-9583-596b1dca9ec1',
-        lang: 'ru_RU',
-        coordorder: 'latlong',
-        enterprise: false,
-        version: '2.1'
-      },
-    }
-  },
-  async updated () {
-    await loadYmap(this.settings)
-    // this.showMap = true
+    return {}
   },
 }
 </script>

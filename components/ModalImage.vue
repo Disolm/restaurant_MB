@@ -17,7 +17,7 @@
         <div class="modal-image__img-wrapper">
           <img
             class="modal-image__img"
-            :src="arraySrcImages[indexImageActive].src"
+            :src="arraySrcImages[indexImageActive]?.src || ''"
             alt=""
           >
         </div>
@@ -73,14 +73,14 @@ export default {
   computed: {
     classActiveModalOverlay() {
       return {
-        activeModalOverlay: this.isActiveModal === true,
-        inActiveModalOverlay: this.isActiveModal === false,
+        'modal-image__overlay_active': this.isActiveModal === true,
+        'modal-image__overlay_inactive': this.isActiveModal === false,
       };
     },
     classActiveModalWindow() {
       return {
-        activeModalWindow: this.isActiveModal === true,
-        inActiveModalWindow: this.isActiveModal === false,
+        'modal-image__window_active': this.isActiveModal === true,
+        'modal-image__window_inactive': this.isActiveModal === false,
       };
     },
   },
@@ -98,6 +98,18 @@ export default {
     right: 0;
     left: 0;
     bottom: 0;
+    &_active {
+      opacity: 1;
+      z-index: 500;
+      background: rgba($black, 1);
+      transition: background .4s ease-in;
+    }
+    &_inactive {
+      opacity: 0;
+      z-index: -10;
+      background: rgba($black, 0);
+      transition: all .2s ease-out;
+    }
   }
   &__window {
     height: 100%;
@@ -106,15 +118,21 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    &_active {
+      transform: translateY(0);
+      transition: transform .4s ease-in;
+    }
+    &_inactive {
+      transform: translateY(-500px);
+      transition: transform .2s ease-out;
+    }
   }
   &__img {
     max-width: 100%;
     min-height: 0;
-    max-height: 80%;
+    max-height: 80vh;
   }
   &__close {
-    //width: 10%;
-    //height: 10%;
     position: fixed;
     top: 10px;
     right: 10px;
@@ -157,7 +175,6 @@ export default {
   }
   &__next:hover, &__back:hover {
     cursor: pointer;
-    //background-color: rgba($white, 0.5);
   }
   &__next:active, &__back:active {
     cursor: pointer;
@@ -167,42 +184,6 @@ export default {
       -webkit-animation: flash 1.5s;
       animation: flash 1.5s;
     }
-  }
-}
-.activeModalOverlay {
-  opacity: 1;
-  z-index: 500;
-  background: rgba($black, 1);
-  transition: background .2s ease-in;
-}
-.inActiveModalOverlay {
-  opacity: 0;
-  z-index: -10;
-  background: rgba($black, 0);
-  transition: all .2s ease-out;
-}
-.activeModalWindow {
-  transform: translateY(0);
-  transition: transform .2s ease-in;
-}
-.inActiveModalWindow {
-  transform: translateY(-400px);
-  transition: transform .2s ease-out;
-}
-@-webkit-keyframes flash {
-  0% {
-    opacity: .4;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes flash {
-  0% {
-    opacity: .4;
-  }
-  100% {
-    opacity: 1;
   }
 }
 </style>

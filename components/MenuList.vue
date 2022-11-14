@@ -17,7 +17,8 @@
         </div>
         <transition name="fade">
           <div
-            v-if="!section.isShow"
+            :key="'section' + section.id"
+            v-if="section.isShow"
           >
             <div
               v-for="dish in section.set"
@@ -226,6 +227,11 @@ export default {
     },
   },
   mounted() {
+    this.menuList.forEach((item, i) => {
+      setTimeout(() => {
+        item.isShow = true
+      }, 200 * i)
+    })
     this.createItemInCart()
   }
 }

@@ -39,18 +39,12 @@
     "id": 6,
     "name": "Галерея",
     "url": "photo-gallery",
-    "page": "PhotoGallery"
+    "page": "photoGallery"
   },
   {
     "id": 7,
     "name": "Банкеты",
     "url": "feast",
-    "page": "Feast"
-  },
-  {
-    "id": 8,
-    "name": "О нас",
-    "url": "About",
-    "page": "about"
+    "page": "feast"
   }
 ]

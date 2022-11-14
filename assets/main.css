@@ -5,6 +5,20 @@
   opacity: 0;
 }
 
+.fade-enter-active {
+  transition-delay: 200ms;
+  animation: delayShow 200ms normal forwards step-end;
+}
+
+@keyframes delayShow {
+  0% {
+    position: absolute;
+  }
+  100% {
+    position: static;
+  }
+}
+
 .slide-fade-enter-active {
   transition: all .9s ease;
 }
@@ -45,4 +59,20 @@
   font-weight: 400;
   font-display: swap;
   src: url('~assets/fonts/Montserrat-Medium.ttf') format('truetype');
+}
+@-webkit-keyframes flash {
+  0% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: .4;
+  }
+  100% {
+    opacity: 1;
+  }
 }

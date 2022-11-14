@@ -47,7 +47,7 @@ import timetable from 'static/json/timetable'
 import content from 'static/json/content'
 
 export default {
-  name: 'Footer',
+  name: 'TheFooter',
   data () {
     return {
       socialNetworkWebsite: content.footer['social-network-website']

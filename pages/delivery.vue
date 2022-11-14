@@ -5,7 +5,7 @@
     <div class="delivery__wrapper">
       <transition name="slide-fade">
         <template v-if="isLoading">
-          <div class="delivery__title" :key="keyTitle">
+          <div class="delivery__title" key="keyTitle">
             {{ content.delivery.title }}
           </div>
         </template>
@@ -41,7 +41,6 @@ export default {
   data () {
     return {
       isLoading: false,
-      keyTitle: 0,
     }
   },
   mounted() {
@@ -59,7 +58,7 @@ export default {
   align-items: stretch;
   justify-content: flex-start;
   position: relative;
-  background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("static/image/foto/delivery/6835f3d7-d6d9-4cfe-a0ad-048654cc81c8.jpg") no-repeat center;
+  background: linear-gradient( rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.4) ), url("static/image/background/background-delivery.jpg") no-repeat center;
   background-size: cover;
   &__wrapper {
     height: 100%;
@@ -122,10 +121,6 @@ export default {
   }
   &__void {
     grid-area: 1 / 1 / 3 / 2;
-  }
-  &__img {
-    width: 90%;
-    height: 90%;
   }
 }
 </style>

@@ -69,11 +69,13 @@
 </template>
 
 <script>
-import buttonsData from 'static/json/buttons-menu-temp'
+import buttonsData from 'static/json/buttons-menu.json'
+import Dropdown from '@/components/Dropdown';
 
 const RESERVE_MARGIN = 8
 export default {
-  name: 'Navbar',
+  name: 'TheNavbar',
+  Components: { Dropdown },
   data () {
     return {
       widthNavbar: 0,
@@ -197,15 +199,24 @@ export default {
     right: 40px;
     z-index: 50;
     img {
+      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+      border-radius: 18px;
       width: 32px;
       height: 32px;
-      border-radius: 18px;
-      box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+      @media screen and (min-width: $width-tablet) {
+        border-radius: 32px;
+        width: 64px;
+        height: 64px;
+      }
+
     }
   }
   &__pageup:hover {
     img {
       height: 36px;
+      @media screen and (min-width: $width-tablet) {
+        height: 70px;
+      }
     }
   }
   &__scroll-down {

@@ -35,16 +35,16 @@
         </div>
       </a>
     </div>
-    <Navbar />
+    <TheNavbar />
   </div>
 </template>
 
 <script>
 import content from 'static/json/content'
-import Navbar from '@/components/Navbar'
+import TheNavbar from '@/components/TheNavbar'
 export default {
-  name: 'Header',
-  Components: { Navbar },
+  name: 'TheHeader',
+  Components: { TheNavbar },
   data () {
     return {
       address: content.header.address,

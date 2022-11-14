@@ -83,6 +83,23 @@
         @click="openModalImage(picture.id)"
       >
     </div>
+    <div class="index__translations-container">
+      <div
+        v-scroll="{handleScroll, type:'fade'}"
+        class="animation-fade"
+      >
+        <h2 class="index__title index__title_color-dark">
+          {{ content.index.translations.title }}
+        </h2>
+        <h4
+          v-for="(title, idx) in content.index.translations.contetn"
+          :key="idx"
+          class="index__translation index__description index__description_color-dark"
+        >
+          {{ title }}
+        </h4>
+      </div>
+    </div>
     <ModalImage
       :array-src-images = "getPictures()"
       :index-image-active = "indexImageActive"
@@ -118,20 +135,22 @@
         {{ content.index.sale.title.toUpperCase() }}
       </h3>
       <div class="index__sale-wrapper">
-        <div
-          v-for="sale in content.index.sale.description"
-          :key="sale.id"
-          class="index__sale-block"
-          :style="{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${sale.url}`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}"
-        >
-          <h5
-            v-for="(t, idx) in sale.titles"
-            :key="idx"
-            class="index__description index__description_color-light index__description_margin"
+        <client-only>
+          <div
+            v-for="sale in content.index.sale.descriptionsForImg"
+            :key="sale.id"
+            class="index__sale-block"
+            :style="{backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(${sale.url}`, backgroundPosition: 'center', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}"
           >
-            {{ t }}
-          </h5>
-        </div>
+            <h5
+              v-for="(title, idx) in sale.titles"
+              :key="idx"
+              class="index__description index__description_color-light index__description_margin"
+            >
+              {{ title }}
+            </h5>
+          </div>
+        </client-only>
       </div>
     </div>
     <div class="index__show-program">
@@ -185,9 +204,11 @@
           </a>
         </span>
       </div>
-      <MapIframe
-        class="index__map"
-      />
+      <client-only>
+        <MapIframe
+          class="index__map"
+        />
+      </client-only>
     </div>
   </div>
 </template>
@@ -415,7 +436,7 @@ export default {
     justify-content: center;
     flex-direction: column;
   }
-  &__welcome-slogan, &__address, &__sale {
+  &__welcome-slogan, &__address, &__sale, &__translations-container {
     width: 100%;
     min-height: 200px;
     background: $white;

@@ -16,8 +16,8 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/icon.ico' }
     ],
     bodyAttrs: {
-      class: ['size'],
-    },
+      class: ['size']
+    }
   },
   // loading: '~/components/LoadingPage.vue',
   loading: {
@@ -37,15 +37,11 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~/plugins/directives.js',
+    '~/plugins/directives.js'
   //   '~/plugins/axios',
-  //   {
-  //     src: '~/plugins/ymapPlugin.js',
-  //     mode: 'client'
-  //   }
   ],
   axios: {
-    proxy: true,
+    proxy: true
   },
   proxy: {
     // Simple proxy
@@ -62,7 +58,7 @@ export default {
   buildModules: [
     // https://go.nuxtjs.dev/eslint
     '@nuxtjs/style-resources',
-    '@nuxtjs/pwa',
+    '@nuxtjs/pwa'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -75,14 +71,14 @@ export default {
   },
   server: {
     port: 3000,
-    host: '0.0.0.0',
+    host: '0.0.0.0'
   },
   pwa: {
-    // meta: {
-    //   name: 'Megobari',
-    //   theme_color: '#A67145',
-    //   lang: 'ru',
-    // },
+    meta: {
+      name: 'Megobari',
+      theme_color: '#A67145',
+      lang: 'ru'
+    },
     icon: {
       icons: [64, 120, 144, 152, 192, 384, 512],
       purpose: 'any'
@@ -96,7 +92,7 @@ export default {
       background_color: '#A67145',
       theme_color: '#f4f4f4',
       lang: 'ru',
-      useWebmanifestExtension: false,
+      useWebmanifestExtension: false
     },
     workbox: {
     }

@@ -1,5 +1,8 @@
 <template>
-  <div class="dropdown">
+  <div
+    v-click-outside="onClickOutside"
+    class="dropdown"
+  >
     <div
       class="dropdown__button dropdown__button_indent"
       @click="isOpen = !isOpen"
@@ -37,8 +40,13 @@
 </template>
 
 <script>
+import vClickOutside from 'v-click-outside'
+
 export default {
   name: 'Dropdown',
+  directives: {
+    clickOutside: vClickOutside.directive
+  },
   props: {
     buttons: {
       type: Array,
@@ -57,6 +65,11 @@ export default {
       isOpen: false,
     }
   },
+  methods: {
+    onClickOutside () {
+      this.isOpen = false
+    }
+  }
 }
 </script>
 
