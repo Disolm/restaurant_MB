@@ -176,11 +176,11 @@
       <div class="index__right-block">
         <div
           v-scroll="{handleScroll, type:'fade'}"
-          class="index__picture index__show-program-img-block index__show-program-img-block_one animation-fade"
+          class="index__picture index__picture_inactive index__show-program-img-block index__show-program-img-block_one animation-fade"
         />
         <div
           v-scroll="{handleScroll, type:'fade'}"
-          class="index__picture index__show-program-img-block index__show-program-img-block_two animation-fade"
+          class="index__picture index__picture_inactive index__show-program-img-block index__show-program-img-block_two animation-fade"
         />
       </div>
     </div>
@@ -479,6 +479,11 @@ export default {
     margin: 0 auto;
     padding: 44px 0;
   }
+  &__picture:hover {
+    cursor: pointer;
+    -webkit-filter: sepia(100%);
+    filter: sepia(100%);
+  }
   &__picture {
     border-radius: 6px;
     margin: 12px;
@@ -493,11 +498,9 @@ export default {
       height: 28vw;
     }
     object-fit: cover;
-  }
-  &__picture:hover {
-    cursor: pointer;
-    -webkit-filter: sepia(100%);
-    filter: sepia(100%);
+    &_inactive:hover {
+      cursor: default;
+    }
   }
   &__show-program {
     width: calc(100% - 22px * 2);
