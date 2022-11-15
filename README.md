@@ -17,53 +17,15 @@ $ npm run start
 $ npm run generate
 ```
 
-For detailed explanation on how things work, check out the [documentation](https://nuxtjs.org).
+## Описание проекта. 
 
-## Special Directories
+Данный проект является действующим и запущенным на арендованном сервере, где установлен Docker и Nginx.
+Работу данного проекта можно посмотреть по ссылке [megobari-nsk.ru](https://megobari-nsk.ru)
 
-You can create the following extra directories, some of which have special behaviors. Only `pages` is required; you can delete them if you don't want to use their functionality.
+У сайта реализована [корзина](https://megobari-nsk.ru/cart) и отправка заказа в открытую(временно) телеграмм [группу](https://t.me/MegobariOrderTable), но так как заказчик посчитал, что данный функционал не нужен, то сейчас страница корзины скрыта и выключен функционал добавления блюд в заказ.  
+Если Вы хотите ознакомиться с функционалом, то нужно зайти на страницу [корзины](https://megobari-nsk.ru/cart) и включить эту функцию, после этого можно зайти на страницу [меню](https://megobari-nsk.ru/Menu) и выбрать блюда, а потом можно отправить заказ в открытую телеграмм группу (там нет администратора ресторана, поэтому ваш заказ никто не примет).
+Данный функционал не убран, так как в дальнейшем он может понадобиться, но и не доделан так как сейчас не нужен. 
 
-### `assets`
+Поэтому у сайьа был реализован модуль **PWA**, чтобы с приложения телефона можно было заказывать блюда с доставкой.
 
-The assets directory contains your uncompiled assets such as Stylus or Sass files, images, or fonts.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/assets).
-
-### `components`
-
-The components directory contains your Vue.js components. Components make up the different parts of your page and can be reused and imported into your pages, layouts and even other components.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/components).
-
-### `layouts`
-
-Layouts are a great help when you want to change the look and feel of your Nuxt app, whether you want to include a sidebar or have distinct layouts for mobile and desktop.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/layouts).
-
-
-### `pages`
-
-This directory contains your application views and routes. Nuxt will read all the `*.vue` files inside this directory and setup Vue Router automatically.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/get-started/routing).
-
-### `plugins`
-
-The plugins directory contains JavaScript plugins that you want to run before instantiating the root Vue.js Application. This is the place to add Vue plugins and to inject functions or constants. Every time you need to use `Vue.use()`, you should create a file in `plugins/` and add its path to plugins in `nuxt.config.js`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/plugins).
-
-### `static`
-
-This directory contains your static files. Each file inside this directory is mapped to `/`.
-
-Example: `/static/robots.txt` is mapped as `/robots.txt`.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/static).
-
-### `store`
-
-This directory contains your Vuex store files. Creating a file in this directory automatically activates Vuex.
-
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/docs/2.x/directory-structure/store).
+В проекте были применены SSR, Vuex, axios, БЭМ, SOLID, directive, SCSS
