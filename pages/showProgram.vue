@@ -45,7 +45,7 @@
 </template>
 
 <script>
-const ARRAY_LENGTH_GALLERY = 10
+const ARRAY_LENGTH_GALLERY = 20
 
 export default {
   name: 'show-program',

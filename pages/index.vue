@@ -107,7 +107,7 @@
       @modalClose = "isActiveModal = $event"
       @newIndex = "indexImageActive = $event"
     />
-    <div class="index__menu-list-wrapper">
+    <div class="index__menu-list-container">
       <div
         v-scroll="{handleScroll, type:'slide-fade'}"
         class="index__menu-list-buttons animation-slide"
@@ -130,7 +130,7 @@
         </div>
       </div>
     </div>
-    <div class="index__sale">
+    <div class="index__sale-container">
       <h3 class="index__title index__title_color-dark">
         {{ content.index.sale.title.toUpperCase() }}
       </h3>
@@ -205,9 +205,7 @@
         </span>
       </div>
       <client-only>
-        <MapIframe
-          class="index__map"
-        />
+        <MapIframe class="index__map"/>
       </client-only>
     </div>
   </div>
@@ -217,10 +215,11 @@
 const ARRAY_LENGTH_GALLERY = 9
 import vClickOutside from 'v-click-outside'
 import MapIframe from '@/components/MapIframe'
+import ModalImage from '@/components/ModalImage';
 
 export default {
   name: 'Index',
-  Components: { MapIframe },
+  Components: { MapIframe, ModalImage },
   directives: {
     clickOutside: vClickOutside.directive
   },
@@ -436,7 +435,7 @@ export default {
     justify-content: center;
     flex-direction: column;
   }
-  &__welcome-slogan, &__address, &__sale, &__translations-container {
+  &__welcome-slogan, &__address, &__sale-container, &__translations-container {
     width: 100%;
     min-height: 200px;
     background: $white;
@@ -543,7 +542,7 @@ export default {
       background-size: cover;
     }
   }
-  &__menu-list-wrapper {
+  &__menu-list-container {
     width: 100%;
     height: 80vh;
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url("static/image/foto/index/foto-menu.jpg") no-repeat fixed left bottom;

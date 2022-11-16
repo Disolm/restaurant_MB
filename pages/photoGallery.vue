@@ -45,7 +45,7 @@
 <script>
 const ARRAY_LENGTH_GALLERY_FOOD = 33
 const ARRAY_LENGTH_GALLERY_ROOM = 24
-const ARRAY_LENGTH_GALLERY_SHOW = 10
+const ARRAY_LENGTH_GALLERY_SHOW = 20
 
 export default {
   name: "photoGallery",
