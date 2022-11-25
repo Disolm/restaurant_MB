@@ -72,6 +72,7 @@
         {{ content.index.welcomeSlogan }}
       </h5>
     </div>
+    <BannerOnIndexPage />
     <div class="index__gallery-container">
       <img
         v-for="picture in getPictures()"

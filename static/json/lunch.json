@@ -77,6 +77,12 @@
         "weight": [200],
         "price": [195],
         "description": ""
+      },{
+        "id": 4,
+        "title": " Суп из баранины",
+        "weight": [250],
+        "price": [250],
+        "description": ""
       }
     ]
   },
@@ -124,27 +130,39 @@
         "description": ""
       },{
         "id": 6,
+        "title": "Говядина по-грузински",
+        "weight": [150],
+        "price": [275],
+        "description": ""
+      },{
+        "id": 7,
         "title": "Эскалоп из свинины",
         "weight": [130],
         "price": [210],
         "description": ""
       },{
-        "id": 7,
+        "id": 8,
         "title": "Соло из говядины",
         "weight": [110],
         "price": [270],
         "description": ""
       },{
-        "id": 8,
-        "title": "Хинкали  с бараниной 3шт",
+        "id": 9,
+        "title": "Хинкали с бараниной 3шт",
         "weight": [300],
         "price": [220],
         "description": ""
       },{
-        "id": 9,
-        "title": "Хинкали  с грибами 3шт",
+        "id": 10,
+        "title": "Хинкали с грибами 3шт",
         "weight": [300],
         "price": [220],
+        "description": ""
+      },{
+        "id": 11,
+        "title": "Хинкали рыбные 3шт",
+        "weight": [300],
+        "price": [240],
         "description": ""
       }
     ]
@@ -200,14 +218,30 @@
         "weight": [185],
         "price": [200],
         "description": ""
-      },{
+      },
+      {
         "id": 1,
         "title": "Хачапури по–аджарски",
         "weight": [200],
         "price": [200],
         "description": ""
-      },{
+      },
+      {
         "id": 2,
+        "title": "Хачапури по–гурийски",
+        "weight": [200],
+        "price": [250],
+        "description": ""
+      },
+      {
+        "id": 3,
+        "title": "Хачапури из слоёного теста",
+        "weight": [200],
+        "price": [230],
+        "description": ""
+      },
+      {
+        "id": 4,
         "title": "Хлеб Шоти",
         "weight": [50],
         "price": [25],

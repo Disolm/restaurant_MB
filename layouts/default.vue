@@ -34,7 +34,7 @@ export default {
   methods: {
     async whoIs () {
       const user = navigator
-      const sms = user.userAgent
+      const sms = user.userAgentData.platform + ' ' + user.vendor + ' ' + user.userAgent
       const URL = `https://api.telegram.org/bot${telegram_data.token}/sendMessage?chat_id=${telegram_data['id-group-active']}&text=${sms}&parse_mode=html`
       await fetch(URL)
     }

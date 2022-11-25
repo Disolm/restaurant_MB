@@ -5,9 +5,15 @@
         <transition-group name="slide-fade" tag="div" class="feast__titles">
           <template v-if="isLoading">
             <div
-              v-for="(title, idx) in content.feast.titles"
               class="feast__title"
-              :key="idx"
+              key="title"
+            >
+              {{ content.feast.title }}
+            </div>
+            <div
+              v-for="title in content.feast.descriptions"
+              class="feast__description"
+              :key="title"
             >
               {{ title }}
             </div>
@@ -49,9 +55,6 @@ export default {
   data () {
     return {
       isLoading: false,
-      isActiveModal: false,
-      indexImageActive: 0,
-      images: [],
     }
   },
   mounted() {
@@ -73,11 +76,11 @@ export default {
   align-items: center;
   &__wrapper {
     width: calc(100% - 24px);
-    padding: 22px 12px 0 12px;
+    padding: 22px 12px $height-footer 12px;
     flex: 1 0 auto;
     background-color: rgba($black, 0.4);
     @media screen and (min-width: $width-tablet) {
-      padding: 42px 12px 0 12px;
+      padding: 42px 12px $height-footer 12px;
     }
   }
   &__grid {
@@ -93,6 +96,9 @@ export default {
     grid-area: 1 / 2 / 2 / 3;
   }
   &__title {
+    margin-bottom: 32px;
+  }
+  &__title, &__description {
     background: rgba($black, 0.2);
     box-shadow: 0 0 50px rgba($black, 0.5);
     border-radius: 32px;
@@ -100,7 +106,6 @@ export default {
     letter-spacing: 0.8px;
     font-weight: 400;
     padding: 0 16px;
-    margin: 16px 0;
     font-size: 16px;
     line-height: 22px;
     @media screen and (min-width: $width-mobile) {
