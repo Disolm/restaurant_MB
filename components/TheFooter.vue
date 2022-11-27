@@ -64,7 +64,7 @@ export default {
         return `${content.footer.from}
       ${open} ${content.footer.to} ${close}`
       } else {
-        return `${content.footer.lunch}`
+        return dayOfWeek === 0 || dayOfWeek === 6 ? '' : `${content.footer.lunch}`
       }
     },
   }
