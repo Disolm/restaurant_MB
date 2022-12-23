@@ -24,6 +24,15 @@ export default {
   Components: {
     Footer, Header
   },
+  head() {
+    return {
+      script: [
+        {
+          // src: 'https://widgets.2gis.com/js/DGWidgetLoader.js'
+        },
+      ]
+    }
+  },
   data () {
     return {
     }

@@ -10,6 +10,10 @@
   animation: delayShow 200ms normal forwards step-end;
 }
 
+.flip-list-move {
+  transition: transform 1s;
+}
+
 @keyframes delayShow {
   0% {
     position: absolute;

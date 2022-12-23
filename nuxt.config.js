@@ -17,7 +17,14 @@ export default {
     ],
     bodyAttrs: {
       class: ['size']
-    }
+    },
+    scrypt: [
+      {
+        charset: "utf-8",
+        src: "https://widgets.2gis.com/js/DGWidgetLoader.js",
+        async: true
+      }
+    ]
   },
   // loading: '~/components/LoadingPage.vue',
   loading: {

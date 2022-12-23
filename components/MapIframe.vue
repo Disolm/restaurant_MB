@@ -1,40 +1,42 @@
 <template>
   <div
-    class="yandex-map"
+    id="map"
+    class="map"
   >
-    <div
-      class="yandex-map__iframe-container"
-    >
-      <a
-        href="https://yandex.ru/maps/org/megobari/198770147175/"
-        style="color: #c2c2c2; font-size: 12px; position: absolute; top: 0;"
-      >
-        Megobari
+    <div class="dg-widget-link map__dg-widget-link">
+      <a class="map__link"
+         href="http://2gis.ru/novosibirsk/firm/70000001040265022/center/82.92195081710817,55.03554840462446/zoom/16?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=bigMap">
+        Посмотреть на карте Новосибирска
       </a>
-      <a
-        href="https://yandex.ru/maps/65/novosibirsk/category/cafe/184106390/"
-        style="color: #c2c2c2; font-size: 12px; position: absolute; top:14px;"
-      >
-        Кафе в Новосибирске
-      </a>
-      <a
-        href="https://yandex.ru/maps/65/novosibirsk/category/banquet_hall/184108315/"
-        style="color: #c2c2c2; font-size: 12px; position: absolute; top: 28px;"
-      >
-        Банкетный зал в Новосибирске
-      </a>
-      <iframe
-        ref="iframeYandexMap"
-        class="yandex-map__iframe"
-        src="https://yandex.ru/map-widget/v1/-/CCUVeXU4~A"
-        style="position:relative;"
-        height="100%"
-        width="100%"
-      />
-      <p style="margin: 20%; z-index: -1; padding: 22px; background-color: #A67145; border-radius: 22px">
-        Browser blocked Yandex map
-      </p>
     </div>
+    <div class="dg-widget-link map__dg-widget-link">
+      <a class="map__link"
+         href="http://2gis.ru/novosibirsk/firm/70000001040265022/photos/70000001040265022/center/82.92195081710817,55.03554840462446/zoom/17?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=photos">
+        Фотографии компании
+      </a>
+    </div>
+    <div class="dg-widget-link map__dg-widget-link">
+      <a class="map__link"
+         href="http://2gis.ru/novosibirsk/center/82.922458,55.035128/zoom/16/routeTab/rsType/bus/to/82.922458,55.035128╎Megobari, ресторан-кафе?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">
+        Найти проезд до Megobari, ресторан-кафе
+      </a>
+    </div>
+    <br>
+    <!--      <script charset="utf-8" src="https://widgets.2gis.com/js/DGWidgetLoader.js"></script>-->
+    <iframe frameborder="no" style="border: 1px solid #a3a3a3; box-sizing: border-box;" width="100%" height="100%"
+            src="https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22pos%22%3A%7B%22lat%22%3A55.03554840462446%2C%22lon%22%3A82.92195081710817%2C%22zoom%22%3A16%7D%2C%22opt%22%3A%7B%22city%22%3A%22novosibirsk%22%7D%2C%22org%22%3A%2270000001040265022%22%7D">
+    </iframe>
+    <!--    <script charset="utf-8">new DGWidgetLoader({-->
+    <!--      width: '100%',-->
+    <!--      height: '100%',-->
+    <!--      borderColor: '#a3a3a3',-->
+    <!--      pos: {'lat': 55.03554840462446, 'lon': 82.92195081710817, 'zoom': 16},-->
+    <!--      opt: {'city': 'novosibirsk'},-->
+    <!--      org: [{'id': '70000001040265022'}]-->
+    <!--    });</script>-->
+    <!--    <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в-->
+    <!--      настройках вашего браузера.-->
+    <!--    </noscript>-->
   </div>
 </template>
 
@@ -42,36 +44,45 @@
 
 export default {
   name: 'MapIframe',
-  data () {
-    return {}
-  },
 }
 </script>
 
 <style lang="scss">
-.yandex-map {
+.map {
+  --pading: 16px;
   display: flex;
   flex-direction: column;
   margin: 22px auto;
-  width: 90%;
-  height: calc(90vw / 4 * 3);
+  padding: var(--pading);
+  border: 2px solid rgba($brown, .4);
+  border-radius: 8px;
+  background: rgba($turquoise, .1);
+  width: calc(95% - var(--pading));
+  height: calc(95vw / 4 * 3);
   @media screen and (min-width: $width-mobile) {
+    width: calc(85% - var(--pading));
+    height: calc(85vw / 4 * 3);
+  }
+  @media screen and (min-width: $width-tablet) {
     width: 80%;
     height: calc(80vw / 4 * 3);
   }
-  @media screen and (min-width: $width-tablet) {
+  @media screen and (min-width: $width-desktop) {
     width: 60%;
     height: calc(60vw / 4 * 3);
   }
-  @media screen and (min-width: $width-desktop) {
-    width: 50%;
-    height: calc(50vw / 4 * 3);
+  &__dg-widget-link {
+    margin-bottom: .2rem;
   }
-  &__iframe-container {
-    flex: 1;
-    position: relative;
-    overflow: hidden;
-    background: url("/image/foto/index/yandex-map.jpg");
+  &__link {
+    text-decoration: none;
+    color: $brown;
+    &:hover {
+      color: $red;
+    }
+    &:active {
+      color: rgba($red, .5);
+    }
   }
 }
 </style>

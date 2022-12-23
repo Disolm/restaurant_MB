@@ -172,11 +172,11 @@ export default {
     &_indent {
       padding: 0 12px;
       border-bottom: 2px solid rgba(255, 255, 255, 0);
-    }
-    &_indent:hover {
-      color: $brown;
-      border-bottom: 2px solid $brown;
-      cursor: pointer;
+      &:hover {
+        color: $brown;
+        border-bottom: 2px solid $brown;
+        cursor: pointer;
+      }
     }
     &_active-page {
       color: $brown;
@@ -210,12 +210,12 @@ export default {
       }
 
     }
-  }
-  &__pageup:hover {
-    img {
-      height: 36px;
-      @media screen and (min-width: $width-tablet) {
-        height: 70px;
+    &:hover {
+      img {
+        height: 36px;
+        @media screen and (min-width: $width-tablet) {
+          height: 70px;
+        }
       }
     }
   }

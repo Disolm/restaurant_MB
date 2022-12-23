@@ -110,13 +110,13 @@ export default {
   }
   &__logo {
     padding: 2px;
-    margin-right: 5px;
+    margin-right: 8px;
   }
   &__img {
     background-color: #ffffff;
-    border-radius: 10px;
-    max-width: 20px;
-    max-height: 20px;
+    border-radius: 16px;
+    max-width: 32px;
+    max-height: 32px;
   }
   &__margin {
     width: 100%;

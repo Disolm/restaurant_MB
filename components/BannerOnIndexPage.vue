@@ -2,7 +2,7 @@
   <div class="banner-on-index-page">
     <transition name="fade">
       <div
-        v-if="isShow"
+        v-if="isShowBanner"
         :key="content.id"
         class="banner-on-index-page__wrapper"
       >
@@ -91,18 +91,12 @@ export default {
       isShow: false,
     }
   },
-  created() {
-    this.bannerRelevance()
-  },
-  methods: {
-    bannerRelevance() {
+  computed: {
+    isShowBanner() {
       const dateNow = new Date()
       const dateOff = new Date(this.content.dateOff.yearFull, this.content.dateOff.month - 1, this.content.dateOff.day +1)
-      this.isShow = dateOff > dateNow
+      return dateOff > dateNow
     }
-  },
-  computed: {
-
   }
 
 }

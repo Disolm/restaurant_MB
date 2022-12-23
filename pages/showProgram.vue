@@ -28,8 +28,33 @@
             <div
               @click="openModalImage(picture.id)"
               class="show-program__picture"
-              :style="{backgroundImage: `url(${picture.src}`, backgroundPosition: '50% 30%', backgroundRepeat: 'no-repeat', backgroundSize: 'cover'}"
-            />
+            >
+              <picture>
+                <source
+                  media="(min-width:768px)"
+                  :srcset="picture.srcAvif"
+                  type="image/avif"
+                >
+                <source
+                  media="(min-width:768px)"
+                  :srcset="picture.src"
+                  type="image/jpg"
+                >
+                <source
+                  :srcset="picture.srcMiniAvif"
+                  type="image/avif"
+                >
+                <source
+                  :srcset="picture.srcMini"
+                  type="image/jpg"
+                >
+                <img
+                  :src="picture.src"
+                  alt="megobari"
+                  class="show-program__img"
+                >
+              </picture>
+            </div>
           </div>
         </div>
       </div>
@@ -72,6 +97,9 @@ export default {
         this.images[i] = Object.assign({},
           {
             src: `/image/gallery-show/${i}.jpg`,
+            srcAvif: `/image/gallery-show/${i}.avif`,
+            srcMini: `/image/gallery-show/${i}-mini.jpg`,
+            srcMiniAvif: `/image/gallery-show/${i}-mini.avif`,
             id: i,
           })
       })
@@ -187,11 +215,20 @@ export default {
     filter: sepia(0);
     -webkit-transition: .3s ease-in-out;
     transition: .3s ease-in-out;
+    overflow: hidden;
+    background: linear-gradient( rgba($turquoise, 0.1), rgba($turquoise, 0.5) ), url("/loading-gif.gif") no-repeat center;
+    background-size: 15%;
+    &:hover {
+      cursor: pointer;
+      -webkit-filter: sepia(100%);
+      filter: sepia(100%);
+    }
   }
-  &__picture:hover {
-    cursor: pointer;
-    -webkit-filter: sepia(100%);
-    filter: sepia(100%);
+  &__img {
+    display: block;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
   }
 }
 </style>

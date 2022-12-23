@@ -74,15 +74,22 @@
     </div>
     <BannerOnIndexPage />
     <div class="index__gallery-container">
-      <img
+      <picture
         v-for="picture in getPictures()"
         :key="picture.id"
-        v-scroll="{handleScroll, type:'fade'}"
-        class="index__picture animation-fade"
-        :src="picture.src"
-        :alt="content.index.title"
-        @click="openModalImage(picture.id)"
       >
+        <source
+          :srcset="picture.srcAvif"
+          type="image/avif"
+        >
+        <img
+          v-scroll="{handleScroll, type:'fade'}"
+          class="index__picture animation-fade"
+          :src="picture.src"
+          :alt="content.index.title"
+          @click="openModalImage(picture.id)"
+        >
+      </picture>
     </div>
     <div class="index__translations-container">
       <div
@@ -148,7 +155,7 @@
               :key="idx"
               class="index__description index__description_color-light index__description_margin"
             >
-              {{ title }}
+              {{ title.toUpperCase() }}
             </h5>
           </div>
         </client-only>
@@ -206,7 +213,10 @@
         </span>
       </div>
       <client-only>
-        <MapIframe class="index__map"/>
+        <MapIframe
+          class="index__map animation-slide"
+          v-scroll="{handleScroll, type:'slide-fade'}"
+        />
       </client-only>
     </div>
   </div>
@@ -255,6 +265,7 @@ export default {
       pictures.forEach((pic, i) => {
         pictures[i] = Object.assign({}, {
           src: `/image/gallery-index/${i}.JPG`,
+          srcAvif: `/image/gallery-index/${i}.avif`,
           id: i
         })
       })
@@ -463,7 +474,7 @@ export default {
     justify-content: center;
     margin: 16px;
     width: 80vw;
-    height: 70vh;
+    height: 70vw;
     @media screen and (min-width: $width-tablet) {
       width: 40vw;
       height: 28vw;
