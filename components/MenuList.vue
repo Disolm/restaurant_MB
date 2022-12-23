@@ -228,9 +228,9 @@ export default {
   },
   mounted() {
     this.menuList.forEach((item, i) => {
-      setTimeout(() => {
+      // setTimeout(() => {
         item.isShow = true
-      }, 200 * i)
+      // }, 200 * i)
     })
     this.createItemInCart()
   }
