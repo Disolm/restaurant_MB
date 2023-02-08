@@ -305,9 +305,13 @@ export default {
   width: 100%;
   &__top {
     @include padding-top-main;
+    background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4) ), url("static/image/background/background-index-small.jpg") no-repeat center;
+    background-size: cover;
     min-height: calc(100vh - $height-header-mobile);
     @media screen and (min-width: $width-mobile) {
       min-height: calc(100vh - $height-header-desktop);
+      background: linear-gradient( rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.4) ), url("static/image/background/background-index-big.jpg") no-repeat center;
+      background-size: cover;
     }
     width: 100%;
     display: flex;
@@ -315,8 +319,6 @@ export default {
     align-items: stretch;
     justify-content: flex-start;
     position: relative;
-    background: url("static/image/foto/index/Megobari-index_2x.jpg") no-repeat center;
-    background-size: cover;
   }
   &__info {
     padding: 22px;
@@ -378,7 +380,7 @@ export default {
     color: $white;
     letter-spacing: 0.8px;
     font-size: 16px;
-    background-color: rgba($black, 0.2);
+    background-color: rgba($black, 0.3);
     @media screen and (min-width: $width-mobile) {
       font-size: 20px;
     }
@@ -414,7 +416,7 @@ export default {
     float: right;
     padding: 4px;
     margin: -22px -32px 0 auto;
-    border: 2px solid rgba(0, 0, 0, 0);
+    border: 1px solid rgba(0, 0, 0, 0);
     img {
       filter: invert(100%);
       width: 38px;
@@ -423,17 +425,20 @@ export default {
   }
   &__close:hover {
     cursor: pointer;
-    border: 2px solid $turquoise;
+    border-radius: 4px;
+    border: 1px solid $turquoise;
   }
   &__reserve-table {
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    z-index: 100;
+    z-index: 1000;
     max-width: 70vw;
+    margin: $height-header-mobile auto;
     @media screen and (min-width: $width-tablet) {
       max-width: 530px;
+      margin: $height-header-desktop auto;
     }
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.5);
     background: rgba(166, 113, 69, 0.5);
@@ -441,7 +446,6 @@ export default {
     letter-spacing: 0.8px;
     border: 1px solid $turquoise;
     padding: 32px 42px;
-    margin: $height-header-desktop auto;
     display: flex;
     flex-wrap: nowrap;
     justify-content: center;
