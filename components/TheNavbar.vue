@@ -55,7 +55,7 @@
       </div>
     </div>
     <div
-      v-if="isShowPageup"
+      v-show="isShowPageup"
       class="navbar__pageup"
       @click="pageup(0,0)"
     >
@@ -195,9 +195,10 @@ export default {
   }
   &__pageup {
     position: fixed;
-    bottom: 70px;
+    bottom: 40px;
     right: 40px;
     z-index: 50;
+    animation: pageup 1s;
     img {
       box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
       border-radius: 18px;
@@ -231,6 +232,14 @@ export default {
       width: $width-minimal;
     }
     background-color: rgba($black, 1);
+  }
+}
+@keyframes pageup {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 100%;
   }
 }
 </style>

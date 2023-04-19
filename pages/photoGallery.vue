@@ -175,7 +175,7 @@ export default {
   margin-top: 0;
   width: 100%;
   height: auto;
-  background: linear-gradient( rgba(125, 125, 0, 0.1), rgba(0, 0, 0, 0.2) ), url("/image/background/background-gallery.png");
+  background: linear-gradient( rgba(125, 125, 0, 0.1), rgba(0, 0, 0, 0.2) ), url("/image/background/background-gallery.png"), rgba(226, 223, 214, 1);
   background-size: 25%;
   display: flex;
   flex-direction: column;

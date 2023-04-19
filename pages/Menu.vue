@@ -1,7 +1,7 @@
 <template>
   <div
     class="menu"
-    :style="{background: `url('${content.menu.backgroundUrl}')`}"
+    :style="{background: `url('${content.menu.backgroundUrl}'), rgba(243, 237, 225, 1)`}"
   >
     <DecorMenu
       :decor-url="content.menu.decor"
@@ -28,7 +28,7 @@ export default {
   name: 'Menu',
   Components: { MenuList, DecorMenu },
   async asyncData ({ $axios }) {
-    const NAME_FILE_MENU = 'menu'
+    const NAME_FILE_MENU = 'menu-list'
     const MENU_API = await $axios.$get('/json/' + NAME_FILE_MENU + '.json')
     return {
       foodMenu: MENU_API,

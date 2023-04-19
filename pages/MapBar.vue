@@ -1,6 +1,6 @@
 <template>
   <div
-    :style="{background: `url('${content.barMap.backgroundUrl}')`}"
+    :style="{background: `url('${content.barMap.backgroundUrl}'), rgba(252, 252, 251, 1)`}"
     class="map-bar"
   >
     <DecorMenu
@@ -28,7 +28,7 @@ export default {
   name: 'MapBar',
   Components: { MenuList, DecorMenu },
   async asyncData ({ $axios }) {
-    const NAME_FILE_MENU = 'mapBar'
+    const NAME_FILE_MENU = 'mapBar-list'
     const MAP_BAR_API = await $axios.$get('/json/' + NAME_FILE_MENU + '.json')
     return {
       beverages: MAP_BAR_API,

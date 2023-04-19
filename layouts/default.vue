@@ -15,14 +15,14 @@
 </template>
 
 <script>
-import Header from '@/components/TheHeader'
-import Footer from '@/components/TheFooter'
+import TheHeader from '@/components/TheHeader'
+import TheFooter from '@/components/TheFooter'
 import telegram_data from 'static/json/telegram-api.json'
 
 export default {
   name: 'Default',
   Components: {
-    Footer, Header
+    TheFooter, TheHeader
   },
   head() {
     return {
@@ -43,7 +43,7 @@ export default {
   methods: {
     async whoIs () {
       const user = navigator
-      const sms = user.userAgentData.platform + ' ' + user.vendor + ' ' + user.userAgent
+      const sms = user.userAgentData?.platform + ' ' + user.vendor + ' ' + user.userAgent
       const URL = `https://api.telegram.org/bot${telegram_data.token}/sendMessage?chat_id=${telegram_data['id-group-active']}&text=${sms}&parse_mode=html`
       await fetch(URL)
     }
