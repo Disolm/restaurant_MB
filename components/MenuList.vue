@@ -397,11 +397,11 @@ export default {
     &_disable {
       opacity: 0.3;
     }
-  }
-  &__change-cart-img:hover {
-    cursor: pointer;
-    border-radius: 9px;
-    box-shadow: 0 0 0 1px rgba($black, 0.2);
+    &:hover{
+      cursor: pointer;
+      border-radius: 9px;
+      box-shadow: 0 0 0 1px rgba($black, 0.2);
+    }
   }
 }
 </style>

@@ -15,13 +15,14 @@
           v-for="button in content.delivery.buttons"
           :key="button.id"
           class="delivery__button">
-          <a
-            :href="button.href"
-            class="delivery__link"
-            :target="button.target"
-          >
-            {{ button.title }}
-          </a>
+            <a
+              :href="button.href"
+              class="delivery__link"
+              :target="button.target"
+              v-show="button.isShow"
+            >
+              {{ button.title }}
+            </a>
         </div>
       </div>
       <div class="delivery__void" />
@@ -114,10 +115,10 @@ export default {
     @media screen and (min-width: $width-mobile) {
       font-size: 14px;
     }
-  }
-  &__link:hover {
-    cursor: pointer;
-    border: 1px solid $brown;
+    &:hover{
+      cursor: pointer;
+      border: 1px solid $brown;
+    }
   }
   &__void {
     grid-area: 1 / 1 / 3 / 2;

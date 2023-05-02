@@ -59,7 +59,7 @@
             >
             <img
               :src="picture.src"
-              alt="megobari"
+              alt="Sa'MegoBro"
               class="photo-gallery__img"
             >
           </picture>

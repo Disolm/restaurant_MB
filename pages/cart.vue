@@ -389,11 +389,11 @@ export default {
     background-size: cover;
     width: 32px;
     height: 32px;
-  }
-  &__clear-cart:hover {
-    cursor: pointer;
-    border: solid 1px $brown;
-    background-color: rgba($brown, 0.5);
+    &:hover{
+      cursor: pointer;
+      border: solid 1px $brown;
+      background-color: rgba($brown, 0.5);
+    }
   }
   &__title {
     display: block;

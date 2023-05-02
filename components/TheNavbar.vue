@@ -182,15 +182,16 @@ export default {
       color: $brown;
     }
     &_cart {
-      padding-right: 40px;
       height: 100%;
-      background-image: url("/image/icon/food-cart.svg");
       background-repeat: no-repeat;
       background-size: 36px 30px;
       background-position: center right;
-    }
-    &_cart:hover, &_cart-active  {
-      background-image: url("/image/icon/food-cart-active.svg");
+
+      //background-image: url("/image/icon/food-cart.svg");
+      //padding-right: 40px;
+      &:hover, &-active{
+        //background-image: url("/image/icon/food-cart-active.svg");
+      }
     }
   }
   &__pageup {

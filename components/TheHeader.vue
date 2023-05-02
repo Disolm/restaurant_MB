@@ -127,17 +127,17 @@ export default {
       padding-left: 22px;
       background-image: url("/image/icon/icon-phone.svg");
       background-repeat: no-repeat;
+      &:hover{
+        background-image: url("/image/icon/icon-phone-hover.svg");
+      }
     }
-    &_phone:hover {
-      background-image: url("/image/icon/icon-phone-hover.svg");
-    }
-  }
-  &__contact:hover {
-    color: $brown;
-    border-bottom: 2px solid $brown !important;
-    cursor: pointer;
-    &_phone:hover {
-      background-image: url("/image/icon/icon-phone-hover.svg");
+    &:hover {
+      color: $brown;
+      border-bottom: 2px solid $brown !important;
+      cursor: pointer;
+      &_phone:hover {
+        background-image: url("/image/icon/icon-phone-hover.svg");
+      }
     }
   }
   &__address-full {

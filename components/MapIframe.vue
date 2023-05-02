@@ -18,7 +18,7 @@
     <div class="dg-widget-link map__dg-widget-link">
       <a class="map__link"
          href="http://2gis.ru/novosibirsk/center/82.922458,55.035128/zoom/16/routeTab/rsType/bus/to/82.922458,55.035128╎Megobari, ресторан-кафе?utm_medium=widget-source&utm_campaign=firmsonmap&utm_source=route">
-        Найти проезд до Megobari, ресторан-кафе
+        Найти проезд до Sa'MegoBro, ресторан-кафе
       </a>
     </div>
     <br>
@@ -26,17 +26,6 @@
     <iframe frameborder="no" style="border: 1px solid #a3a3a3; box-sizing: border-box;" width="100%" height="100%"
             src="https://widgets.2gis.com/widget?type=firmsonmap&options=%7B%22pos%22%3A%7B%22lat%22%3A55.03554840462446%2C%22lon%22%3A82.92195081710817%2C%22zoom%22%3A16%7D%2C%22opt%22%3A%7B%22city%22%3A%22novosibirsk%22%7D%2C%22org%22%3A%2270000001040265022%22%7D">
     </iframe>
-    <!--    <script charset="utf-8">new DGWidgetLoader({-->
-    <!--      width: '100%',-->
-    <!--      height: '100%',-->
-    <!--      borderColor: '#a3a3a3',-->
-    <!--      pos: {'lat': 55.03554840462446, 'lon': 82.92195081710817, 'zoom': 16},-->
-    <!--      opt: {'city': 'novosibirsk'},-->
-    <!--      org: [{'id': '70000001040265022'}]-->
-    <!--    });</script>-->
-    <!--    <noscript style="color:#c00;font-size:16px;font-weight:bold;">Виджет карты использует JavaScript. Включите его в-->
-    <!--      настройках вашего браузера.-->
-    <!--    </noscript>-->
   </div>
 </template>
 

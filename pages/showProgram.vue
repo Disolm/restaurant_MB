@@ -50,7 +50,7 @@
                 >
                 <img
                   :src="picture.src"
-                  alt="megobari"
+                  alt="Sa'MegoBro"
                   class="show-program__img"
                 >
               </picture>

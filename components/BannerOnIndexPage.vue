@@ -69,8 +69,8 @@ export default {
           yearFull: 2022
         },
         id: 'content',
-        header: 'МЕГОБАРИ 3 ГОДА',
-        annotation: '8 декабря отмечаем трёхлетие Megobari!',
+        header: 'СА\'МЕГАБРО 3 ГОДА',
+        annotation: '8 декабря отмечаем трёхлетие Sa\'MegoBro!',
         eventTime: 'Сбор гостей с 18:00 до 19:00',
         foreword: 'В праздничной программе:',
         descriptions: [

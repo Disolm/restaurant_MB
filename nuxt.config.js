@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Megobari ресторан грузинской кухни',
+    title: 'Sa\'MegoBro ресторан грузинской кухни',
     htmlAttrs: {
       class: ['size'],
       lang: 'ru'
@@ -26,12 +26,10 @@ export default {
       }
     ]
   },
-  // loading: '~/components/LoadingPage.vue',
   loading: {
     color: '#A67145',
     height: '2px'
   },
-
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '~assets/scss/global-style.scss',
@@ -41,7 +39,6 @@ export default {
   styleResources: {
     scss: ['./assets/scss/*.scss']
   },
-
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
     '~/plugins/directives.js'
@@ -83,7 +80,7 @@ export default {
   },
   pwa: {
     meta: {
-      name: 'Megobari',
+      name: 'Sa\'MegoBro',
       theme_color: '#A67145',
       lang: 'ru'
     },
@@ -92,7 +89,7 @@ export default {
       purpose: 'any'
     },
     manifest: {
-      name: 'Megobari',
+      name: 'Sa\'MegoBro',
       short_name: 'MB',
       description: 'ресторан грузинской кухни',
       start_url: '/',
@@ -101,8 +98,6 @@ export default {
       theme_color: '#f4f4f4',
       lang: 'ru',
       useWebmanifestExtension: false
-    },
-    workbox: {
     }
   }
 }
