@@ -1,7 +1,7 @@
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Sa\'MegoBro ресторан грузинской кухни',
+    title: 'Sa\`MegoBro ресторан грузинской кухни',
     htmlAttrs: {
       class: ['size'],
       lang: 'ru'
@@ -18,6 +18,7 @@ export default {
     bodyAttrs: {
       class: ['size']
     },
+    //Map 2GIS
     scrypt: [
       {
         charset: "utf-8",
@@ -50,7 +51,7 @@ export default {
   proxy: {
     // Simple proxy
     '/json/': {
-      target: 'https://megobari-nsk.ru/',
+      target: 'https://samegobro.ru/',
       pathRewrite: { '^/json/': '' }
     }
   },
