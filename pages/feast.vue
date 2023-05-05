@@ -4,12 +4,12 @@
       <div class="feast__grid">
         <transition-group name="slide-fade" tag="div" class="feast__titles">
           <template v-if="isLoading">
-            <div
-              class="feast__title"
-              key="title"
-            >
-              {{ content.feast.title }}
-            </div>
+<!--            <div-->
+<!--              class="feast__title"-->
+<!--              key="title"-->
+<!--            >-->
+<!--              {{ content.feast.title }}-->
+<!--            </div>-->
             <div
               v-for="title in content.feast.descriptions"
               class="feast__description"
